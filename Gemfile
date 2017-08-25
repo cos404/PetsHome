@@ -39,6 +39,14 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+
+  # https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 3.6'
+  # https://github.com/thoughtbot/factory_girl_rails
+  gem 'factory_girl_rails'
+# https://github.com/DatabaseCleaner/database_cleaner
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -48,7 +56,44 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+# https://github.com/capistrano/capistrano
+  gem "capistrano", "~> 3.9"
+  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano-bundler', '~> 1.1.3'
+  gem 'capistrano-rails', '~> 1.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+
+gem 'simple_form'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'haml'
+gem 'font-awesome-rails'
+
+
+
+# https://github.com/plataformatec/devise
+gem 'devise'
+# https://github.com/svenfuchs/rails-i18n
+gem 'rails-i18n', '~> 5.0.0'
+gem 'devise-i18n'
+
+# https://github.com/alexreisner/geocoder
+gem 'geocoder'
+# https://github.com/iain/http_accept_language
+gem 'http_accept_language'
+
+
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'jquery-fileupload-rails'
+gem 'translit'
+gem 'will_paginate', '~> 3.1.0'

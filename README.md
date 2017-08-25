@@ -1,11 +1,8 @@
-# README
+# PetsHome
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO:
 
-Things you may want to cover:
-
-* Ruby version
+* Update capistrano config before deploy
 
 * System dependencies
 
