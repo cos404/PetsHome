@@ -75,7 +75,7 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'haml'
+gem 'haml-rails'
 gem 'font-awesome-rails'
 
 
