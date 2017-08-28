@@ -32,13 +32,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       #
       t.integer :role_id, default: 1
-      t.integer :condition_id, default: 1
+
+      t.boolean :email_visible, default: false
 
       t.string  :avatar
-      t.boolean :email_visible, default: false
       t.string  :status
       t.string  :fullname
       t.string  :username
+
       t.text    :about
 
       #
