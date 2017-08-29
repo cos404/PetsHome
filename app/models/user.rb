@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many    :shelter_staffs
   has_many    :social_pages
 
+  mount_uploader :avatar, AvatarUploader
+
 end
