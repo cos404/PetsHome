@@ -1,0 +1,16 @@
+%html
+  %head
+    %title  #{@page_title} | PetsHome.com
+    = csrf_meta_tag
+    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag  'application', 'data-turbolinks-track': 'reload'
+  %body
+    %p.notice= notice
+    %p.alert= alert
+    = yield
+    %footer.col-lg-10
+      - unless user_signed_in?
+        = link_to "Sign in", new_user_session_path
+      - else
+        = link_to current_user.email, current_user
+        = link_to "Sign out", destroy_user_session_path, method: :delete

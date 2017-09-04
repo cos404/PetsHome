@@ -3,7 +3,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
     create_table :pets do |t|
 
       t.integer :type # 1 -Dog, 2 - Cat, 0 - Other
-      t.float   :age
+      t.float   :age  # 01.12 - 1 year 12 mounth
       t.string  :name
       t.boolean :euthanasia, default: false
       t.date    :euthanasia_date

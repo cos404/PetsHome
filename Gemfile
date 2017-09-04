@@ -82,9 +82,9 @@ gem 'font-awesome-rails'
 
 # https://github.com/plataformatec/devise
 gem 'devise'
+gem 'devise-i18n'
 # https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n', '~> 5.0.0'
-gem 'devise-i18n'
 
 # https://github.com/alexreisner/geocoder
 gem 'geocoder'

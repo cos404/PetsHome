@@ -4,5 +4,5 @@ class City < ApplicationRecord
 
   validates :eng,  presence: true
   validates :country_id, numericality: true
-
+  validates :eng, :rus, :bel, :fr, :de, :es, uniqueness: true
 end

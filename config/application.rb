@@ -21,7 +21,7 @@ module PetsHome
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
-  config.i18n.available_locales = %w(en nl de fr)
+  config.i18n.available_locales = %w(ru en)
 
   end
 end

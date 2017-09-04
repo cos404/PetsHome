@@ -1,6 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.i18n.available_locales = ['en-US', :en]
 
   # Code is not reloaded between requests.
   config.cache_classes = true
