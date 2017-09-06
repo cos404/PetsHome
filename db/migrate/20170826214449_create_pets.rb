@@ -2,12 +2,13 @@ class CreatePets < ActiveRecord::Migration[5.1]
   def change
     create_table :pets do |t|
 
-      t.integer :type # 1 -Dog, 2 - Cat, 0 - Other
+      t.integer :subspecies # 1 - Dog, 2 - Cat, 0 - Other
       t.float   :age  # 01.12 - 1 year 12 mounth
       t.string  :name
       t.boolean :euthanasia, default: false
       t.date    :euthanasia_date
-      t.string  :size
+      t.integer :size # 1 - S, 2 - M, 3 - L
+      t.integer :gender # 1 - Male, 2 - Female
       t.text    :vaccination
       t.text    :diseases
       t.boolean :sterilization

@@ -3,7 +3,7 @@ class Shelter < ApplicationRecord
   belongs_to  :user
   belongs_to  :country
   belongs_to  :city
-  belongs_to  :shelter_regions
+  belongs_to  :shelter_region, optional: true
 
   has_many    :pets
   has_many    :shelter_photos

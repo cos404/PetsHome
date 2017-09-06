@@ -1,16 +1,63 @@
 %html
   %head
     %title  #{@page_title} | PetsHome.com
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    = javascript_include_tag  'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
     = csrf_meta_tag
     = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag  'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
-    %footer.col-lg-10
-      - unless user_signed_in?
-        = link_to "Sign in", new_user_session_path
-      - else
-        = link_to current_user.email, current_user
-        = link_to "Sign out", destroy_user_session_path, method: :delete
+    %header
+      %nav.navbar.navbar-expand-md.navbar-light.nav-custom
+        %a.navbar-brand{:href => "#"} PetHome
+        %button.navbar-toggler{"aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-toggle" => "collapse", :type => "button", "aria-controls" => "nav-head", "data-target" => "#nav-head"}
+          %span.navbar-toggler-icon
+        #nav-head.collapse.navbar-collapse
+          %ul.navbar-nav.mr-auto
+            %li.nav-item.active
+              = link_to root_path, class: "nav-link" do
+                Home
+                %span.sr-only (current)
+            %li.nav-item
+              = link_to 'About', root_url, class: "nav-link"
+            %li.nav-item
+              = link_to 'Contacts', root_url, class: "nav-link"
+          %form.form-inline.my-2.my-md-0
+            %input.form-control{:placeholder => "Search", :type => "text"}
+
+    %div#body
+      = yield
+
+  %footer.container.col-12.footer.mt-2
+    %nav.footer-link.mt-2.pt-1
+      %ul.float-left
+        %li
+          = link_to 'About', root_url, class: "nav-link"
+        %li
+          = link_to 'Press', root_url, class: "nav-link"
+        %li
+          = link_to 'Contacts', root_url, class: "nav-link"
+        %li
+          = link_to 'Blog', root_url, class: "nav-link"
+        %li
+          = link_to 'Terms', root_url, class: "nav-link"
+        %li
+          = link_to 'Sitemap', root_url, class: "nav-link"
+      %ul.float-right
+        %li.red
+          = link_to (fa_icon "vk"), root_url
+        %li
+          = link_to (fa_icon "facebook"), root_url
+        %li
+          = link_to (fa_icon "instagram"), root_url
+        %li
+          = link_to (fa_icon "youtube-play"), root_url
+        %li
+          = link_to (fa_icon "twitter"), root_url
+
+  - unless user_signed_in?
+    = link_to "Sign in", new_user_session_path
+  - else
+    = link_to current_user.email, current_user
+    = link_to "Sign out", destroy_user_session_path, method: :delete

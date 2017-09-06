@@ -4,6 +4,7 @@ class CreateShelterStaffs < ActiveRecord::Migration[5.1]
 
       t.integer :user_id
       t.integer :shelter_id
+      t.integer :role_id
 
       t.timestamps
     end

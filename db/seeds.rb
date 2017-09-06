@@ -16,6 +16,13 @@
 
 
 Role.create(title:  :user)
+Role.create(title:  :disagner)
+Role.create(title:  :developer)
+
+Role.create(title:  :volunteer)
+Role.create(title:  :employee)
+Role.create(title:  :curator)
+
 Role.create(title:  :moderator)
 Role.create(title:  :administrator)
 
@@ -26,9 +33,7 @@ User.create!(
   username: "Hash",
   confirmed_at:           "2017-06-30 21:42:22.989289",
   confirmation_sent_at:   "2017-06-30 21:40:47.864614",
-  role_id: 3)
-
-
+  role_id: 8)
 User.create!(
   email: "common_user@root.ru",
   password: "qwerty",
@@ -38,19 +43,94 @@ User.create!(
   confirmation_sent_at:   "2017-06-30 21:40:47.864614")
 
 Country.create!(
-  eng:  'Belarus',
-  rus:  'Беларусь',
-  bel:  'Беларусь',
-  fr:   'Bélarus',
-  de:   'Weißrussland',
-  es:   'Belarús'
-)
-
+  title_en:  'Belarus',
+  title_ru:  'Беларусь',
+  title_be:  'Беларусь',
+  title_fr:  'Bélarus',
+  title_de:  'Weißrussland',
+  title_es:  'Belarús')
 Country.create!(
-  eng:  'United States',
-  rus:  'Соединенные штаты',
-  bel:  'Злучаныя штаты',
-  fr:   'États Unis',
-  de:   'Vereinigte Staaten',
-  es:   'Estados Unidos'
-)
+  title_en:  'United States',
+  title_ru:  'Соединенные штаты',
+  title_be:  'Злучаныя штаты',
+  title_fr:  'États Unis',
+  title_de:  'Vereinigte Staaten',
+  title_es:  'Estados Unidos')
+
+City.create!(
+  country_id: 1,
+  title_en:   'Bobruisk',
+  title_ru:   'Бобруйск',
+  title_be:   'Бабруйск',
+  title_fr:   'Bobrouïsk',
+  title_de:   'Bobruisk',
+  title_es:   'Bobruisk')
+City.create!(
+  country_id: 2,
+  title_en:   'New York',
+  title_ru:   'Нью Йорк',
+  title_be:   'Нью Ёрк',
+  title_fr:   'New York',
+  title_de:   'New York',
+  title_es:   'Nueva York')
+
+Shelter.create!(
+  title:        'Добродетель',
+  country_id:   '1',
+  city_id:      '1',
+  street:       'Минская',
+  house_number: '142А',
+  description:  'Мы волонтеры официального БЗОЖ "ДОБРОДЕТЕЛЬ". На данным момент мы курируем и спасаем животных с БУКСАПа, который является пунктом временного содержания животных и их дальнейшего умерщвления!!Это не приют с питанием,это убой!',
+  cover:        '',
+  working:      true,
+  verified:     true,
+  user_id:      1)
+Shelter.create!(
+  title:        'Bideawee',
+  country_id:   '2',
+  city_id:      '2',
+  street:       'East 38th Street',
+  house_number: '410',
+  description:  'For more than 114 years, Bideawee has been the leading pet welfare organization serving metropolitan New York and Long Island. Through a vast array of services Bideawee cultivates and supports the life-long relationships between pets and the people who love them. Please explore the site and get to know more about how Bideawee can accompany you and your pet through your life-long journey together.',
+  cover:        '',
+  working:      true,
+  verified:     true,
+  user_id:      2)
+
+Pet.create!(
+  subspecies:     1,
+  age:            1.4,
+  name:           'Без имени',
+  euthanasia:     false,
+  size:           2,
+  gender:         1,
+  vaccination:    'Привита',
+  diseases:       'Отсутствуют',
+  sterilization:  true,
+  color:          'Белая с палевыми пятнами',
+  about:          'Девочка, вырастет полноценной лайкой. Обладает прекрасными сторожевыми качествами и звонким голосом. Может стать отличной спутницей для охоты! Из-за пережитых стрессов пока сторонится людей, но наши волонтеры над этим работают.',
+  user_id:        1,
+  shelter_id:     1)
+Pet.create!(
+  subspecies:     2,
+  age:            0.4,
+  name:           'Tucker',
+  euthanasia:     false,
+  size:           1,
+  gender:         2,
+  vaccination:    'No',
+  diseases:       'No',
+  sterilization:  false,
+  color:          'Redhead with white spots',
+  about:          "Tucker's sitting pose is too cute for words. This 4-month old kitty is available at our Manhattan location. Stop by and say hello during the holiday weekend!",
+  user_id:        2,
+  shelter_id:     2)
+
+ShelterStaff.create!(
+  user_id:    1,
+  shelter_id: 1,
+  role_id:    6)
+ShelterStaff.create!(
+  user_id:    2,
+  shelter_id: 2,
+  role_id:    5)

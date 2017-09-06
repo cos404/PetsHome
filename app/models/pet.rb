@@ -5,8 +5,8 @@ class Pet < ApplicationRecord
 
   has_many    :pet_photos
 
-  validates :shelter_id, :user_id, :type, :size, :color, presence: true
-  validates :shelter_id, :user_id, numericality: true
+  validates :shelter_id, :user_id, :subspecies, :size, :color, presence: true
+  validates :shelter_id, :user_id, :subspecies, numericality: true
   validates_presence_of :euthanasia_date, if: :euthanasia?
 
 end

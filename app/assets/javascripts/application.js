@@ -14,4 +14,9 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//= require popper
 //= require bootstrap-sprockets
+
+function pet_image (a) {
+  document.pet_img.src=a
+}
