@@ -1,2 +1,5 @@
-%h1 Shelters#new
-%p Find me in app/views/shelters/new.html.haml
+%h1 Add shelter
+%section
+  = simple_form_for @shelter do |f|
+    = render partial: 'form', locals: {f: f}
+    = f.submit "Add"

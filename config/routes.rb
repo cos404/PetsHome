@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users, only: [:show, :edit, :update, :index]
-  resources :shelters
   resources :pets
   resources :posts
+
+  resources :shelters
+  post '/getRegions'  => 'shelters#getRegions'
+  post '/getCities'   => 'shelters#getCities'
 
 end

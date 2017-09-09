@@ -1,0 +1,34 @@
+{
+  "type":"FeatureCollection",
+  "features":[
+    {
+      "type": "Feature",
+      "id": 0,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [53.7125, 31.717]
+      },
+      "properties": {
+        "balloonContentHeader": "При одиночном открытии",
+        "balloonContentBody": "<p>Добродетель</p><p>Адрес: Беларусь, Бобруйск, ул. Минская 142А</p>",
+        "clusterCaption": "Заголовок",
+        "hintContent": "ПРИ НАВЕДЕНИИ"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [53.7145, 31.717]
+      },
+      "properties": {
+        "balloonContentHeader": "<font size=3><b><a target='_blank' href='https://yandex.ru'>Здесь может быть ваша ссылка</a></b></font>",
+        "balloonContentBody": "<p>Ваше имя: <input name='login'></p><p><em>Телефон в формате 2xxx-xxx:</em>  <input></p><p><input type='submit' value='Отправить'></p>",
+        "balloonContentFooter": "<font size=1>Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Текст  <s>подсказки</s></strong>"
+      }
+    }
+  ]
+}

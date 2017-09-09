@@ -1,0 +1,14 @@
+= f.input :title
+= f.input :street
+= f.input :house_number
+= f.input :latitude
+= f.input :longitude
+= f.input :description
+= f.input :cover
+= f.input :working
+= f.input :verified
+
+= f.association :country, label_method: :title_en, value_method: :id, include_blank: true
+
+= f.input :region_id, as: :grouped_select, include_blank: false, disabled:true
+= f.input :city_id, as: :grouped_select, include_blank: false, disabled:true

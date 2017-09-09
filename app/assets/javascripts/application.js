@@ -12,10 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require popper
 //= require bootstrap-sprockets
+//= require_tree .
 
 function pet_image (a) {
   document.pet_img.src=a

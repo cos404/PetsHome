@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
 
+
   def index
-    geo = Geocoder.search("204.57.220.1")[0].data["city"]
+    @shelters = root_url + 'shelters.json'
+
+    ip = '37.214.180.224'
+    @geo = Geocoder.search(ip)[0].data
 
   end
 

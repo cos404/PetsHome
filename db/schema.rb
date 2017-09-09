@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828195544) do
+ActiveRecord::Schema.define(version: 20170828190820) do
 
   create_table "cities", force: :cascade do |t|
-    t.integer "country_id"
+    t.integer "region_id"
     t.string "title_en"
     t.string "title_ru"
     t.string "title_be"
@@ -126,13 +126,6 @@ ActiveRecord::Schema.define(version: 20170828195544) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shelter_regions", force: :cascade do |t|
-    t.integer "shelter_id"
-    t.integer "region_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shelter_staffs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "shelter_id"
@@ -143,8 +136,9 @@ ActiveRecord::Schema.define(version: 20170828195544) do
 
   create_table "shelters", force: :cascade do |t|
     t.string "title"
-    t.string "country_id"
-    t.string "city_id"
+    t.integer "country_id"
+    t.integer "region_id"
+    t.integer "city_id"
     t.string "street"
     t.string "house_number"
     t.float "latitude"
@@ -153,7 +147,7 @@ ActiveRecord::Schema.define(version: 20170828195544) do
     t.string "cover"
     t.boolean "working"
     t.boolean "verified"
-    t.string "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -168,7 +162,7 @@ ActiveRecord::Schema.define(version: 20170828195544) do
 
   create_table "social_pages", force: :cascade do |t|
     t.integer "user_id"
-    t.string "network_id"
+    t.integer "network_id"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

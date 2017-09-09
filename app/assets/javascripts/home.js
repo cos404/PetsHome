@@ -3,8 +3,8 @@ ymaps.ready(init);
 function init(){
 
   var map = new ymaps.Map("map", {
-    center: [55.76, 37.64],
-    zoom: 16,
+    center: [latitude, longitude],
+    zoom: 14,
     controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
   }),
   objectManager = new ymaps.ObjectManager({
@@ -22,7 +22,7 @@ function init(){
   map.geoObjects.add(objectManager);
 
   $.ajax({
-    url: "https://api.myjson.com/bins/mfuzt"
+    url: shelters
   }).done(function(data) {
     objectManager.add(data);
   });
