@@ -1,0 +1,32 @@
+%footer.container.col-12.footer.mt-2
+  %nav.footer-link.mt-2.pt-1
+    %ul.float-left
+      %li
+        = link_to 'About', root_url, class: "nav-link"
+      %li
+        = link_to 'Press', root_url, class: "nav-link"
+      %li
+        = link_to 'Contacts', root_url, class: "nav-link"
+      %li
+        = link_to 'Blog', root_url, class: "nav-link"
+      %li
+        = link_to 'Terms', root_url, class: "nav-link"
+      %li
+        = link_to 'Sitemap', root_url, class: "nav-link"
+    %ul.float-right
+      %li.red
+        = link_to (fa_icon "vk"), root_url
+      %li
+        = link_to (fa_icon "facebook"), root_url
+      %li
+        = link_to (fa_icon "instagram"), root_url
+      %li
+        = link_to (fa_icon "youtube-play"), root_url
+      %li
+        = link_to (fa_icon "twitter"), root_url
+
+- unless user_signed_in?
+  = link_to "Sign in", new_user_session_path
+- else
+  = link_to current_user.email, current_user
+  = link_to "Sign out", destroy_user_session_path, method: :delete

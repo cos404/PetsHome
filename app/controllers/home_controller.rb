@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     ip = '37.214.180.224'
     @geo = Geocoder.search(ip)[0].data
 
+    render layout: "home_layout"
   end
 
 

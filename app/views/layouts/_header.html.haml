@@ -1,0 +1,17 @@
+%header
+  %nav.navbar.navbar-expand-md.navbar-light.nav-custom
+    %a.navbar-brand{:href => "#"} PetHome
+    %button.navbar-toggler{"aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-toggle" => "collapse", :type => "button", "aria-controls" => "nav-head", "data-target" => "#nav-head"}
+      %span.navbar-toggler-icon
+    #nav-head.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = link_to root_url, class: "nav-link" do
+            Home
+            %span.sr-only (current)
+        %li.nav-item
+          = link_to 'About', root_url, class: "nav-link"
+        %li.nav-item
+          = link_to 'Contacts', root_url, class: "nav-link"
+      %form.form-inline.my-2.my-md-0
+        %input.form-control{:placeholder => "Search", :type => "text"}
