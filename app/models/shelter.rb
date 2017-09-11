@@ -10,6 +10,6 @@ class Shelter < ApplicationRecord
   has_many    :shelter_staffs
   has_many    :schedules
 
-  validates :user_id, :country_id, :city_id, numericality: true
+  validates :user_id, :country_id, :region_id, :city_id, numericality: true
   validates :user_id, :title, :street, :house_number, :country_id, :city_id,  presence: true
 end

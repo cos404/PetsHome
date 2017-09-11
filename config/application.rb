@@ -22,6 +22,7 @@ module PetsHome
     end
 
   config.i18n.available_locales = %w(ru en)
+  config.i18n.default_locale = :en
 
   end
 end
