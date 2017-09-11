@@ -4,20 +4,20 @@
   latitude            = "#{@geo['latitude']}";
 %section
   %article.top-text
-    %h1.text-center MAKE WORLD BATTER AGAIN!
+    %h1.text-center= t 'view.home.tagline'
   .top-img{style: "background-image: url(https://dajlapu.com/wp-content/uploads/2016/01/%D0%9F%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B8-%D0%B8%D0%B7-%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D0%B0-%D0%BC%D0%B0%D1%81%D0%BA%D0%B0-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.jpg);"}
 #map.map
 = render partial: "layouts/category-menu", locals:{category: @category}
-= @geo
 .container.mt-2
   .row
-    %section.col-md-3.col-sm-6.col-12.mb-2.card-a
-      = link_to root_url do
-        %article.card-s
-          %h2.text-center From your town 1
-          %article
-            .card-img
-              %img.img-fluid{:src => "https://pp.userapi.com/c841237/v841237025/1103f/hbFm9-ZQNXU.jpg"}/
-            %h3.text-center.mt-1 Nikki
-            %h4 Minsk
-            %h4 4 months.
+    - @pets.each do |pet|
+      %section.col-md-3.col-sm-6.col-12.mb-2.card-a
+        = link_to pet do
+          %article.card-s
+            %h2.text-center= "#{t 'view.home.near'}"
+            %article
+              .card-img
+                %img.img-fluid{:src => "https://pp.userapi.com/c841237/v841237025/1103f/hbFm9-ZQNXU.jpg"}/
+              %h3.text-center.mt-1= pet.name
+              %h4= pet.city
+              %h4= pet.age

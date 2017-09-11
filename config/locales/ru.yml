@@ -47,7 +47,6 @@ ru:
     - Пт
     - Сб
     abbr_month_names:
-    -
     - янв.
     - февр.
     - марта
@@ -295,3 +294,7 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  view:
+    home:
+      near: "Недалеко от вас"
+      tagline: "Сделай мир лучше!"

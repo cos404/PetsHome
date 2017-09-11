@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  view:
+    home:
+      near: "Near you"
+      tagline: "Make world better!"
