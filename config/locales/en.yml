@@ -35,3 +35,5 @@ en:
     home:
       near: "Near you"
       tagline: "Make world better!"
+    shelter:
+      address: "Address:"

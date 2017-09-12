@@ -1,5 +1,6 @@
 class SheltersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_shelter, only: [:show, :edit, :update, :destroy]
 
   def index
     @shelters = Shelter.all
@@ -17,7 +18,6 @@ class SheltersController < ApplicationController
   def new
     @shelter    = Shelter.new
     @countries  = Country.all
-
   end
 
   def create
@@ -49,6 +49,10 @@ class SheltersController < ApplicationController
 
   def shelter_params
     params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :description, :cover, :working, :verified, :country_id, :region_id, :city_id)
+  end
+
+  def find_shelter
+    @shelter = Shelter.select("shelters.*, countries.title_#{I18n.locale} AS country_title, regions.title_#{I18n.locale} AS region_title, cities.title_#{I18n.locale} AS city_title").joins(:country, :region, :city).find(params[:id])
   end
 
 end

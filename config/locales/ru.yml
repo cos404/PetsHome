@@ -298,3 +298,5 @@ ru:
     home:
       near: "Недалеко от вас"
       tagline: "Сделай мир лучше!"
+    shelter:
+      address: "Адрес:"

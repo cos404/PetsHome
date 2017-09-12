@@ -1,3 +1,70 @@
 // Place all the styles related to the Shelters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+dl {
+  vertical-align: top;
+  padding: 1px;
+  height: auto;
+}
+
+dl.shelter-spec{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+dl.shelter-spec ul, dl.shelter-spec dl{
+  padding: 0;
+  margin: auto;
+}
+
+dt {
+  font-weight: normal!important;
+  width: 25%;
+  float: left;
+  display: inline-block;
+}
+
+dd {
+  width: 75%;
+  display: inline-block;
+  text-align: left;
+  margin: 0;
+}
+
+dl.shelter-spec dl dt{
+  width: 10%;
+}
+
+dl.shelter-spec dl dd{
+  width: 90%;
+}
+
+.main-img {
+  text-align: center;
+  vertical-align: middle;
+  height: 420px;
+  line-height: 420px;
+}
+
+.main-img img{
+  border-radius: 8px;
+  padding: 5px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.img-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+  padding-bottom: 5px;
+}
+
+.img-scroll div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img-scroll img {
+  height: 120px;
+}
