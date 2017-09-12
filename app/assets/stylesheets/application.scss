@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 @import "bootstrap";
@@ -66,17 +65,20 @@ h6 {
 // }
 
 a:hover {
-  color: #212529;
+  // color: #212529;
   text-decoration: none;
 }
 
-footer {
-  height: 100px;
-  background: #F8F8F8;
-}
 
 #body {
   min-height: calc(100vh - 155px);
+}
+
+.map {
+  background: #F8F8F8;
+  height: 60vh;
+  width: 100%;
+  z-index: -1;
 }
 
 .nav-custom {
@@ -85,22 +87,6 @@ footer {
   box-shadow: 0 -1px 5px 0px black;
   min-width: 100%;
   z-index: 2;
-}
-
-.footer ul {
-  position: relative;
-  top: 50%;
-}
-
-.footer ul li{
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.footer-link {
-  width: 80%;
-  margin-left: 10%;
-  border-top: #e0e0e0 solid 1px;
 }
 
 /* SCROLLBAR  */
@@ -153,3 +139,23 @@ footer {
 }
 /* END */
 
+footer {
+  height: 100px;
+  background: #F8F8F8;
+}
+
+.footer ul {
+  position: relative;
+  top: 50%;
+}
+
+.footer ul li{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.footer-link {
+  width: 80%;
+  margin-left: 10%;
+  border-top: #e0e0e0 solid 1px;
+}

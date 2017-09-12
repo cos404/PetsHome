@@ -1,12 +1,5 @@
 %html
-  %head
-    %title  #{@page_title} | PetsHome.com
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    = javascript_include_tag  'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
-    = csrf_meta_tag
-    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag  'application', 'data-turbolinks-track': 'reload'
+  = render partial: 'layouts/head'
   %body
     = render partial: 'layouts/header'
     %div#body
