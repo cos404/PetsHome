@@ -1,6 +1,8 @@
 = javascript_tag do
   longitude           = "#{@shelter.longitude}",
-  latitude            = "#{@shelter.latitude}";
+  latitude            = "#{@shelter.latitude}",
+  title               = "#{@shelter.title}",
+  address             = "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}";
 
 %article.card-s.pb-2
   #map.map

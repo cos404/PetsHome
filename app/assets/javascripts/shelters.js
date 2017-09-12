@@ -76,4 +76,22 @@ $(document).ready(function() {
       }
     });
   });
-})
+});
+
+
+ymaps.ready(init);
+function init() {
+  var myMap = new ymaps.Map("map", {
+        center: [latitude, longitude],
+        zoom: 10,
+        controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
+      });
+
+  myMap.geoObjects
+    .add(new ymaps.Placemark([latitude, longitude], {
+        balloonContent: `<b>${title}</b><p>${address}</p>`
+    }, {
+        preset: 'islands#icon',
+        iconColor: '#0095b6'
+    }));
+}
