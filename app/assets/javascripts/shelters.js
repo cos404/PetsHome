@@ -83,7 +83,7 @@ ymaps.ready(init);
 function init() {
   var myMap = new ymaps.Map("map", {
         center: [latitude, longitude],
-        zoom: 10,
+        zoom: 16,
         controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
       });
 

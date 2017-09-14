@@ -7,7 +7,7 @@
 %article.card-s.pb-2
   #map.map
   %article.col-md-6.col-sm-12.pet-description.float-left
-    %h1.text-left.mt-1.pet-name= @shelter.title
+    %h1.text-center.mt-1.pet-name= @shelter.title
     %dl.shelter-spec
       %dt#tag.shelter-spec_name= t 'view.shelter.address'
       %dd.shelter-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
