@@ -1,2 +1,57 @@
-%h1 Pets#show
-%p Find me in app/views/pets/show.html.haml
+%article.card-s.pb-2
+  %article.col-md-6.col-sm-12.pet-description.float-left
+    %h1.text-center.mt-1.pet-name= @pet.name
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.address'
+      %dd.list-spec_value= "#{@pet.shelter.country.title_ru}, #{@pet.shelter.region.title_ru}, #{@pet.shelter.city.title_ru}, #{@pet.shelter.street} #{@pet.shelter.house_number}"
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.shelter'
+      %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.age'
+      %dd.list-spec_value= @pet.age
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.euthanasia'
+      %dd.list-spec_value= @pet.euthanasia
+    %dl.list-spec
+      %dt#tag.list-spec_name
+        = t 'view.pet.size'
+        = fa_icon 'question-circle-o', class: 'annotation-toggle'
+        %div.product-tip-wrapper
+          %span.annotation= t('view.pet.annotation.size').html_safe
+      %dd.list-spec_value{name: "size"}= 'S' if @pet.size == 1
+      %dd.list-spec_value{name: "size"}= 'M' if @pet.size == 2
+      %dd.list-spec_value{name: "size"}= 'L' if @pet.size == 3
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.vaccination'
+      %dd.list-spec_value= @pet.vaccination
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.diseases'
+      %dd.list-spec_value= @pet.diseases
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.sterilization'
+      %dd.list-spec_value= @pet.sterilization
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.pet.color'
+      %dd.list-spec_value= @pet.color
+    %dl.list-spec= @pet.about
+  %section.col-md-6.col-sm-12.block-img.float-right
+    %section.main-img
+      %img{name: "main_img", src: "https://pp.userapi.com/c604419/v604419817/580b/9y14K2VfPL4.jpg"}/
+    %section.img-scroll
+      %div
+        %a{href: "javascript:select_image ('https://pp.userapi.com/c604419/v604419817/580b/9y14K2VfPL4.jpg')"}
+          %img{src: "https://pp.userapi.com/c604419/v604419817/580b/9y14K2VfPL4.jpg"}/
+      %div
+        %a{href: "javascript:select_image ('https://pp.userapi.com/c604419/v604419817/5802/Lbpcc7yT6zE.jpg')"}
+          %img{src: "https://pp.userapi.com/c604419/v604419817/5802/Lbpcc7yT6zE.jpg"}/
+      %div
+        %a{href: "javascript:select_image ('https://pp.userapi.com/c604419/v604419817/57f9/aLPUqhTCIHY.jpg')"}
+          %img{src: "https://pp.userapi.com/c604419/v604419817/57f9/aLPUqhTCIHY.jpg"}/
+      %div
+        %a{href: "javascript:select_image ('https://pp.userapi.com/c604419/v604419817/57f0/C3dk3dK30u8.jpg')"}
+          %img{src: "https://pp.userapi.com/c604419/v604419817/57f0/C3dk3dK30u8.jpg"}/
+      %div
+        %a{href: "javascript:select_image ('https://pp.userapi.com/c604419/v604419817/5814/S3sqZKgAWVI.jpg')"}
+          %img{src: "https://pp.userapi.com/c604419/v604419817/5814/S3sqZKgAWVI.jpg"}/
+  .clearfix

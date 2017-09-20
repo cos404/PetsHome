@@ -36,4 +36,19 @@ en:
       near: "Near you"
       tagline: "Make world better!"
     shelter:
-      address: "Address:"
+      address: "Address"
+    pet:
+      address: "Address"
+      shelter: "Shelter"
+      age: "Age"
+      euthanasia: "Euthanasia"
+      size: "Size"
+      vaccination: "Vaccination"
+      diseases: "Diseases"
+      sterilization: "Sterilization"
+      color: "Color"
+      about: "About"
+      annotation:
+        size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
+               <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
+               <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"

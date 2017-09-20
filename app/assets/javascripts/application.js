@@ -17,5 +17,39 @@
 //= require bootstrap-sprockets
 
 function select_image (a) {
-  document.pet_img.src=a
+  document.main_img.src=a
+}
+
+
+
+$(document).ready(function() {
+
+  $(document).click(function(event){
+    if(!$(event.target).is('.annotation') && !$(event.target).is('.annotation-toggle') && !$('.list-spec_name').has(event.target).length){
+      $('.product-tip-wrapper').hide();
+    }
+    else if($(event.target).parent().children('.product-tip-wrapper').css('display') == 'none'){
+      $('.product-tip-wrapper').hide();
+      $(event.target).parent().children('.product-tip-wrapper').show();
+    }
+    else if($(event.target).parent().children('.product-tip-wrapper').css('display') == 'block'){
+      $('.product-tip-wrapper').hide();
+    }
+  });
+
+
+  // Question icon
+  $(".list-spec").hover(
+    function() {
+      $(this).children().children('.annotation-toggle').toggle();
+    }
+  );
+
+
+
+})
+
+
+function cl(x){
+  console.log(x);
 }

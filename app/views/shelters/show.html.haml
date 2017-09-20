@@ -8,13 +8,13 @@
   #map.map
   %article.col-md-6.col-sm-12.pet-description.float-left
     %h1.text-center.mt-1.pet-name= @shelter.title
-    %dl.shelter-spec
-      %dt#tag.shelter-spec_name= t 'view.shelter.address'
-      %dd.shelter-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
-    %dl.shelter-spec= @shelter.description
+    %dl.list-spec
+      %dt#tag.list-spec_name= t 'view.shelter.address'
+      %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
+    %dl.list-spec= @shelter.description
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
-      %img{:name => "pet_img", :src => "https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg"}/
+      %img{:name => "main_img", :src => "https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg"}/
     %section.img-scroll
       %div
         %a{:href => "javascript:select_image ('https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg')"}

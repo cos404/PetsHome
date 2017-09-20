@@ -1,21 +1,10 @@
 # PetsHome
 
-TODO:
-
-* Update capistrano config before deploy
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### TODO:
+- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
+- addition phone numbers to shelter
+- addition work time to shelter
+- addition employee and volunteers to shelter
+- addition pets and associating with shelter
+- uploading images to shelters
+- uploading images to pets

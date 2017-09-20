@@ -125,7 +125,6 @@ a:hover {
   display: inline-block;
 }
 
-/* INTERNAL PAGES */
 .card-s {
   border: solid 1px #fff;
   border-radius: 2px;
@@ -137,7 +136,6 @@ a:hover {
   width: 80%;
   margin-left: 10%;
 }
-/* END */
 
 footer {
   height: 100px;
@@ -159,3 +157,109 @@ footer {
   margin-left: 10%;
   border-top: #e0e0e0 solid 1px;
 }
+
+
+/* PETS\SHELTER PAGES */
+
+dl {
+  vertical-align: top;
+  padding: 1px;
+  height: auto;
+}
+
+dl.list-spec{
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+dl.list-spec ul, dl.list-spec dl{
+  padding: 0;
+  margin: auto;
+}
+
+dt {
+  font-weight: normal!important;
+  width: 25%;
+  min-width: 140px;
+  float: left;
+  display: inline-block;
+}
+
+dd {
+  display: table;
+  text-align: left;
+  margin: 0;
+}
+
+dl.list-spec dl dt{
+  width: 10%;
+}
+
+dl.list-spec dl dd{
+  width: 90%;
+}
+
+.main-img {
+  display: list-item;
+  text-align: center;
+  vertical-align: middle;
+  height: 420px;
+  line-height: 420px;
+}
+
+.main-img img{
+  border-radius: 8px;
+  padding: 5px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.img-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+  padding-bottom: 5px;
+}
+
+.img-scroll div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img-scroll img {
+  height: 120px;
+}
+
+
+/* END */
+
+
+/* ANNOTATION */
+
+.annotation-toggle {
+  color: rgba(0,0,0,0.2);
+  display:none;
+}
+
+.annotation-toggle:hover{
+  cursor: pointer;
+}
+
+.product-tip-wrapper {
+  display: none;
+  position: absolute;
+  background-color: #fff9a3;
+  font-size: 13px;
+  padding: 5px;
+  line-height: normal;
+
+
+  border: solid 1px #fff9a3;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.28);
+}
+
+.product-tip-wrapper p {
+  margin-bottom: 0;
+}
+
+/* END */

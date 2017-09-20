@@ -18,7 +18,7 @@ class Shelter < ApplicationRecord
 
   private
 
-    def shelter_address
+    def shelter_address(country, region, city)
 
       country = self.country.send("title_#{I18n.locale}")
       region  = self.region .send("title_#{I18n.locale}")
