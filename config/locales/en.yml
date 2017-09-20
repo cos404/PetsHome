@@ -48,7 +48,16 @@ en:
       sterilization: "Sterilization"
       color: "Color"
       about: "About"
+      age_years: "years"
+      age_months: "months"
+      birthday: "Birthday"
+      boolean:
+        euthanasia_true: "Yes"
+        euthanasia_false: "No"
+        sterilization_true: "Make"
+        sterilization_false: "Not make"
       annotation:
+        age: "If the age is not the date of birth, then this age is correct at the time of adding the pet to the site."
         size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
                <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
                <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"

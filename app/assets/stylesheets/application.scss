@@ -249,10 +249,7 @@ dl.list-spec dl dd{
   position: absolute;
   background-color: #fff9a3;
   font-size: 13px;
-  padding: 5px;
   line-height: normal;
-
-
   border: solid 1px #fff9a3;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,.28);
@@ -260,6 +257,10 @@ dl.list-spec dl dd{
 
 .product-tip-wrapper p {
   margin-bottom: 0;
+}
+
+.annotation {
+  padding: 5px;
 }
 
 /* END */

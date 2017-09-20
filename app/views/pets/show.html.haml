@@ -8,17 +8,21 @@
       %dt#tag.list-spec_name= t 'view.pet.shelter'
       %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter
     %dl.list-spec
-      %dt#tag.list-spec_name= t 'view.pet.age'
-      %dd.list-spec_value= @pet.age
+      %dt#tag.list-spec_name
+        = t 'view.pet.age' if @pet.age_years || @pet.age_months
+        = t 'view.pet.birthday' if @pet.birthday
+        = render partial: 'layouts/annotation', locals: {locale: 'age'}
+      %dd.list-spec_value
+        = "#{@pet.age_years} #{t 'view.pet.age_years'}"  if @pet.age_years
+        = "#{@pet.age_months} #{t 'view.pet.age_months'}"  if @pet.age_months
+        = "#{@pet.birthday}"  if @pet.birthday
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.euthanasia'
-      %dd.list-spec_value= @pet.euthanasia
+      %dd.list-spec_value= t "view.pet.boolean.euthanasia_#{@pet.euthanasia}"
     %dl.list-spec
       %dt#tag.list-spec_name
         = t 'view.pet.size'
-        = fa_icon 'question-circle-o', class: 'annotation-toggle'
-        %div.product-tip-wrapper
-          %span.annotation= t('view.pet.annotation.size').html_safe
+        = render partial: 'layouts/annotation', locals: {locale: 'size'}
       %dd.list-spec_value{name: "size"}= 'S' if @pet.size == 1
       %dd.list-spec_value{name: "size"}= 'M' if @pet.size == 2
       %dd.list-spec_value{name: "size"}= 'L' if @pet.size == 3
@@ -30,7 +34,7 @@
       %dd.list-spec_value= @pet.diseases
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.sterilization'
-      %dd.list-spec_value= @pet.sterilization
+      %dd.list-spec_value= t "view.pet.boolean.sterilization_#{@pet.sterilization}"
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.color'
       %dd.list-spec_value= @pet.color

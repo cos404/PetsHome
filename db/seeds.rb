@@ -146,8 +146,8 @@ Shelter.create!(
 Shelter.create!(
   title:        'Bideawee',
   country_id:   2,
-  region_id:    2,
-  city_id:      2,
+  region_id:    3,
+  city_id:      3,
   street:       'East 38th Street',
   house_number: '410',
   description:  'For more than 114 years, Bideawee has been the leading pet welfare organization serving metropolitan New York and Long Island. Through a vast array of services Bideawee cultivates and supports the life-long relationships between pets and the people who love them. Please explore the site and get to know more about how Bideawee can accompany you and your pet through your life-long journey together.',
@@ -158,7 +158,7 @@ Shelter.create!(
 
 Pet.create!(
   subspecies:     1,
-  birthday:       2012-03-29,
+  birthday:       '2012/03/29',
   name:           'Без имени',
   euthanasia:     false,
   size:           2,

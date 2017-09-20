@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828190820) do
+ActiveRecord::Schema.define(version: 20170920145546) do
 
   create_table "cities", force: :cascade do |t|
     t.integer "region_id"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20170828190820) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pet_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pet_id"
+    t.integer "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pet_photos", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
@@ -53,7 +61,9 @@ ActiveRecord::Schema.define(version: 20170828190820) do
 
   create_table "pets", force: :cascade do |t|
     t.integer "subspecies"
-    t.float "age"
+    t.integer "age_years"
+    t.integer "age_months"
+    t.date "birthday"
     t.string "name"
     t.boolean "euthanasia", default: false
     t.date "euthanasia_date"
@@ -67,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170828190820) do
     t.text "about"
     t.integer "user_id"
     t.integer "shelter_id"
+    t.boolean "finished"
+    t.string "finished_description"
     t.integer "views", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -114,6 +126,14 @@ ActiveRecord::Schema.define(version: 20170828190820) do
     t.integer "day_of_week"
     t.time "open"
     t.time "close"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shelter_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shelter_id"
+    t.integer "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

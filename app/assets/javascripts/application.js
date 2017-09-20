@@ -32,7 +32,7 @@ $(document).ready(function() {
       $('.product-tip-wrapper').hide();
       $(event.target).parent().children('.product-tip-wrapper').show();
     }
-    else if($(event.target).parent().children('.product-tip-wrapper').css('display') == 'block'){
+    else if($(event.target).parent().children('.product-tip-wrapper').css('display') == 'block' && $(event.target).is('.annotation-toggle')){
       $('.product-tip-wrapper').hide();
     }
   });

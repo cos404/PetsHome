@@ -14,12 +14,12 @@ class Shelter < ApplicationRecord
   validates :user_id, :country_id, :region_id, :city_id, numericality: true
   validates :user_id, :title, :street, :house_number, :country_id, :city_id,  presence: true
 
-  geocoded_by :shelter_address, lookup: :nominatim
+  geocoded_by :shelter_address
   after_validation :geocode
 
   private
 
-    def shelter_address(country, region, city)
+    def shelter_address
 
       country = self.country.send("title_#{I18n.locale}")
       region  = self.region .send("title_#{I18n.locale}")
