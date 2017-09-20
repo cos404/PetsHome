@@ -8,9 +8,11 @@ class User < ApplicationRecord
 
   has_many    :comments
   has_many    :pets
+  has_many    :pet_comments
   has_many    :posts
   has_many    :post_images
   has_many    :shelters
+  has_many    :shelter_comments
   has_many    :shelter_photos
   has_many    :shelter_staffs
   has_many    :social_pages

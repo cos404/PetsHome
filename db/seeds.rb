@@ -158,7 +158,7 @@ Shelter.create!(
 
 Pet.create!(
   subspecies:     1,
-  age:            1.4,
+  birthday:       2012-03-29,
   name:           'Без имени',
   euthanasia:     false,
   size:           2,
@@ -172,7 +172,8 @@ Pet.create!(
   shelter_id:     1)
 Pet.create!(
   subspecies:     2,
-  age:            0.4,
+  age_years:      1,
+  age_months:     3,
   name:           'Tucker',
   euthanasia:     false,
   size:           1,

@@ -6,6 +6,7 @@ class Shelter < ApplicationRecord
   belongs_to  :region
 
   has_many    :pets
+  has_many    :shelter_comments
   has_many    :shelter_photos
   has_many    :shelter_staffs
   has_many    :schedules

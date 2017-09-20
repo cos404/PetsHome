@@ -3,6 +3,7 @@ class Pet < ApplicationRecord
   belongs_to  :shelter
   belongs_to  :user
 
+  has_many    :pet_comments
   has_many    :pet_photos
 
   validates :shelter_id, :user_id, :subspecies, :size, :color, presence: true
