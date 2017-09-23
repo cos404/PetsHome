@@ -61,3 +61,18 @@ en:
         size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
                <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
                <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"
+  activerecord:
+    attributes:
+      shelter:
+        title:  "Title"
+        country: "Country"
+        region_id: "Region"
+        city_id: "City"
+        street: "Street"
+        house_number: "House number"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        description: "About"
+        cover: "Cover"
+        working: "Working"
+        verified: "Verified"

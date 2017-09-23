@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
 
+  resources :shelter_photos, only: [:create, :destroy, :show]
+
 end

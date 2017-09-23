@@ -95,3 +95,10 @@ function init() {
         iconColor: '#0095b6'
     }));
 }
+
+$(function() {
+  $('#shelter_photo_shelter_photo').fileupload();
+  return {
+    dataType: "script"
+  };
+});

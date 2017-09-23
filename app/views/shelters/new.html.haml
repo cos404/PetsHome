@@ -1,5 +1,9 @@
-%h1 Add shelter
-%section
+%h1= t 'view.shelter.add_new'
+%section.col-6.float-left
   = simple_form_for @shelter do |f|
     = render partial: 'form', locals: {f: f}
     = f.submit "Add"
+%section.col-6.float-right
+  = render partial: 'upload'
+  %div#photo
+.clearfix

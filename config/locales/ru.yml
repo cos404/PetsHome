@@ -37,6 +37,20 @@ ru:
         restrict_dependent_destroy:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
           has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+    attributes:
+      shelter:
+        title:  "Название"
+        country: "Страна"
+        region_id: "Регион(область)"
+        city_id: "Город"
+        street: "Удица"
+        house_number: "Номер дома"
+        latitude: "Широта"
+        longitude: "Долгота"
+        description: "О приюте"
+        cover: "Обложка"
+        working: "Работает"
+        verified: "Проверен"
   date:
     abbr_day_names:
     - Вс

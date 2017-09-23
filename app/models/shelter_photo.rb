@@ -1,10 +1,12 @@
 class ShelterPhoto < ApplicationRecord
 
-  belongs_to  :shelter
-
-  validates :title, :user_id, :shelter_id, presence: true
-  validates :user_id, :shelter_id, numericality: true
-
   mount_uploader :title, ShelterPhotoUploader
+
+  belongs_to  :shelter, optional: true
+  belongs_to  :user
+
+  validates :user_id, numericality: true
+  validates :title, :user_id,  presence: true
+
 
 end

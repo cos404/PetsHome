@@ -26,6 +26,8 @@ class SheltersController < ApplicationController
     @shelter.save!
 
     if @shelter.errors.empty?
+      ShelterPhoto.where(user_id: current_user.id, shelter_id: nil).update_all(shelter_id: @shelter.id)
+
       flash[:success] = "Shelter added!"
       redirect_to @shelter
     else
@@ -48,7 +50,7 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :description, :cover, :working, :verified, :country_id, :region_id, :city_id)
+    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :description, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo)
   end
 
   def find_shelter

@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+
 
 function select_image (a) {
   document.main_img.src=a

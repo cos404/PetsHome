@@ -4,5 +4,7 @@
   %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
   = csrf_meta_tag
   = javascript_include_tag  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', 'data-turbolinks-track': 'reload'
-  = javascript_include_tag  'application', params[:controller], 'data-turbolinks-track': 'reload'
-  = stylesheet_link_tag     'application', params[:controller], 'data-turbolinks-track': 'reload'
+  = javascript_include_tag  'application', params[:controller], 'data-turbolinks-track': 'reload' unless devise_controller?
+  = stylesheet_link_tag     'application', params[:controller], 'data-turbolinks-track': 'reload' unless devise_controller?
+  = javascript_include_tag  'application', 'data-turbolinks-track': 'reload' if devise_controller?
+  = stylesheet_link_tag     'application', 'data-turbolinks-track': 'reload' if devise_controller?
