@@ -1,5 +1,7 @@
 class Shelter < ApplicationRecord
 
+  mount_uploader :cover, ShelterCoverUploader
+
   belongs_to  :user
   belongs_to  :country
   belongs_to  :city

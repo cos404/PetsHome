@@ -1,5 +1,7 @@
 class Pet < ApplicationRecord
 
+  mount_uploader :avatar, PetAvatarUploader
+
   belongs_to  :shelter
   belongs_to  :user
 

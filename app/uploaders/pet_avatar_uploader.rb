@@ -1,10 +1,11 @@
-class PostImageUploader < CarrierWave::Uploader::Base
+class PetAvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   require "translit"
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -12,11 +13,19 @@ class PostImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{Time.now.strftime("%m-%Y")}"
+    "uploads/#{model.class.to_s.underscore}"
   end
 
   def asset_host
     "http://localhost:3000"
+  end
+
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  def default_url(*args)
+    # For Rails 3.1+ asset pipeline compatibility:
+    ActionController::Base.helpers.asset_path("/" + [version_name, "default_pet.png"].compact.join('_'))
+
+    # "/images/fallback/" + [version_name, "avatar.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -28,7 +37,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [nil, 120]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

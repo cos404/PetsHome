@@ -1,2 +1,11 @@
-%h1 Shelters#edit
-%p Find me in app/views/shelters/edit.html.haml
+%h1= t 'view.shelter.add_new'
+%section.col-6.float-left
+  = simple_form_for @shelter do |f|
+    = render partial: 'form', locals: {f: f}
+    = f.submit "Add"
+%section.col-6.float-right
+  = render partial: 'upload'
+  %div#photo
+  - @shelter.shelter_photos.each do |photo|
+    = link_to (image_tag photo.title.thumb.url), photo.title.url
+.clearfix

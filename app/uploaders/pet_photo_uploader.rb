@@ -4,6 +4,7 @@ class PetPhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  require "translit"
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -16,11 +17,6 @@ class PetPhotoUploader < CarrierWave::Uploader::Base
 
   def asset_host
     "http://localhost:3000"
-  end
-
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url
-    "#{asset_host}#{ActionController::Base.helpers.asset_path("default_pet.png")}"
   end
 
   # Process files as they are uploaded:

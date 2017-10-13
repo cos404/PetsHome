@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.text "about"
     t.integer "user_id"
     t.integer "shelter_id"
+    t.integer "cover"
     t.boolean "finished"
     t.string "finished_description"
     t.integer "views", default: 0
@@ -163,7 +164,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.string "house_number"
     t.float "latitude"
     t.float "longitude"
-    t.text "description"
+    t.text "about"
     t.string "cover"
     t.boolean "working"
     t.boolean "verified"

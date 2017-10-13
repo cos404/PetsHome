@@ -13,6 +13,13 @@ class SheltersController < ApplicationController
   end
 
   def update
+    @shelter.update_attributes(shelter_params)
+
+    if @shelter.errors.empty?
+      redirect_to @shelter
+    else
+      render "edit"
+    end
   end
 
   def new

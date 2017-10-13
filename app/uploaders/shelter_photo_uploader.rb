@@ -4,6 +4,8 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  require "translit"
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -18,11 +20,6 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
     "http://localhost:3000"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url
-    "#{asset_host}#{ActionController::Base.helpers.asset_path("default_shelter.png")}"
-  end
-
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -32,7 +29,7 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [nil, 120]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -19,6 +19,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.text    :about
       t.integer :user_id
       t.integer :shelter_id
+      t.integer :cover
 
       t.boolean :finished
       t.string  :finished_description

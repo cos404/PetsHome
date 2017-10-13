@@ -10,7 +10,7 @@ class CreateShelters < ActiveRecord::Migration[5.1]
       t.string  :house_number
       t.float   :latitude
       t.float   :longitude
-      t.text    :description
+      t.text    :about
       t.string  :cover
 
       t.boolean :working

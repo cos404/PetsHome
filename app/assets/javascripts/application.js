@@ -23,8 +23,6 @@ function select_image (a) {
   document.main_img.src=a
 }
 
-
-
 $(document).ready(function() {
 
   $(document).click(function(event){

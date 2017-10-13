@@ -11,15 +11,13 @@
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.shelter.address'
       %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
-    %dl.list-spec= @shelter.description
+    %dl.list-spec= @shelter.about
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
-      %img{:name => "main_img", :src => "https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg"}/
+      %img{name: "main_img", src: "#{@shelter.cover.url}"}/
     %section.img-scroll
-      %div
-        %a{:href => "javascript:select_image ('https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg')"}
-          %img{:src => "https://pp.userapi.com/c630826/v630826817/4ab/EEPV0h3J0vE.jpg"}/
-      %div
-        %a{:href => "javascript:select_image ('https://pp.userapi.com/c630826/v630826817/4b4/y4rzY5VbTGY.jpg')"}
-          %img{:src => "https://pp.userapi.com/c630826/v630826817/4b4/y4rzY5VbTGY.jpg"}/
+      %div= link_to (image_tag(@shelter.cover.url)), ("javascript:select_image(\"#{@shelter.cover.url}\")")
+      - @shelter.shelter_photos.each do |photo|
+        %div
+          = link_to (image_tag(photo.title.thumb.url)), ("javascript:select_image(\"#{photo.title.url}\")")
   .clearfix

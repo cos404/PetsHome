@@ -43,7 +43,7 @@ ru:
         country: "Страна"
         region_id: "Регион(область)"
         city_id: "Город"
-        street: "Удица"
+        street: "Улица"
         house_number: "Номер дома"
         latitude: "Широта"
         longitude: "Долгота"
