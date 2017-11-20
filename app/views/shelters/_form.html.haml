@@ -10,3 +10,5 @@
 = f.input :cover
 = f.input :working
 = f.input :verified
+= f.simple_fields_for :schedules do |s|
+  = render partial: "schedule_fields", locals: {f: s}

@@ -25,6 +25,12 @@ class SheltersController < ApplicationController
   def new
     @shelter    = Shelter.new
     @countries  = Country.all
+    @schedules = []
+
+    7.times{ |i|
+      day = @shelter.schedules.day_of_weeks.key(i)
+      @schedules << @shelter.schedules.build(day_of_week: day)
+    }
   end
 
   def create
@@ -57,7 +63,7 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :description, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo)
+    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day])
   end
 
   def find_shelter

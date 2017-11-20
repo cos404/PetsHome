@@ -51,6 +51,7 @@ ru:
         cover: "Обложка"
         working: "Работает"
         verified: "Проверен"
+        about: "О нас"
   date:
     abbr_day_names:
     - Вс
@@ -314,6 +315,15 @@ ru:
       tagline: "Сделай мир лучше!"
     shelter:
       address: "Адрес"
+      about: "О нас"
+      day_of_week:
+        monday:     "Понедельник"
+        tuesday:    "Вторник"
+        wednesday:  "Среда"
+        thursday:   "Четверг"
+        friday:     "Пятница"
+        saturday:   "Суббота"
+        sunday:     "Воскресенье"
     pet:
       address: "Адрес"
       shelter: "Приют"

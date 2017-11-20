@@ -1,5 +1,4 @@
 class Shelter < ApplicationRecord
-
   mount_uploader :cover, ShelterCoverUploader
 
   belongs_to  :user
@@ -7,11 +6,13 @@ class Shelter < ApplicationRecord
   belongs_to  :city
   belongs_to  :region
 
-  has_many    :pets
-  has_many    :shelter_comments
-  has_many    :shelter_photos
-  has_many    :shelter_staffs
-  has_many    :schedules
+  has_many    :pets, dependent: :destroy
+  has_many    :shelter_comments, dependent: :destroy
+  has_many    :shelter_photos, dependent: :destroy
+  has_many    :shelter_staffs, dependent: :destroy
+  has_many    :schedules, dependent: :destroy, autosave: true
+
+  accepts_nested_attributes_for :schedules, reject_if: lambda{|a| a[:work_day].to_i.zero?}, allow_destroy: true
 
   validates :user_id, :country_id, :region_id, :city_id, numericality: true
   validates :user_id, :title, :street, :house_number, :country_id, :city_id,  presence: true

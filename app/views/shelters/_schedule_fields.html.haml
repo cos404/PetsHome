@@ -1,0 +1,7 @@
+%div
+  = f.input :work_day, as: :boolean
+  = I18n.t("view.shelter.day_of_week.#{f.object.day_of_week}")
+  = f.hidden_field :day_of_week
+  %div
+    .col-4.float-left= f.input :open, as: :time
+    .col-8.float-right= f.input :close, as: :time
