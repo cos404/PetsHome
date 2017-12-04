@@ -1,5 +1,5 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :shelter_photo do
-    
+
   end
 end

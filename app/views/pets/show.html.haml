@@ -9,12 +9,9 @@
       %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter
     %dl.list-spec
       %dt#tag.list-spec_name
-        = t 'view.pet.age' if @pet.age_years || @pet.age_months
         = t 'view.pet.birthday' if @pet.birthday
         = render partial: 'layouts/annotation', locals: {locale: 'age'}
       %dd.list-spec_value
-        = "#{@pet.age_years} #{t 'view.pet.age_years'}"  if @pet.age_years
-        = "#{@pet.age_months} #{t 'view.pet.age_months'}"  if @pet.age_months
         = "#{@pet.birthday}"  if @pet.birthday
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.euthanasia'

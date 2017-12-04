@@ -43,8 +43,8 @@ group :development, :test do
 
   # https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.6'
-  # https://github.com/thoughtbot/factory_girl_rails
-  gem 'factory_girl_rails'
+  # https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
 # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner'
 end

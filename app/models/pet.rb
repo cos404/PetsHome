@@ -12,4 +12,5 @@ class Pet < ApplicationRecord
   validates :shelter_id, :user_id, :subspecies, numericality: true
   validates_presence_of :euthanasia_date, if: :euthanasia?
 
+  enum subspecies: [:dog, :cat, :another]
 end

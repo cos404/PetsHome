@@ -100,10 +100,10 @@ GEM
     erubi (1.6.1)
     erubis (2.7.0)
     execjs (2.7.0)
-    factory_girl (4.8.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
@@ -298,7 +298,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-i18n
-  factory_girl_rails
+  factory_bot_rails
   font-awesome-rails
   geocoder
   haml-rails
@@ -326,4 +326,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
