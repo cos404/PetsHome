@@ -20,16 +20,12 @@ class Shelter < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  private
+  def address
+    country = self.country.send("title_#{I18n.locale}")
+    region  = self.region .send("title_#{I18n.locale}")
+    city    = self.city   .send("title_#{I18n.locale}")
 
-    def address
-
-      country = self.country.send("title_#{I18n.locale}")
-      region  = self.region .send("title_#{I18n.locale}")
-      city    = self.city   .send("title_#{I18n.locale}")
-
-      puts "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
-      "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
-    end
+    "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
+  end
 
 end

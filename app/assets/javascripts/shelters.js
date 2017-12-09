@@ -76,7 +76,57 @@ $(document).ready(function() {
       }
     });
   });
+
+  var search_input = false;
+  var usersListAll;
+  $('#addPersonal').on( "click", function() {
+    if(!search_input){
+      $.ajax({
+        type: 'POST',
+        url: '/getUsers',
+        dataType: 'json',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(data) {
+            search_input = true;
+            if(data.length != 0){
+              usersListAll = data;
+              $('#staffs').append('<div id="search-user" class="search-user"><input type="text" id="search-user-input"/><ul id="user-list"></ul></div>');
+            }
+          }
+      })
+    }
+    else {
+      $('.search-user').remove();
+      search_input = false;
+    }
+  });
+
+  var usersList
+  const createPartOfArray = (userList, partOfWord) => {
+    var regex = new RegExp(`\\b${partOfWord}.*`,'i');
+    return userList.filter(v => {
+      if (regex.test(v.username)) return v
+    })
+  }
+
+
+  $('#staffs').on('input', '#search-user-input',function(e) {
+    word = $('#search-user-input').val();
+    $('#user-list').children().remove();
+    usersList = createPartOfArray(usersListAll, word);
+
+    for (var i = 0, len = usersList.length; i < len; i++) {
+      $('#user-list').append(`<li class="user" value="${usersList[i].id}">${usersList[i].username}</li>`);
+    }
+    if(word.length == 0){
+      $('#user-list').children().remove();
+    }
+  });
+
 });
+
 
 
 ymaps.ready(init);

@@ -60,6 +60,11 @@ class SheltersController < ApplicationController
     render json: @city
   end
 
+  def getUsers
+    @users = User.all.select(:id, :username).order(username: :desc)
+    render json: @users
+  end
+
   private
 
   def shelter_params

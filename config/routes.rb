@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :shelters
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
-
+  post '/getUsers'    => 'shelters#getUsers'
   resources :shelter_photos, only: [:create, :destroy, :show]
 
 end
