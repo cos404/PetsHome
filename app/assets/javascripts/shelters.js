@@ -77,8 +77,12 @@ $(document).ready(function() {
     });
   });
 
+
+  // // ADD USERS TO SHELTER PERSONAL(/shelter/:id)
   var search_input = false;
   var usersListAll;
+
+  // GET USERS LIST
   $('#addPersonal').on( "click", function() {
     if(!search_input){
       $.ajax({
@@ -92,43 +96,51 @@ $(document).ready(function() {
             search_input = true;
             if(data.length != 0){
               usersListAll = data;
-              $('#staffs').append('<div id="search-user" class="search-user"><input type="text" id="search-user-input"/><ul id="user-list"></ul></div>');
+              $('#addPersonal').after('<input type="text" id="search-user-input" />');
             }
           }
       })
     }
     else {
-      $('.search-user').remove();
+      $('#search-user-input').remove();
       search_input = false;
     }
   });
 
+  // USERS SEARCH AND AUTOCOMPLETE
   var usersList
-  const createPartOfArray = (userList, partOfWord) => {
+  const createPartOfArray = (usersList, partOfWord) => {
     var regex = new RegExp(`\\b${partOfWord}.*`,'i');
-    return userList.filter(v => {
+    return usersList.filter(v => {
       if (regex.test(v.username)) return v
     })
   }
-
 
   $('#staffs').on('input', '#search-user-input',function(e) {
     word = $('#search-user-input').val();
     $('#user-list').children().remove();
     usersList = createPartOfArray(usersListAll, word);
 
-    for (var i = 0, len = usersList.length; i < len; i++) {
-      $('#user-list').append(`<li class="user" value="${usersList[i].id}">${usersList[i].username}</li>`);
-    }
-    if(word.length == 0){
-      $('#user-list').children().remove();
-    }
+    $( "#search-user-input" ).autocomplete({
+      source: function (request, response) {
+        response($.map(usersList, function (value, key) {
+          return {
+            label: value.username,
+            value: value.id
+          }
+        }));
+      },
+      select: function (e, ui) {
+        $('div#personal').append(`<div class="addedUser"><button class="btn btn-success m-1" value="${ui.item.value}">+</button>${ui.item.label}</div>`);
+        return false;
+      }
+    });
   });
 
 });
 
 
-
+// ADD SHELTER BALLONS TO MAPS
 ymaps.ready(init);
 function init() {
   var myMap = new ymaps.Map("map", {
@@ -146,6 +158,7 @@ function init() {
     }));
 }
 
+// JQUERY IMAGE UPLOADING
 $(function() {
   $('#shelter_photo_shelter_photo').fileupload();
   return {

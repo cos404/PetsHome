@@ -71,7 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 
 gem 'simple_form'
 gem 'bootstrap', '~> 4.0.0.beta'

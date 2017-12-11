@@ -12,9 +12,14 @@
       %dt#tag.list-spec_name= t 'view.shelter.address'
       %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
     %dl.list-spec= @shelter.about
-    %section#staffs
-      %button.btn.btn-primary#addPersonal Add Personal
-      %ul#addedUsers
+    %section#staffs.row
+      %div.col-md-12
+        %button.btn.btn-primary#addPersonal.mr-2 Add Personal
+        %div#personal
+          - @shelter.shelter_staffs.each do |personal|
+            %div
+              %button.btn.btn-danger.m-1{value: personal.user.id} x
+              = "#{personal.user.username}(#{personal.role.title})"
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
       %img{name: "main_img", src: "#{@shelter.cover.url}"}/
