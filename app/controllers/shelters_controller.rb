@@ -66,13 +66,17 @@ class SheltersController < ApplicationController
   end
 
   def addStaff
-    puts params
-    puts "======"
-    puts shelter_perosnal_params
-    @shelter = Shelter.find(shelter_perosnal_params[:shelter_id])
-
-    @staff = @shelter.shelter_staffs.create(shelter_perosnal_params)
+    @shelter = Shelter.find(shelter_staff_params[:shelter_id])
+    @staff = @shelter.shelter_staffs.create(shelter_staff_params)
     render json: @staff
+  end
+
+  def deleteStaff
+    @staff = ShelterStaff.where(
+      user_id: shelter_staff_params[:user_id],
+      shelter_id: shelter_staff_params[:shelter_id]
+    )
+    @staff.destroy_all
   end
 
   private
@@ -81,7 +85,7 @@ class SheltersController < ApplicationController
     params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day])
   end
 
-  def shelter_perosnal_params
+  def shelter_staff_params
     params.permit(:shelter_id, :user_id, :role_id)
   end
 

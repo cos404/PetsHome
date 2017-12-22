@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :shelters do
-    post 'addStaff/:user_id' => 'shelters#addStaff'
+    post    'addStaff/:user_id'     => 'shelters#addStaff'
+    delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'

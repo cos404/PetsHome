@@ -152,20 +152,38 @@ $(document).ready(function() {
       url: `${url}/addStaff/${user}`,
       dataType: 'json',
       data:{
-        user_id: user,
-        role_id: role,
-        shelter_id: shelter_id
+        role_id: role
       },
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function(data) {
         $("button[data-user='" + user + "']").replaceWith(`
-          <button class="btn btn-danger m-1" data-user="${user}">
+          <button class="btn btn-danger m-1 deleteStaff" data-user="${user}">
             x
           </button>
         `);
 
+      },
+      error: function(data){
+        console.log(data);
+      }
+    })
+  });
+
+    $('#staffs').on('click', '.deleteStaff', function(){
+    var user    = $(this).data("user"),
+        url     = window.location.href,
+        el      = $(this);
+    $.ajax({
+      type: 'DELETE',
+      url: `${url}/deleteStaff/${user}`,
+      dataType: 'json',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data) {
+        el.parent().remove();
       },
       error: function(data){
         console.log(data);

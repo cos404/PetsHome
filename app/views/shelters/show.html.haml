@@ -19,7 +19,7 @@
         %div#staff
           - @shelter.shelter_staffs.each do |staff|
             %div
-              %button.btn.btn-danger.m-1{data:{user: staff.user.id}} x
+              %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
               = "#{staff.user.username}(#{staff.role.title})"
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
