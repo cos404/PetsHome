@@ -78,12 +78,12 @@ $(document).ready(function() {
   });
 
 
-  // // ADD USERS TO SHELTER PERSONAL(/shelter/:id)
+  // // ADD USERS TO SHELTER STAFFS(/shelter/:id)
   var search_input = false;
   var usersListAll;
 
   // GET USERS LIST
-  $('#addPersonal').on( "click", function() {
+  $('#addStaff').on( "click", function() {
     if(!search_input){
       $.ajax({
         type: 'POST',
@@ -96,7 +96,7 @@ $(document).ready(function() {
             search_input = true;
             if(data.length != 0){
               usersListAll = data;
-              $('#addPersonal').after('<input type="text" id="search-user-input" />');
+              $('#addStaff').after('<input type="text" id="search-user-input" />');
             }
           }
       })
@@ -131,11 +131,48 @@ $(document).ready(function() {
         }));
       },
       select: function (e, ui) {
-        $('div#personal').append(`<div class="addedUser"><button class="btn btn-success m-1" value="${ui.item.value}">+</button>${ui.item.label}</div>`);
+        $('div#staff').append(`
+          <div>
+            <button class="btn btn-success m-1 addUser" data-user="${ui.item.value}" data-role="2">
+              +
+            </button>
+            ${ui.item.label}
+          </div>`);
         return false;
       }
     });
   });
+
+  $('#staffs').on('click', '.addUser', function(){
+    var user    = $(this).data("user"),
+        role    = $(this).data("role"),
+        url     = window.location.href;
+    $.ajax({
+      type: 'POST',
+      url: `${url}/addStaff/${user}`,
+      dataType: 'json',
+      data:{
+        user_id: user,
+        role_id: role,
+        shelter_id: shelter_id
+      },
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data) {
+        $("button[data-user='" + user + "']").replaceWith(`
+          <button class="btn btn-danger m-1" data-user="${user}">
+            x
+          </button>
+        `);
+
+      },
+      error: function(data){
+        console.log(data);
+      }
+    })
+  });
+
 
 });
 

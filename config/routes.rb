@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :pets
   resources :posts
 
-  resources :shelters
+  resources :shelters do
+    post 'addStaff/:user_id' => 'shelters#addStaff'
+  end
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
   post '/getUsers'    => 'shelters#getUsers'

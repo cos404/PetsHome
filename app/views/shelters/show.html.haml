@@ -2,7 +2,8 @@
   longitude           = "#{@shelter.longitude}",
   latitude            = "#{@shelter.latitude}",
   title               = "#{@shelter.title}",
-  address             = "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}";
+  address             = "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}",
+  shelter_id          = "#{@shelter.id}";
 
 %article.card-s.pb-2
   #map.map
@@ -14,12 +15,12 @@
     %dl.list-spec= @shelter.about
     %section#staffs.row
       %div.col-md-12
-        %button.btn.btn-primary#addPersonal.mr-2 Add Personal
-        %div#personal
-          - @shelter.shelter_staffs.each do |personal|
+        %button.btn.btn-primary#addStaff.mr-2 Add staff
+        %div#staff
+          - @shelter.shelter_staffs.each do |staff|
             %div
-              %button.btn.btn-danger.m-1{value: personal.user.id} x
-              = "#{personal.user.username}(#{personal.role.title})"
+              %button.btn.btn-danger.m-1{data:{user: staff.user.id}} x
+              = "#{staff.user.username}(#{staff.role.title})"
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
       %img{name: "main_img", src: "#{@shelter.cover.url}"}/
@@ -29,3 +30,5 @@
         %div
           = link_to (image_tag(photo.title.thumb.url)), ("javascript:select_image(\"#{photo.title.url}\")")
   .clearfix
+
+
