@@ -60,22 +60,21 @@ ActiveRecord::Schema.define(version: 20170920145546) do
   end
 
   create_table "pets", force: :cascade do |t|
-    t.integer "subspecies"
     t.date "birthday"
-    t.string "name"
-    t.boolean "euthanasia", default: false
     t.date "euthanasia_date"
+    t.boolean "euthanasia", default: false
+    t.boolean "sterilization"
+    t.boolean "vaccination"
+    t.integer "subspecies"
     t.integer "size"
     t.integer "gender"
-    t.boolean "vaccination"
-    t.text "diseases"
-    t.boolean "sterilization"
-    t.string "color"
-    t.string "avatar"
-    t.text "about"
     t.integer "user_id"
     t.integer "shelter_id"
-    t.integer "cover"
+    t.string "name"
+    t.string "color"
+    t.string "avatar"
+    t.text "diseases"
+    t.text "about"
     t.boolean "finished"
     t.string "finished_description"
     t.integer "views", default: 0

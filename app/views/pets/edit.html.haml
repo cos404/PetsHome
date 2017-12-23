@@ -1,2 +1,11 @@
-%h1 Pets#edit
-%p Find me in app/views/pets/edit.html.haml
+%h1= t 'view.pet.add_new'
+%section.col-6.float-left
+  = simple_form_for [@shelter, @pet] do |f|
+    = render partial: 'form', locals: {f: f}
+    = f.input :finished
+    = f.input :finished_description
+    = f.submit "Edit"
+%section.col-6.float-right
+  = render partial: 'upload'
+  %div#photo
+.clearfix

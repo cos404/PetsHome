@@ -20,9 +20,11 @@
       %dt#tag.list-spec_name
         = t 'view.pet.size'
         = render partial: 'layouts/annotation', locals: {locale: 'size'}
-      %dd.list-spec_value{name: "size"}= 'S' if @pet.size == 1
-      %dd.list-spec_value{name: "size"}= 'M' if @pet.size == 2
-      %dd.list-spec_value{name: "size"}= 'L' if @pet.size == 3
+      %dd.list-spec_value{name: "size"}= @pet.size.humanize.capitalize
+    %dl.list-spec
+      %dt#tag.list-spec_name
+        = t 'view.pet.gender'
+      %dd.list-spec_value= @pet.gender.humanize.capitalize
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.vaccination'
       %dd.list-spec_value= @pet.vaccination

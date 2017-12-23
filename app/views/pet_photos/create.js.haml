@@ -1,0 +1,5 @@
+- if @photo.new_record?
+  alert("Error");
+- else
+  $("#photo").append("#{j render template: "pet_photos/show" }");
+  $("#photo_pet_ids").val("#{@photo.id}" + " " + $("#photo_pet_ids").val())

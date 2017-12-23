@@ -1,0 +1,3 @@
+= simple_form_for PetPhoto.new, url: pet_photos_path do |f|
+  = f.hidden_field :pet_id, value: @pet.id, name: "photo[pet_id]"
+  = f.file_field :pet_photo, multiple: true, name: "photo[title]"

@@ -12,7 +12,7 @@
   .row
     - @pets.each do |pet|
       %section.col-md-3.col-sm-6.col-12.mb-2.card-a
-        = link_to pet do
+        = link_to shelter_pet_path(pet.shelter_id, pet.id) do
           %article.card-s
             %h2.text-center= "#{t 'view.home.near'}"
             %article

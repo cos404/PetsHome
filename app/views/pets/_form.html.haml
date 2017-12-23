@@ -1,0 +1,15 @@
+= f.input :subspecies, as: :select, collection: Pet.subspecies.keys.to_a
+= f.input :name
+= f.input :birthday
+= f.input :euthanasia
+= f.input :euthanasia_date
+= f.input :size, as: :select, collection: Pet.sizes.keys.to_a
+= f.input :gender, as: :select, collection: Pet.genders.keys.to_a
+= f.input :vaccination
+= f.input :diseases
+= f.input :sterilization
+= f.input :color
+= f.input :avatar
+= f.input :about, input_html:{rows: 7}
+
+
