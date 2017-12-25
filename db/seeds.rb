@@ -15,17 +15,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Role.create(title:  :user)
-Role.create(title:  :disagner)
-Role.create(title:  :developer)
-
-Role.create(title:  :volunteer)
-Role.create(title:  :employee)
-Role.create(title:  :curator)
-
-Role.create(title:  :moderator)
-Role.create(title:  :administrator)
-
 User.create!(
   email: "root@root.ru",
   password: "qwerty",
@@ -33,7 +22,7 @@ User.create!(
   username: "Hash",
   confirmed_at:           "2017-06-30 21:42:22.989289",
   confirmation_sent_at:   "2017-06-30 21:40:47.864614",
-  role_id: 8)
+  role: 4)
 User.create!(
   email: "common_user@root.ru",
   password: "qwerty",
@@ -162,7 +151,7 @@ Pet.create!(
   name:           'Без имени',
   euthanasia:     false,
   size:           2,
-  gender:         1,
+  gender:         0,
   vaccination:    true,
   diseases:       'Отсутствуют',
   sterilization:  true,
@@ -171,12 +160,12 @@ Pet.create!(
   user_id:        1,
   shelter_id:     1)
 Pet.create!(
-  subspecies:     2,
+  subspecies:     0,
   birthday:       '2012/11/12',
   name:           'Tucker',
   euthanasia:     false,
   size:           1,
-  gender:         2,
+  gender:         1,
   vaccination:    false,
   diseases:       'No',
   sterilization:  false,
@@ -188,8 +177,8 @@ Pet.create!(
 ShelterStaff.create!(
   user_id:    1,
   shelter_id: 1,
-  role_id:    6)
+  role:    2)
 ShelterStaff.create!(
   user_id:    2,
   shelter_id: 2,
-  role_id:    5)
+  role:    1)

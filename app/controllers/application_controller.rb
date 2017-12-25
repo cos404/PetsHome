@@ -3,6 +3,32 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+
+  def can_edit?
+  end
+  def can_delete?
+  end
+  def can_create?
+  end
+
+  def administrator?
+  end
+  def moderator?
+  end
+  def curator?
+  end
+  def employee?
+  end
+  def volunteer?
+  end
+  def developer?
+  end
+  def disagner?
+  end
+  def user?
+  end
+
+
   private
     def set_locale
       if cookies[:language]

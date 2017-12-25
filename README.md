@@ -5,6 +5,7 @@
 - addition phone numbers to shelter
 - uploading images to pets
 - showing schedule on shelter page
+- showing pets on shelter page
 - edititng shelter can curator and employee
 - changing staff role
 

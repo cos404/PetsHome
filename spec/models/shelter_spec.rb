@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Shelter, type: :model do
 
   it "get shelter address" do
-    role    = create(:role)
-    user    = create(:user, role: role)
+    user    = create(:user)
     country = create(:country)
     region  = create(:region, country: country)
     city    = create(:city, region: region)

@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  belongs_to  :role
-
   has_many    :comments
   has_many    :pets
   has_many    :pet_comments
@@ -19,4 +17,5 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  enum role: [:user, :disagner, :developer, :moderator, :administrator]
 end

@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
       #
-      t.integer :role_id, default: 1
+      t.integer :role, default: 0
 
       t.boolean :email_visible, default: false
 

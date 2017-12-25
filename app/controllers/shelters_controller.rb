@@ -86,7 +86,7 @@ class SheltersController < ApplicationController
   end
 
   def shelter_staff_params
-    params.permit(:shelter_id, :user_id, :role_id)
+    params.permit(:shelter_id, :user_id, :role)
   end
 
   def find_shelter

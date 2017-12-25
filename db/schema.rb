@@ -113,12 +113,6 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "schedules", force: :cascade do |t|
     t.integer "shelter_id"
     t.integer "day_of_week"
@@ -147,7 +141,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
   create_table "shelter_staffs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "shelter_id"
-    t.integer "role_id"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -196,7 +190,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.integer "role_id", default: 1
+    t.integer "role", default: 0
     t.boolean "email_visible", default: false
     t.string "avatar"
     t.string "status"

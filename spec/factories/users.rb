@@ -21,5 +21,6 @@ FactoryBot.define do
     email_visible true
     fullname
     username
+    role 1
   end
 end

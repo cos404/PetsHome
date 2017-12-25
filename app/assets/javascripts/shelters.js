@@ -152,7 +152,7 @@ $(document).ready(function() {
       url: `${url}/addStaff/${user}`,
       dataType: 'json',
       data:{
-        role_id: role
+        role: role
       },
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
