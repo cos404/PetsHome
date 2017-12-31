@@ -5,7 +5,7 @@
   address             = "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}",
   shelter_id          = "#{@shelter.id}";
 
-%article.card-s.pb-2
+%article.card-s.pb-2.none-shadow
   #map.map
   %article.col-md-6.col-sm-12.pet-description.float-left
     %h1.text-center.mt-1.pet-name= @shelter.title
@@ -23,12 +23,12 @@
               %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
               = "#{staff.user.username}(#{staff.role})"
     %section#schedule
-      - @shelter.schedules.each do |s|
-        %dt= s.day_of_week
+      - @shelter.schedules.each do |day|
+        %dt= day.day_of_week
         %dd
-          = s.open.strftime("%H:%M")
+          = day.open.strftime("%H:%M")
           —
-          = s.close.strftime("%H:%M")
+          = day.close.strftime("%H:%M")
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
       %img{name: "main_img", src: "#{@shelter.cover.url}"}/
@@ -38,5 +38,14 @@
         %div
           = link_to (image_tag(photo.title.thumb.url)), ("javascript:select_image(\"#{photo.title.url}\")")
   .clearfix
-
-
+%section.pb-2
+  %section.row
+    - @shelter.pets.each do |pet|
+      %section.col-md-3.col-sm-6.col-12.mb-2.card-a
+        = link_to shelter_pet_path(pet.shelter_id, pet.id) do
+          %article.card-s
+            %h2.text-center= "#{t 'view.home.near'}"
+            %article
+              .card-img
+                %img.img-fluid= image_tag pet.avatar
+              %h3.text-center.mt-1= pet.name

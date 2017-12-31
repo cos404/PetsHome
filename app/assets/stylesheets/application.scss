@@ -138,6 +138,25 @@ a:hover {
   margin-left: 10%;
 }
 
+.card-a a {
+  color: #212529!important;
+  text-decoration: none;
+}
+
+.card-s:hover {
+  box-shadow: 0 3px 11px 2px rgba(0,0,0,.28);
+}
+
+.card-s h4 {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.card-img {
+  max-height: 250px;
+  overflow: hidden;
+}
+
 footer {
   height: 100px;
   background: #F8F8F8;
@@ -269,4 +288,8 @@ dl.list-spec dl dd{
 
 .btn > a, .btn > a:hover, .btn > a:focus {
   color: white;
+}
+
+.none-shadow:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,.28);
 }
