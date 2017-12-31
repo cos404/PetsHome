@@ -1,33 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  protect_from_forgery
   before_action :set_locale
-
-
-  def can_edit?
-  end
-  def can_delete?
-  end
-  def can_create?
-  end
-
-  def administrator?
-  end
-  def moderator?
-  end
-  def curator?
-  end
-  def employee?
-  end
-  def volunteer?
-  end
-  def developer?
-  end
-  def disagner?
-  end
-  def user?
-  end
-
 
   private
     def set_locale
@@ -37,5 +13,10 @@ class ApplicationController < ActionController::Base
         I18n.locale = cookies[:language] = http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale
       end
     end
+
+  def user_not_authorized
+      flash[:warning] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+  end
 
 end

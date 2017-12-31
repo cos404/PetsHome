@@ -17,7 +17,8 @@ class PetsController < ApplicationController
   end
 
   def new
-    @pet = Pet.new
+    @pet = Pet.new(shelter_id: @shelter.id)
+    authorize @pet
   end
 
   def create
@@ -30,11 +31,13 @@ class PetsController < ApplicationController
       PetPhoto.where(user_id: current_user.id, pet_id: nil).update_all(pet_id: @pet.id)
 
       flash[:success] = "Pet added!"
-      redirect_to shelter_pet_path(@shelter,@pet)
+      redirect_to shelter_pet_path(@shelter, @pet)
     else
       flash.now[:error] = "You have error!"
       render "new"
     end
+
+    authorize @pet
   end
 
   private
@@ -45,8 +48,7 @@ class PetsController < ApplicationController
 
   def find_pet
     @pet = Pet.find(params[:id])
-
-    # select("shelters.*, countries.title_#{I18n.locale} AS country_title, regions.title_#{I18n.locale} AS region_title, cities.title_#{I18n.locale} AS city_title").joins(:country, :region, :city).find(params[:id])
+    authorize @pet
   end
 
   def find_shelter

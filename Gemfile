@@ -97,3 +97,6 @@ gem 'mini_magick'
 gem 'jquery-fileupload-rails'
 gem 'translit'
 gem 'will_paginate', '~> 3.1.0'
+
+
+gem "pundit"

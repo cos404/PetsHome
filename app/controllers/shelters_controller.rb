@@ -1,6 +1,6 @@
 class SheltersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_shelter, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,  only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_shelter,        only: [:show, :edit, :update, :destroy]
 
   def index
     @shelters = Shelter.all
@@ -31,6 +31,7 @@ class SheltersController < ApplicationController
       day = @shelter.schedules.day_of_weeks.key(i)
       @schedules << @shelter.schedules.build(day_of_week: day)
     }
+    authorize @shelter
   end
 
   def create
@@ -47,6 +48,7 @@ class SheltersController < ApplicationController
       flash.now[:error] = "You have error!"
       render "new"
     end
+    authorize @shelter
   end
 
 
@@ -91,7 +93,7 @@ class SheltersController < ApplicationController
 
   def find_shelter
     @shelter = Shelter.select("shelters.*, countries.title_#{I18n.locale} AS country_title, regions.title_#{I18n.locale} AS region_title, cities.title_#{I18n.locale} AS city_title").joins(:country, :region, :city).find(params[:id])
+    authorize @shelter
   end
 
 end
-

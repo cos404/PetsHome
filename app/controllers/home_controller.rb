@@ -7,7 +7,6 @@ class HomeController < ApplicationController
     @shelters = root_url + 'shelters.json'
 
     @pets = Pet.select(:id, :name, :age_years, :age_months, :birthday, :shelter_id, "cities.title_#{I18n.locale} AS city").joins(shelter: :city).limit(8)
-    puts @pets
     render layout: "home_layout"
   end
 

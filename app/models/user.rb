@@ -17,5 +17,5 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  enum role: [:user, :disagner, :developer, :moderator, :administrator]
+  enum role: [:user, :disagner, :developer, :moderator, :admin]
 end
