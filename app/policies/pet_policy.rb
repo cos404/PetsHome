@@ -15,12 +15,10 @@ class PetPolicy
   end
 
   def create?
-    user.present? and
-    (
-      user.shelter_staffs.where(role: [:employee, :curator]).exists? pet.shelter.id or
-      user.admin? or
-      user.moderator?
-    )
+    user.id == pet.shelter.user_id or
+    user.shelter_staffs.where(role: :employee).exists? pet.shelter.id or
+    user.admin? or
+    user.moderator?
   end
 
   def new?
@@ -28,12 +26,10 @@ class PetPolicy
   end
 
   def update?
-    user.present? and
-    (
-      user.shelter_staffs.where(role: [:employee, :curator]).exists? pet.shelter.id or
-      user.admin? or
-      user.moderator?
-    )
+    user.id == pet.shelter.user_id or
+    user.shelter_staffs.where(role: :employee).exists? pet.shelter.id or
+    user.admin? or
+    user.moderator?
   end
 
   def edit?
@@ -41,11 +37,9 @@ class PetPolicy
   end
 
   def destroy?
-    user.present? and
-    (
-      user.shelter_staffs.where(role: [:employee, :curator]).exists? pet.shelter.id or
-      user.admin? or
-      user.moderator?
-    )
+    user.id == pet.shelter.user_id or
+    user.shelter_staffs.where(role: :employee).exists? pet.shelter.id or
+    user.admin? or
+    user.moderator?
   end
 end

@@ -133,7 +133,7 @@ $(document).ready(function() {
       select: function (e, ui) {
         $('div#staff').append(`
           <div>
-            <button class="btn btn-success m-1 addUser" data-user="${ui.item.value}" data-role="2">
+            <button class="btn btn-success m-1 addUser" data-user="${ui.item.value}" data-role="volunteer">
               +
             </button>
             ${ui.item.label}

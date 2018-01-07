@@ -4,7 +4,6 @@
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 - addition phone numbers to shelter
 - uploading images to pets
-- showing pets on shelter page
 - changing staff role
 - add new shelter schedule day_of_week on edit page
 
@@ -17,6 +16,7 @@
 - edititng shelter can curator and employee
 - role rigghts
 - showing schedule on shelter page
+- showing pets on shelter page
 
 ### ENUMS:
 - Staff

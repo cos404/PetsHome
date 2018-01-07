@@ -5,7 +5,7 @@
   address             = "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}",
   shelter_id          = "#{@shelter.id}";
 
-%article.card-s.pb-2.none-shadow
+%article.card-s.pb-2
   #map.map
   %article.col-md-6.col-sm-12.pet-description.float-left
     %h1.text-center.mt-1.pet-name= @shelter.title
@@ -13,15 +13,16 @@
       %dt#tag.list-spec_name= t 'view.shelter.address'
       %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
     %dl.list-spec= @shelter.about
-    %section#staffs.row
-      %div.col-md-12
-        %button.btn.btn-primary#addPet.mr-2= link_to "Add pet", new_shelter_pet_path(@shelter.id)
-        %button.btn.btn-primary#addStaff.mr-2 Add staff
-        %div#staff
-          - @shelter.shelter_staffs.each do |staff|
-            %div
-              %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
-              = "#{staff.user.username}(#{staff.role})"
+    - if policy(@shelter).edit?
+      %section#staffs.row
+        %div.col-md-12
+          %button.btn.btn-primary#addPet.mr-2= link_to "Add pet", new_shelter_pet_path(@shelter.id)
+          %button.btn.btn-primary#addStaff.mr-2 Add staff
+          %div#staff
+            - @shelter.shelter_staffs.each do |staff|
+              %div
+                %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
+                = "#{staff.user.username}(#{staff.role})"
     %section#schedule
       - @shelter.schedules.each do |day|
         %dt= day.day_of_week
@@ -43,9 +44,6 @@
     - @shelter.pets.each do |pet|
       %section.col-md-3.col-sm-6.col-12.mb-2.card-a
         = link_to shelter_pet_path(pet.shelter_id, pet.id) do
-          %article.card-s
-            %h2.text-center= "#{t 'view.home.near'}"
-            %article
-              .card-img
-                %img.img-fluid= image_tag pet.avatar
-              %h3.text-center.mt-1= pet.name
+          %article.card-s-active
+            %h2.text-center= pet.name
+            %div= image_tag pet.avatar, class: "card-img"

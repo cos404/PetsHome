@@ -126,16 +126,20 @@ a:hover {
   display: inline-block;
 }
 
-.card-s {
+.card-s, .card-s-active {
   border: solid 1px #fff;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0,0,0,.28);
   background: #fff;
   margin-bottom: .5rem!important;
 }
-.card-s h4 {
+.card-s h4, .card-s-active h4 {
   width: 80%;
   margin-left: 10%;
+}
+
+.card-s-active:hover {
+  box-shadow: 0 1px 12px 2px rgba(0, 0, 0, 0.28);
 }
 
 .card-a a {
@@ -143,18 +147,18 @@ a:hover {
   text-decoration: none;
 }
 
-.card-s:hover {
-  box-shadow: 0 3px 11px 2px rgba(0,0,0,.28);
-}
+.card-s-active div {
+  height: 253px;
+  overflow: hidden;
+  line-height: 200px;
 
-.card-s h4 {
-  width: 80%;
-  margin-left: 10%;
+
 }
 
 .card-img {
-  max-height: 250px;
-  overflow: hidden;
+  max-width: 100%;
+  vertical-align: middle;
+
 }
 
 footer {

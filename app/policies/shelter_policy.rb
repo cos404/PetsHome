@@ -36,5 +36,4 @@ class ShelterPolicy
     user.admin? or
     user.moderator?
   end
-
 end

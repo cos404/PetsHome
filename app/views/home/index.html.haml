@@ -13,11 +13,10 @@
     - @pets.each do |pet|
       %section.col-md-3.col-sm-6.col-12.mb-2.card-a
         = link_to shelter_pet_path(pet.shelter_id, pet.id) do
-          %article.card-s
+          %article.card-s-active
             %h2.text-center= "#{t 'view.home.near'}"
             %article
-              .card-img
-                %img.img-fluid= image_tag pet.avatar
+              %div= image_tag pet.avatar, class: "card-img"
               %h3.text-center.mt-1= pet.name
               %h4= pet.city
               %h4
