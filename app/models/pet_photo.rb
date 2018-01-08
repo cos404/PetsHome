@@ -1,10 +1,11 @@
 class PetPhoto < ApplicationRecord
 
-  belongs_to  :pet
+  mount_uploader :title, PetPhotoUploader
+
+  belongs_to  :pet, optional: true
   belongs_to  :user
 
-  validates :user_id, :pet_id, numericality: true
-
-  mount_uploader :title, PetPhotoUploader
+  validates :user_id, numericality: true
+  validates :title, :user_id,  presence: true
 
 end

@@ -13,4 +13,5 @@ class PetPhotosController < ApplicationController
 
   def find_photo
     @photo = PetPhoto.find(params[:id])
+  end
 end
