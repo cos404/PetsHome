@@ -5,6 +5,8 @@
 - addition phone numbers to shelter
 - changing staff role
 - add new shelter schedule day_of_week on edit page
+- display shelter photos
+- add comments
 
 ### COMPLETE:
 - addition work time to shelter
@@ -17,6 +19,7 @@
 - showing schedule on shelter page
 - showing pets on shelter page
 - uploading images to pets
+- display pet photos
 
 ### ENUMS:
 - Staff
