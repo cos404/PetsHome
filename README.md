@@ -1,11 +1,10 @@
-# PetsHome
+# BillyBo
 
 ### TODO:
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 - addition phone numbers to shelter
 - changing staff role
 - add new shelter schedule day_of_week on edit page
-- display shelter photos
 - add comments
 
 ### COMPLETE:
@@ -19,7 +18,10 @@
 - showing schedule on shelter page
 - showing pets on shelter page
 - uploading images to pets
+- display shelter photos
 - display pet photos
+- rename app to "BillyBo"
+- tune capistrano
 
 ### ENUMS:
 - Staff
