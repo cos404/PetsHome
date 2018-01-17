@@ -60,4 +60,4 @@ namespace :migrate do
 end
 
 before "deploy:assets:precompile", "deploy:custom_symlinks"
-after "deploy:update", "deploy:cleanup
+after "deploy:update", "deploy:cleanup"
