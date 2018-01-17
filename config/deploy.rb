@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.9.0"
+lock "3.10.1"
 
 set :application, "billybo"
 set :repo_url,    "deploy@185.26.98.204:/var/repos/store_app.git"
