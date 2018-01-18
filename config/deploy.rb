@@ -5,15 +5,16 @@ set :application, "billybo"
 set :repo_url,    "deploy@185.26.98.204:/var/repos/store_app.git"
 set :branch, "master"
 set :keep_releases, 3
-set :scm, :git
 set :use_sudo, false
-set :deploy_to,   "/var/www/#{application}/production"
+set :deploy_to,   "/var/www/billybo/production"
 set :branch, "master"
 
 set :rvm_type, :system
-set :rvm_ruby_version, '2.4.0p0'      # Defaults to: 'default'
+set :rvm_ruby_version, '2.4'      # Defaults to: 'default'
 
 set :rails_env, "production"
+set :stage, :production
+set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/upload"
@@ -27,37 +28,47 @@ append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+namespace :puma do
+  desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
+    end
+  end
+
+  before :start, :make_dirs
+end
+
 namespace :deploy do
-  namespace :custom_symlinks do
-    task :custom_configs do
-      run "ln -nsf #{shared_path}/config/database.yml #{current_release}/config/"
-    end
+  # desc "Make sure local git is in sync with remote."
+  # task :check_revision do
+  #   on roles(:app) do
+  #     unless `git rev-parse HEAD` == `git rev-parse origin/master`
+  #       puts "WARNING: HEAD is not the same as origin/master"
+  #       puts "Run `git push` to sync changes."
+  #       exit
+  #     end
+  #   end
+  # end
 
-    task :user_files do
-      run "ln -nsf #{shared_path}/public/uploads/ #{current_release}/public/"
-    end
-
-    task :default do
-      custom_configs
-      user_files
+  desc 'Initial Deploy'
+  task :initial do
+    on roles(:app) do
+      before 'deploy:restart', 'puma:start'
+      invoke 'deploy'
     end
   end
 
-  task :start do ; end
-  task :stop do ; end
-
-  task  :restart,
-        :roles => :app,
-        :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'puma:restart'
+    end
   end
+
+  # before :starting,     :check_revision
+  after  :finishing,    :compile_assets
+  after  :finishing,    :cleanup
+  after  :finishing,    :restart
 end
-
-namespace :migrate do
-  task :default do
-    run "cd #{current_release} bundle exec rake db:migrate"
-  end
-end
-
-before "deploy:assets:precompile", "deploy:custom_symlinks"
-after "deploy:update", "deploy:cleanup"
