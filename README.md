@@ -22,6 +22,7 @@
 - display pet photos
 - rename app to "BillyBo"
 - tune capistrano
+- tune Action Mailer
 
 ### ENUMS:
 - Staff

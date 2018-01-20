@@ -13,6 +13,7 @@ set :rvm_type, :system
 set :rvm_ruby_version, '2.4'      # Defaults to: 'default'
 
 set :rails_env, fetch(:production)
+set :stage, :production
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/upload"
