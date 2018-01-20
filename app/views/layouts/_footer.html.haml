@@ -15,18 +15,14 @@
         = link_to 'Sitemap', root_url, class: "nav-link"
     %ul.float-right
       %li.red
-        = link_to (fa_icon "vk"), root_url
+        = link_to (fa_icon "vk"), "https://vk.com/billyboorg"
       %li
-        = link_to (fa_icon "facebook"), root_url
+        = link_to (fa_icon "facebook"), "https://www.facebook.com/BillyBoOrg/"
       %li
-        = link_to (fa_icon "instagram"), root_url
+        = link_to (fa_icon "telegram"), "https://t.me/billyboorg"
       %li
-        = link_to (fa_icon "youtube-play"), root_url
+        = link_to (fa_icon "instagram"), "https://www.instagram.com/billyboorg/"
       %li
-        = link_to (fa_icon "twitter"), root_url
-
-- unless user_signed_in?
-  = link_to "Sign in", new_user_session_path
-- else
-  = link_to current_user.email, current_user
-  = link_to "Sign out", destroy_user_session_path, method: :delete
+        = link_to (fa_icon "youtube-play"), "#"
+      %li
+        = link_to (fa_icon "twitter"), "#"

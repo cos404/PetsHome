@@ -6,6 +6,11 @@
 - changing staff role
 - add new shelter schedule day_of_week on edit page
 - add comments
+- add user page
+- fix uploading photo
+- add null value in pet birthday field
+- add search
+- add static page
 
 ### COMPLETE:
 - addition work time to shelter

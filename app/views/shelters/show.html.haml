@@ -13,6 +13,13 @@
       %dt#tag.list-spec_name= t 'view.shelter.address'
       %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
     %dl.list-spec= @shelter.about
+    %section#schedule
+      - @shelter.schedules.each do |day|
+        %dt= day.day_of_week
+        %dd
+          = day.open.strftime("%H:%M")
+          —
+          = day.close.strftime("%H:%M")
     - if policy(@shelter).edit?
       %section#staffs.row
         %div.col-md-12
@@ -23,13 +30,6 @@
               %div
                 %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
                 = "#{staff.user.username}(#{staff.role})"
-    %section#schedule
-      - @shelter.schedules.each do |day|
-        %dt= day.day_of_week
-        %dd
-          = day.open.strftime("%H:%M")
-          —
-          = day.close.strftime("%H:%M")
   %section.col-md-6.col-sm-12.block-img.float-right
     %section.main-img
       %img{name: "main_img", src: "#{@shelter.cover.url}"}/

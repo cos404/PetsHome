@@ -60,12 +60,12 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "BillyBo_#{Rails.env}"
-  config.action_mailer.default_url_options = { host: 'localhost'}
+  config.action_mailer.default_url_options = { host: 'billybo.org'}
 
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: 'postmaster@billybo.org' }
+  config.action_mailer.default_options = { from: 'robot@billybo.org' }
   config.action_mailer.default charset: "utf-8"
 
 

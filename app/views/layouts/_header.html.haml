@@ -9,9 +9,12 @@
           = link_to root_url, class: "nav-link" do
             Home
             %span.sr-only (current)
-        %li.nav-item
-          = link_to 'About', root_url, class: "nav-link"
-        %li.nav-item
-          = link_to 'Contacts', root_url, class: "nav-link"
-      %form.form-inline.my-2.my-md-0
-        %input.form-control{:placeholder => "Search", :type => "text"}
+        %li.nav-item= link_to 'About', root_url, class: "nav-link"
+        %li.nav-item= link_to 'Contacts', root_url, class: "nav-link"
+      %ul.navbar-nav
+        - unless user_signed_in?
+          %li.nav-item= link_to "Sign in", new_user_session_path, class: "nav-link", style: "color: #007bff"
+          %li.nav-item= link_to "Sign up", new_user_registration_path, class: "nav-link", style: "color: #007bff"
+        - else
+          %li.nav-item= link_to current_user.email, current_user, class: "nav-link", style: "color: #007bff"
+          %li.nav-item= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #007bff"
