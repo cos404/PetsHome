@@ -32,6 +32,7 @@
 - tune capistrano
 - tune Action Mailer
 - add user page
+- add home page in admin panel(/admin)
 
 ### ENUMS:
 - Staff

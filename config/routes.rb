@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   resources :shelter_photos,  only: [:create, :destroy, :show]
   resources :pet_photos,      only: [:create, :destroy, :show]
 
+  get "/admin" => "admin/home#index"
+  namespace :admin do
+  end
+
 end

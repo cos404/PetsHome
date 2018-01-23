@@ -1,0 +1,20 @@
+%header
+  %nav.navbar.navbar-expand-md.navbar-light
+    =  link_to 'PetHome', root_url, class: 'navbar-brand'
+    %button.navbar-toggler{"aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-toggle" => "collapse", :type => "button", "aria-controls" => "nav-head", "data-target" => "#nav-head"}
+      %span.navbar-toggler-icon
+    #nav-head.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = link_to root_url, class: "nav-link" do
+            Home
+            %span.sr-only (current)
+        %li.nav-item= link_to 'About', root_url, class: "nav-link"
+        %li.nav-item= link_to 'Contacts', root_url, class: "nav-link"
+      %ul.navbar-nav
+        - unless user_signed_in?
+          %li.nav-item= link_to "Sign in", new_user_session_path, class: "nav-link", style: "color: #80D1E9"
+          %li.nav-item= link_to "Sign up", new_user_registration_path, class: "nav-link", style: "color: #80D1E9"
+        - else
+          %li.nav-item= link_to current_user.email, current_user, class: "nav-link", style: "color: #80D1E9"
+          %li.nav-item= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #80D1E9"

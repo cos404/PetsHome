@@ -1,0 +1,8 @@
+%head
+  %title #{@page_title} BillyBo.org
+  %meta{:charset => "utf-8"}/
+  %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+  = csrf_meta_tag
+  = javascript_include_tag  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag  'admin/application', params[:controller], 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag     'admin/application', params[:controller], 'data-turbolinks-track': 'reload'
