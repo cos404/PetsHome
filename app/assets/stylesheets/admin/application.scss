@@ -10,13 +10,6 @@
    margin: 0 !important;
 }
 
-
-.nomargin {
-   margin: 0 !important;
-   margin: 0 !important;
-}
-
-
 * { margin: 0; padding: 0; }
 p { margin: 5px 0 10px 0; }
 
@@ -24,14 +17,39 @@ header{
   background-color: #00a4e3;
 }
 
-.sidebar{
+aside{
   height: 100%;
-  width: 100%;
+  width: 50px;
   background-color: #162028;
+  z-index: 1;
  }
 
+#body{
+  position: absolute;
+  padding-left: 50px;
+  padding-right: 0px;
+}
 
+.sq li {
+  height: 50px;
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+}
 
+.sq li:hover {
+  background-color: #232d36;
+}
+
+.sq a{
+  color: white;
+}
+
+.sq a:hover{
+  color: #00b1dd;
+}
 
 // BOOTSTRAP CUSTOM
 
