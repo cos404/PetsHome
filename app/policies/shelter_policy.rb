@@ -23,9 +23,10 @@ class ShelterPolicy
   end
 
   def update?
-    user.admin? or
+    user.present? and
+    (user.admin? or
     user.moderator? or
-    shelter.user == user
+    shelter.user == user)
   end
 
   def edit?
@@ -33,7 +34,8 @@ class ShelterPolicy
   end
 
   def destroy?
-    user.admin? or
-    user.moderator?
+    user.present? and
+    (user.admin? or
+    user.moderator?)
   end
 end

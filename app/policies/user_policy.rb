@@ -23,9 +23,10 @@ class UserPolicy
   end
 
   def update?
-    user.admin? or
+    user.present? and
+    (user.admin? or
     user.moderator? or
-    user == user_page
+    user == user_page)
   end
 
   def edit?
