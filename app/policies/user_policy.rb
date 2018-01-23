@@ -1,7 +1,17 @@
 class UserPolicy
+  attr_reader :user, :user_page
+
+  def initialize(user, user_page)
+    @user = user
+    @user_page = user_page
+  end
+
   def index?
-    user.admin?  or
-    user.moderator?
+    false
+  end
+
+  def show?
+    true
   end
 
   def create?
@@ -15,7 +25,7 @@ class UserPolicy
   def update?
     user.admin? or
     user.moderator? or
-    user.user == user
+    user == user_page
   end
 
   def edit?
@@ -24,12 +34,6 @@ class UserPolicy
 
   def destroy?
     false
-  end
-
-  private
-
-  def user
-    record
   end
 
 end

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :find_user, only: [:show, :edit, :update]
 
   def index
@@ -19,6 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   def user_params
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    authorize @user
   end
 
 end

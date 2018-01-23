@@ -1,3 +1,61 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user{
+  background: #ededed;
+  width: 100%;
+  padding: 15px;
+}
+
+ul.user_info{
+  display:table-cell;
+  padding: 0;
+}
+
+.user_info{
+ width: 100%;
+}
+
+.user_info>li>a.username{
+  font-size: 21px;
+  color: #777;
+}
+
+span.role{
+  font-size: 12px;
+}
+
+.avatar{
+  display:table-cell;
+}
+
+.avatar img{
+  width: 100px;
+  height: 100px;
+  float: right;
+  margin-right: 15px;
+  border: 3px white solid;
+}
+
+.activity{
+  padding: 15px;
+}
+
+
+dl{
+  margin: 0;
+}
+
+dt {
+  font-weight: normal!important;
+  min-width: 80px;
+  float: left;
+  display: inline-block;
+}
+
+dd {
+  display: table;
+  text-align: left;
+  margin: 0;
+}

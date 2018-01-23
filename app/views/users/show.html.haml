@@ -1,2 +1,35 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%article.card-s.pb-2
+  %div.row
+    %div.col-md-12
+      %div.user
+        %div.float-left.avatar
+          = image_tag @user.avatar
+        %ul.user_info
+          %li
+            = link_to @user.username, @user, class:"username"
+            %span.role= "(#{@user.role})" unless @user.user?
+          - if policy(@user).edit?
+            %li= link_to 'Редактировать', edit_user_path, class:"btn-edit"
+          - if @user.status || @user.email_visible || policy(@user).edit? || @user.fullname || @user.about
+            %li
+              - if @user.status
+                %dl
+                  %dt= "Статус:"
+                  %dd= @user.status
+              - if @user.email_visible || policy(@user).edit?
+                %dl
+                  %dt= "Email:"
+                  %dd= @user.email
+              - if @user.fullname
+                %dl
+                  %dt= "ФИО:"
+                  %dd= @user.fullname
+              - if @user.about
+                %dl
+                  %dt= "About me:"
+                  %dd= @user.about
+        %div{style:'clear:both'}
+  %div.row
+    %div.col-md-12
+      %div.activity
+        = "activity block"
