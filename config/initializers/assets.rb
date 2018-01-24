@@ -18,4 +18,5 @@ Rails.application.config.assets.precompile +=
   pets.js pets.css
   users.js users.css
   admin/home.js admin/home.css
+  admin/settings.js admin/settings.css
 )
