@@ -10,19 +10,26 @@
    margin: 0 !important;
 }
 
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; list-style: none;}
 p { margin: 5px 0 10px 0; }
-
+ul {margin: 0; padding: 0;}
+body{
+  background-color: #f1f1f1;
+}
 header{
   background-color: #00a4e3;
 }
-
 aside{
   height: 100%;
   width: 50px;
   background-color: #162028;
   z-index: 1;
  }
+
+.bg-aqua{background-color:#00c0ef!important;}
+.bg-red{background-color:#dd4b39 !important;}
+.bg-green{background-color:#00a65a !important;}
+.bg-yellow{background-color:#f39c12 !important;}
 
 #body{
   position: absolute;
@@ -49,6 +56,49 @@ aside{
 
 .sq a:hover{
   color: #00b1dd;
+}
+
+
+// CARD
+.stats{
+  display: block;
+  font-size: 0;
+}
+
+.stats section{
+  display: inline-block;
+}
+
+.card-s{
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,.18);
+  height: 90px;
+
+}
+
+.info-box-icon{
+  display: block;
+  line-height: 90px;
+  height: 90px;
+  width: 90px;
+  float: left;
+  font-size: 35px;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+}
+.info-box-icon i{
+  line-height: 90px;
+}
+
+.info-box-content{
+  padding: 5px;
+  margin-left: 90px;
+  font-size: 15px;
+}
+
+.info-box-content strong{
+  font-size: 20px;
 }
 
 // BOOTSTRAP CUSTOM

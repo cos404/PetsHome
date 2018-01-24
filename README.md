@@ -2,6 +2,7 @@
 
 ### TODO:
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
+- add user edit page
 - addition phone numbers to shelter
 - changing staff role
 - add new shelter schedule day_of_week on edit page
@@ -13,7 +14,6 @@
 - add notification
 - fix pundit policies for guests
 - add activity controller
-- add user edit page
 
 ### COMPLETE:
 - addition work time to shelter
@@ -32,6 +32,16 @@
 - tune capistrano
 - tune Action Mailer
 - add user page
+
+### TODO_AP:
+- add additional countries, regions, cities
+- add user controller functional
+- add shelter controller functional
+- add pet controller functional
+
+
+### COMPLETE_AP:
+- add stats to main page admin panel
 - add home page in admin panel(/admin)
 
 ### ENUMS:

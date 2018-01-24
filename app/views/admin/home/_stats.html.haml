@@ -1,0 +1,30 @@
+%div.container-fluid
+  %div.row.mt-3
+    %section.col-3
+      %div.card-s
+        %span.info-box-icon.bg-aqua= fa_icon("paw")
+        %div.info-box-content
+          Питомцев
+          %br
+          %strong= @pets
+    %section.col-3
+      %div.card-s
+        %span.info-box-icon.bg-red= fa_icon("home")
+        %div.info-box-content
+          Приютов
+          %br
+          %strong= @shelters
+    %section.col-3
+      %div.card-s
+        %span.info-box-icon.bg-green= fa_icon("user")
+        %div.info-box-content
+          Пользователей
+          %br
+          %strong= @users
+    %section.col-3
+      %div.card-s
+        %span.info-box-icon.bg-yellow= fa_icon("comments")
+        %div.info-box-content
+          Комментариев
+          %br
+          %strong NIL
