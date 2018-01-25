@@ -2,7 +2,8 @@
   %div.container-fluid
     %div.row.mt-3
       %section.col-4
-        = select_tag 'countries', options_from_collection_for_select(@countries, :id, :title_en), class: "custom-select col-10", include_blank: true
+        = select_tag 'countries', options_from_collection_for_select(@countries, :id, :title_en), class: "custom-select col-9", include_blank: true
+        %div#country-control>
         %button#country-toggle.ui-state-default.ui-corner-all.btn.btn-primary.float-right +
         %div#country-new-form.mb-3.mt-3{style:"display: none;"}
           = simple_form_for @country, url: admin_country_path  do |f|

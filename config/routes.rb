@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   get "/admin" => "admin/home#index"
   namespace :admin do
     get '/location' => 'settings#location_index'
-    get '/country'  => 'settings#location_index'
-    post '/country' => 'settings#create_country'
+
+    # COUNTRY ROUTES
+    get     '/country'  => 'settings#location_index'
+    post    '/country'  => 'settings#create_country'
+    delete  '/country/:id'  => 'settings#destroy_country'
   end
 
 end

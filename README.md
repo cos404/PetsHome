@@ -34,7 +34,7 @@
 - add user page
 
 ### TODO_AP:
-- add additional countries, regions, cities
+- add addition, regions, cities
 - add user controller functional
 - add shelter controller functional
 - add pet controller functional
@@ -43,6 +43,7 @@
 ### COMPLETE_AP:
 - add stats to main page admin panel
 - add home page in admin panel(/admin)
+- add addition\deleting countries
 
 ### ENUMS:
 - Staff
