@@ -22,9 +22,14 @@ Rails.application.routes.draw do
     get '/location' => 'settings#location_index'
 
     # COUNTRY ROUTES
-    get     '/country'  => 'settings#location_index'
-    post    '/country'  => 'settings#create_country'
+    get     '/country'      => 'settings#location_index'
+    post    '/country'      => 'settings#create_country'
     delete  '/country/:id'  => 'settings#destroy_country'
+
+    # REGION ROUTES
+    get     '/region'       => 'settings#location_index'
+    post    '/get_regions'  => 'settings#get_regions'
+    post    '/region'       => 'settings#create_region'
   end
 
 end
