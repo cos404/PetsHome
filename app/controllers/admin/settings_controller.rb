@@ -41,7 +41,7 @@ class Admin::SettingsController < Admin::ApplicationController
   end
 
   def get_regions
-    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS 'title'")
+    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS title")
     render json: @regions
   end
 

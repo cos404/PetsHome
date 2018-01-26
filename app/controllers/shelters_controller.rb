@@ -53,12 +53,12 @@ class SheltersController < ApplicationController
 
 
   def getRegions
-    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS 'title'")
+    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS title")
     render json: @regions
   end
 
   def getCities
-    @city = City.where(region_id: params[:region_id]).select(:id, "title_#{I18n.locale} AS 'title'")
+    @city = City.where(region_id: params[:region_id]).select(:id, "title_#{I18n.locale} AS title")
     render json: @city
   end
 
