@@ -37,6 +37,6 @@ Rails.application.routes.draw do
       get     '/city'       => 'settings#location_index'
       post    '/get_cities' => 'settings#get_cities'
       post    '/city'       => 'settings#create_city'
-
+      delete  '/city/:id'   => 'settings#destroy_city'
   end
 end

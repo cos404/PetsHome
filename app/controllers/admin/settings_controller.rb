@@ -64,16 +64,24 @@ class Admin::SettingsController < Admin::ApplicationController
     end
 
     def create_city
-      p "FGGFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf"
       @city = City.new(city_params)
       @city.save
       if @city.errors.empty?
         flash[:success] = "city added!"
         redirect_to admin_location_path
       else
-        p @city.errors
         flash.now[:error] = "You have error!"
         redirect_to admin_location_path
+      end
+    end
+
+    def destroy_city
+      @city = City.find(params[:id])
+      if @city
+        @city.destroy
+        render json: @city
+      else
+        render json: {message: "ERROR"}, status: 500
       end
     end
 

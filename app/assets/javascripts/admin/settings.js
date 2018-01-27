@@ -53,6 +53,7 @@ $(function(){
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function(data) {
+        $("#country-remove").remove();
         $(`#countries option[value=${country_id}]`).remove();
       },
       error: function(data){
@@ -101,7 +102,7 @@ $(function(){
     });
 
 
-  // BUTTON "REMOVE REGION"
+    // BUTTON "REMOVE REGION"
     $("#regions").change(()=>{
       var region_id = $("#regions").find(":selected").val();
       $("#region-remove").remove();
@@ -122,6 +123,7 @@ $(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(data) {
+          $("#region-remove").remove();
           $(`#regions option[value=${region_id}]`).remove();
         },
         error: function(data){
@@ -166,6 +168,35 @@ $(function(){
           }
         });
       }
+    });
+    // BUTTON "REMOVE CITY"
+    $("#cities").change(()=>{
+      var city_id = $("#cities").find(":selected").val();
+      $("#city-remove").remove();
+      if(city_id){
+        $("#city-control").append(
+          `<button class="btn btn-danger" id="city-remove" data-city="${city_id}">-</button>`
+        );
+      }
+    });
+
+    $("#city-control").click('#city-remove', ()=>{
+      var city_id = $('#city-remove').data("city");
+      $.ajax({
+        type: 'DELETE',
+        url: `/admin/city/${city_id}`,
+        dataType: 'json',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(data) {
+          $(`#cities option[value=${city_id}]`).remove();
+          $("#city-remove").remove();
+        },
+        error: function(data){
+          console.log(data);
+        }
+      })
     });
 
 
