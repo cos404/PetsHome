@@ -27,4 +27,18 @@
             = f.input :title_de, label: false, placeholder: ":title_de"
             = f.input :title_es, label: false, placeholder: ":title_es"
             = f.input :country_id, as: :hidden
-            = f.submit "Add", class: "btn btn-primary"
+            = f.submit "Add", class: "btn btn-primary"\
+      %section.col-4#city
+        = select_tag 'cities', {}, class: "custom-select col-9", disabled:true
+        %div#city-control>
+        %button#city-toggle.ui-state-default.ui-corner-all.btn.btn-primary.disabled.float-right +
+        %div#city-new-form.mb-3.mt-3{style:"display: none;"}
+          = simple_form_for City.new, url: admin_city_path  do |f|
+            = f.input :title_en, label: false, placeholder: ":title_en"
+            = f.input :title_ru, label: false, placeholder: ":title_ru"
+            = f.input :title_be, label: false, placeholder: ":title_be"
+            = f.input :title_fr, label: false, placeholder: ":title_fr"
+            = f.input :title_de, label: false, placeholder: ":title_de"
+            = f.input :title_es, label: false, placeholder: ":title_es"
+            = f.input :region_id, as: :hidden
+            = f.submit "Add", class: "btn btn-primary"\
