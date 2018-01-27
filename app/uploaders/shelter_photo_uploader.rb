@@ -16,10 +16,6 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{Time.now.strftime("%m-%Y")}"
   end
 
-  def asset_host
-    "http://localhost:3000"
-  end
-
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
