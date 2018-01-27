@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get     '/region'       => 'settings#location_index'
     post    '/get_regions'  => 'settings#get_regions'
     post    '/region'       => 'settings#create_region'
+    delete  '/region/:id'   => 'settings#destroy_region'
   end
 
 end

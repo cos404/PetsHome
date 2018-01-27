@@ -28,6 +28,11 @@ class Admin::SettingsController < Admin::ApplicationController
     end
   end
 
+  def get_regions
+    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS title")
+    render json: @regions
+  end
+
   def create_region
     @region = Region.new(region_params)
     @region.save
@@ -40,9 +45,14 @@ class Admin::SettingsController < Admin::ApplicationController
     end
   end
 
-  def get_regions
-    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS title")
-    render json: @regions
+  def destroy_region
+    @region = Region.find(params[:id])
+    if @region
+      @region.destroy
+      render json: @region
+    else
+      render json: {message: "ERROR"}, status: 500
+    end
   end
 
   private

@@ -51,6 +51,7 @@ $(function(){
 
   // BLOCK "ADD REGION"
 
+    // GET REGION LIST
   $("#countries").change(()=>{
     var country_id = $(this).find(":selected").val();
 
@@ -87,5 +88,34 @@ $(function(){
     }
   });
 
+
+  // BUTTON "REMOVE COUNTRY"
+  $("#regions").change(()=>{
+    var region_id = $("#regions").find(":selected").val();
+    $("#region-remove").remove();
+    if(region_id){
+      $("#region-control").append(
+        `<button class="btn btn-danger" id="region-remove" data-region="${region_id}">-</button>`
+      );
+    }
+  });
+
+  $("#region-control").click('#region-remove', ()=>{
+    var region_id = $('#region-remove').data("region");
+    $.ajax({
+      type: 'DELETE',
+      url: `/admin/region/${region_id}`,
+      dataType: 'json',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(data) {
+        $(`#regions option[value=${region_id}]`).remove();
+      },
+      error: function(data){
+        console.log(data);
+      }
+    })
+  });
 
 });
