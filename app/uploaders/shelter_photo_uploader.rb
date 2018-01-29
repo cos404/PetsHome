@@ -37,6 +37,6 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{Time.now.strftime('%d%m%y%H%M%S')}_#{Translit.convert(file.basename, :english).gsub!(/[^0-9A-Za-z]/, '_')}.#{file.extension}" if original_filename
+    "#{Time.now.strftime('%d%m%y%H%M%S')} #{Translit.convert(file.basename, :english)}.#{file.extension}" if original_filename
   end
 end
