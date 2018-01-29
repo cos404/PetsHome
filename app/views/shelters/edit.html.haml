@@ -2,7 +2,7 @@
 %section.col-6.float-left
   = simple_form_for @shelter do |f|
     = render partial: 'form', locals: {f: f}
-    = f.submit "Add"
+    = f.submit "Save", class: "btn btn-success"
 %section.col-6.float-right
   = render partial: 'upload'
   %div#photo

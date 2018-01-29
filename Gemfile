@@ -69,7 +69,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'simple_form'
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap', '4.0.0'
 gem 'haml-rails'
 gem 'font-awesome-rails'
 

@@ -1,3 +1,5 @@
 = simple_form_for ShelterPhoto.new, url: shelter_photos_path do |f|
   = f.hidden_field :shelter_id, value: @shelter.id, name: "photo[shelter_id]"
-  = f.file_field :shelter_photo, multiple: true, name: "photo[title]"
+  .custom-file.file.optional.shelter_photos
+    = f.file_field :shelter_photo, multiple: true, name: "photo[title]", class:"custom-file-input file optional"
+    = f.label :shelter_photo, "Upload files", class:"custom-file-label file optional"

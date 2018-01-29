@@ -46,12 +46,4 @@ $(document).ready(function() {
       $(this).children().children('.annotation-toggle').toggle();
     }
   );
-
-
-
 })
-
-
-function cl(x){
-  console.log(x);
-}

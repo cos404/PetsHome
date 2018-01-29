@@ -7,13 +7,12 @@
 - changing staff role
 - add new shelter schedule day_of_week on edit page
 - add comments
-- fix uploading photo
 - add null value in pet birthday field
 - add search
 - add static page
 - add notification
-- fix pundit policies for guests
 - add activity controller
+- fix uploading photo WARNING, MAX ATTENTION
 
 ### COMPLETE:
 - addition work time to shelter
@@ -32,9 +31,9 @@
 - tune capistrano
 - tune Action Mailer
 - add user page
+- fix pundit policies for guests
 
 ### TODO_AP:
-- add addition\deleting  cities
 - add user controller functional
 - add shelter controller functional
 - add pet controller functional
@@ -45,6 +44,7 @@
 - add home page in admin panel(/admin)
 - add addition\deleting countries
 - add addition\deleting regions
+- add addition\deleting cities
 
 ### ENUMS:
 - Staff

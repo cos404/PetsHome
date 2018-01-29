@@ -7,8 +7,7 @@
 = f.input :latitude
 = f.input :longitude
 = f.input :about, input_html:{rows: 7}
-= f.input :cover
-= f.input :working
-= f.input :verified
-= f.simple_fields_for :schedules do |s|
-  = render partial: "schedule_fields", locals: {f: s}
+= f.input :cover, label: "Upload file", as: :file, wrapper: :file_input
+.schedule
+  = f.simple_fields_for :schedules do |s|
+    = render partial: "schedule_fields", locals: {f: s}

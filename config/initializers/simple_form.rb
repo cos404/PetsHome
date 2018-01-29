@@ -166,4 +166,15 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
+  config.wrappers :file_input, tag: 'div', class: 'custom-file', id:"file-input-block", error_class: 'has-error', hint_class: :field_with_hint do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :minlength
+    b.optional :readonly
+    b.use :label, class: 'custom-file-label', id: "file-label"
+    b.use :input, class: 'custom-file-input'
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  end
 end

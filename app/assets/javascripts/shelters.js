@@ -191,6 +191,9 @@ $(document).ready(function() {
     })
   });
 
+  $(".shelter_cover input").change((e)=>{
+    $(".shelter_cover label").text(e.target.files[0].name);
+  });
 
 });
 
