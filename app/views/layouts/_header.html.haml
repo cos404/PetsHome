@@ -9,8 +9,8 @@
           = link_to root_url, class: "nav-link" do
             Home
             %span.sr-only (current)
-        %li.nav-item= link_to 'About', root_url, class: "nav-link"
-        %li.nav-item= link_to 'Contacts', root_url, class: "nav-link"
+        %li.nav-item= link_to 'About', about_path, class: "nav-link"
+        %li.nav-item= link_to 'Contacts', contacts_path, class: "nav-link"
       %ul.navbar-nav
         - unless user_signed_in?
           %li.nav-item= link_to "Sign in", new_user_session_path, class: "nav-link", style: "color: #007bff"

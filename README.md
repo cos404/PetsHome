@@ -9,7 +9,6 @@
 - add comments
 - add null value in pet birthday field
 - add search
-- add static page
 - add notification
 - add activity controller
 - fix uploading photo WARNING, MAX ATTENTION
@@ -32,6 +31,7 @@
 - tune Action Mailer
 - add user page
 - fix pundit policies for guests
+- add static page
 
 ### TODO_AP:
 - add user controller functional

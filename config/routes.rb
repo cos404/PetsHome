@@ -39,4 +39,12 @@ Rails.application.routes.draw do
       post    '/city'       => 'settings#create_city'
       delete  '/city/:id'   => 'settings#destroy_city'
   end
+
+  # SINGLE PAGES
+  get '/terms'    => 'pages#terms'
+  get '/about'    => 'pages#about'
+  get '/sitemap'  => 'pages#sitemap'
+  get '/press'    => 'pages#press'
+  get '/contacts' => 'pages#contacts'
+  post '/send_mail'    => 'pages#send_mail'
 end
