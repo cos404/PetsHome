@@ -8,5 +8,4 @@ class ShelterPhoto < ApplicationRecord
   validates :user_id, numericality: true
   validates :title, :user_id,  presence: true
 
-
 end

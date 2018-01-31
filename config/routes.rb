@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
   post '/getUsers'    => 'shelters#getUsers'
-  resources :shelter_photos,  only: [:create, :destroy, :show]
-  resources :pet_photos,      only: [:create, :destroy, :show]
+  resources :shelter_photos,  only: [:create, :destroy, :index]
+  resources :pet_photos,      only: [:create, :destroy, :index]
 
   get "/admin" => "admin/home#index"
   namespace :admin do
