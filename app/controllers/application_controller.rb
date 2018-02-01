@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   before_action :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
     def set_locale
@@ -17,6 +18,13 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
       flash[:warning] = "You are not authorized to perform this action."
       redirect_to(request.referrer || root_path)
+  end
+
+  # # STRONG PARAMETRES FOR DEVISE
+  def configure_permitted_parameters
+    added_attrs = [:username, :email, :avatar, :password, :password_confirmation, :remember_me, :about, :email_visible, :fullname]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
 end

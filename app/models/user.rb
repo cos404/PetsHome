@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many    :shelter_staffs
   has_many    :social_pages
 
+  validates :username, presence: true
+
   mount_uploader :avatar, AvatarUploader
 
   enum role: [:user, :disagner, :developer, :moderator, :admin]
