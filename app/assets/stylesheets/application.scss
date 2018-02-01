@@ -19,6 +19,10 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+.bg-aqua{background-color:#00c0ef!important;}
+.bg-red{background-color:#dd4b39 !important;}
+.bg-green{background-color:#00a65a !important;}
+.bg-yellow{background-color:#f39c12 !important;}
 
 * {
   list-style: none;
@@ -298,4 +302,46 @@ dl.list-spec dl dd{
 
 .none-shadow:hover {
   box-shadow: 0 1px 3px rgba(0,0,0,.28);
+}
+
+
+/* The alert message box */
+.alert, .notice{
+  position: fixed;
+  padding: 10px;
+  color: white;
+  margin-bottom: 0;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+@media (min-width: 768px){
+  .alert, .notice{
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 767px){
+  .alert, .notice{
+    width: 100%;
+  }
 }

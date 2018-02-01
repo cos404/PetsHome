@@ -9,9 +9,7 @@
 - add comments
 - add null value in pet birthday field
 - add search
-- add notification
 - add activity controller
-- fix uploading photo WARNING, MAX ATTENTION
 
 ### COMPLETE:
 - addition work time to shelter
@@ -32,6 +30,9 @@
 - add user page
 - fix pundit policies for guests
 - add static page
+- fix uploading photo WARNING, MAX ATTENTION
+- add all inputs on sign up page
+- add notification
 
 ### TODO_AP:
 - add user controller functional

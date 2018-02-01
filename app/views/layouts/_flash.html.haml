@@ -1,0 +1,10 @@
+- if flash[:error] || flash[:alert]
+  %div.alert.col-12.col-md-3
+    %span.closebtn{onclick:"this.parentElement.style.display='none';"} &times;
+    = flash[:error]
+    = flash[:alert]
+- if flash[:success] || flash[:notice]
+  %div.notice.col-12.col-md-3.bg-green
+    %span.closebtn{onclick:"this.parentElement.style.display='none';"} &times;
+    = flash[:success]
+    = flash[:notice]
