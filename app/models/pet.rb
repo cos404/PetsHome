@@ -1,4 +1,5 @@
 class Pet < ApplicationRecord
+  attr_accessor :euthanasia
 
   mount_uploader :avatar, PetAvatarUploader
 
@@ -10,9 +11,8 @@ class Pet < ApplicationRecord
 
   before_validation :enum_to_int
 
-  validates :shelter_id, :user_id, :subspecies, :size, :color, presence: true
+  validates :shelter_id, :user_id, :subspecies, :size, :color, :gender, presence: true
   validates :shelter_id, :user_id, :subspecies, numericality: true
-  validates_presence_of :euthanasia_date, if: :euthanasia?
 
   enum subspecies: [:dog, :cat, :another]
   enum gender: [:boy, :girl]

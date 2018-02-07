@@ -25,6 +25,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id
     @pet.shelter_id = @shelter.id
+    @pet.euthanasia_date = nil if @pet.euthanasia.to_i.zero?
     @pet.save!
 
     if @pet.errors.empty?
@@ -54,5 +55,5 @@ class PetsController < ApplicationController
   def find_shelter
     @shelter = Shelter.find(params[:shelter_id])
   end
-end
 
+end

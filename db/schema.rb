@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20170920145546) do
   create_table "pets", force: :cascade do |t|
     t.date "birthday"
     t.date "euthanasia_date"
-    t.boolean "euthanasia", default: false
     t.boolean "sterilization"
     t.boolean "vaccination"
     t.integer "subspecies"
@@ -160,14 +159,6 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.boolean "working"
     t.boolean "verified"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "social_networks", force: :cascade do |t|
-    t.string "title"
-    t.string "logotype"
-    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

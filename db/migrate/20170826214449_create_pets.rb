@@ -4,7 +4,6 @@ class CreatePets < ActiveRecord::Migration[5.1]
 
       t.date    :birthday
       t.date    :euthanasia_date
-      t.boolean :euthanasia, default: false
       t.boolean :sterilization
       t.boolean :vaccination
       t.integer :subspecies # 1 - Dog, 2 - Cat, 0 - Other

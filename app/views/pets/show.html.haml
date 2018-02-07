@@ -7,12 +7,14 @@
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.shelter'
       %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter
-    %dl.list-spec
-      %dt#tag.list-spec_name= t 'view.pet.birthday' if @pet.birthday
-      %dd.list-spec_value= @pet.birthday  if @pet.birthday
-    %dl.list-spec
-      %dt#tag.list-spec_name= t 'view.pet.euthanasia'
-      %dd.list-spec_value= t "view.pet.boolean.euthanasia_#{@pet.euthanasia}"
+    - if @pet.birthday
+      %dl.list-spec
+        %dt#tag.list-spec_name= t 'view.pet.birthday'
+        %dd.list-spec_value= @pet.birthday
+    - if @pet.euthanasia_date
+      %dl.list-spec
+        %dt#tag.list-spec_name= t 'view.pet.euthanasia_date'
+        %dd.list-spec_value= @pet.euthanasia_date
     %dl.list-spec
       %dt#tag.list-spec_name
         = t 'view.pet.size'
@@ -24,7 +26,7 @@
       %dd.list-spec_value= @pet.gender.humanize.capitalize
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.vaccination'
-      %dd.list-spec_value= @pet.vaccination
+      %dd.list-spec_value= t "view.pet.boolean.vaccination_#{@pet.vaccination}"
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.diseases'
       %dd.list-spec_value= @pet.diseases

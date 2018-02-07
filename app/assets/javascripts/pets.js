@@ -1,4 +1,4 @@
-jQuery(function() {
+$(function() {
   return $('#pet_photo_pet_photo').fileupload({
     dataType: "script",
     add: function(e, data) {
