@@ -1,7 +1,16 @@
 %h1= t 'view.shelter.add_new'
 %section.col-6.float-left
   = simple_form_for @shelter do |f|
-    = render partial: 'form', locals: {f: f}
+    = f.input :title
+    = f.input :about, input_html:{rows: 7}
+    .schedule
+      = f.simple_fields_for :schedules do |s|
+        %div.col-12
+          = I18n.t("view.shelter.day_of_week.#{s.object.day_of_week}")
+          = s.hidden_field :day_of_week
+          %div.work-time.input-group
+            = s.input :open, as: :time, html5: true, label: false
+            = s.input :close, as: :time, html5: true, label: false
     = f.submit "Save", class: "btn btn-success"
 %section.col-6.float-right
   = render partial: 'upload'

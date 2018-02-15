@@ -7,13 +7,35 @@ class SheltersController < ApplicationController
   end
 
   def show
+    @schedules = @shelter.schedules.sort_by do |a|
+      @shelter.schedules.day_of_weeks[a.day_of_week]
+    end
   end
 
   def edit
+    7.times do |i|
+      day = @shelter.schedules.day_of_weeks.key(i)
+      unless @shelter.schedules.any?{|j| j.day_of_week == day}
+        @shelter.schedules.build(day_of_week: day)
+      end
+    end
+
+    @schedules = @shelter.schedules.sort_by do |a|
+      @shelter.schedules.day_of_weeks[a.day_of_week]
+    end
+
+    authorize @shelter
   end
 
   def update
     @shelter.update_attributes(shelter_params)
+
+    # DELETE DAYS WITH BLANK TIME
+    params[:shelter][:schedules_attributes].each do |key, value|
+      if value[:id]
+        Schedule.find(value[:id]).destroy  if value[:open].blank? || value[:close].blank?
+      end
+    end
 
     if @shelter.errors.empty?
       redirect_to @shelter
@@ -41,7 +63,6 @@ class SheltersController < ApplicationController
 
     if @shelter.errors.empty?
       ShelterPhoto.where(user_id: current_user.id, shelter_id: nil).update_all(shelter_id: @shelter.id)
-
       flash[:success] = "Shelter added!"
       redirect_to @shelter
     else
@@ -84,7 +105,7 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day])
+    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :working, :verified, :country_id, :region_id, :city_id, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day, :id])
   end
 
   def shelter_staff_params

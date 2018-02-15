@@ -14,8 +14,8 @@
       %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
     %dl.list-spec= @shelter.about
     %section#schedule
-      - @shelter.schedules.each do |day|
-        %dt= day.day_of_week
+      - @schedules.each do |day|
+        %dt= I18n.t("view.shelter.day_of_week.#{day.day_of_week}")
         %dd
           = day.open.strftime("%H:%M")
           —
