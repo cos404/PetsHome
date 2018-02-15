@@ -4,7 +4,7 @@ function init(){
 
   var map = new ymaps.Map("map", {
     center: [latitude, longitude],
-    zoom: 14,
+    zoom: 6,
     controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
   }),
   objectManager = new ymaps.ObjectManager({

@@ -11,7 +11,6 @@ $(function(){
     runEffect();
   });
 
-
   function runEffectRegion() {
     var selectedEffect = "blind";
     $("#region-new-form").toggle( selectedEffect, {}, 500);
@@ -31,39 +30,37 @@ $(function(){
     if(!$("#city-toggle").hasClass('disabled')) runEffectCity();
   });
 
-
-  // BUTTON "REMOVE COUNTRY"
-  $("#countries").change(()=>{
-    var country_id = $(this).find(":selected").val();
-    $("#country-remove").remove();
-    if(country_id){
-      $("#country-control").append(
-        `<button class="btn btn-danger" id="country-remove" data-country="${country_id}">-</button>`
-      );
-    }
-  });
-
-  $("#country-control").click('#country-remove', ()=>{
-    var country_id = $('#country-remove').data("country");
-    $.ajax({
-      type: 'DELETE',
-      url: `/admin/country/${country_id}`,
-      dataType: 'json',
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(data) {
-        $("#country-remove").remove();
-        $(`#countries option[value=${country_id}]`).remove();
-      },
-      error: function(data){
-        console.log(data);
+  // BLOCK COUNTRY
+    // BUTTON "REMOVE COUNTRY"
+    $("#countries").change(()=>{
+      var country_id = $(this).find(":selected").val();
+      $("#country-remove").remove();
+      if(country_id){
+        $("#country-control").append(
+          `<button class="btn btn-danger" id="country-remove" data-country="${country_id}">-</button>`
+        );
       }
-    })
-  });
+    });
 
-  // BLOCK "ADD REGION"
-
+    $("#country-control").click('#country-remove', ()=>{
+      var country_id = $('#country-remove').data("country");
+      $.ajax({
+        type: 'DELETE',
+        url: `/admin/country/${country_id}`,
+        dataType: 'json',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(data) {
+          $("#country-remove").remove();
+          $(`#countries option[value=${country_id}]`).remove();
+        },
+        error: function(data){
+          console.log(data);
+        }
+      })
+    });
+  // BLOCK REGION
     // GET REGION LIST
     $("#countries").change(()=>{
       var country_id = $(this).find(":selected").val();
@@ -131,7 +128,6 @@ $(function(){
         }
       })
     });
-
   // BLOCK "CITY"
     // GET CITY LIST
     $("#regions").change(()=>{
@@ -199,5 +195,22 @@ $(function(){
       })
     });
 
+  // Generate Shelters JSON
+  $("#SheltersJSON").click(()=>{
+    $.ajax({
+      type: 'POST',
+      url: '/admin/generateSheltersJSON',
+      dataType: 'json',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: (data) =>{
+        console.log(data);
+      },
+      error: (data) =>{
+        console.log(data);
+      }
+    });
+  })
 
 });

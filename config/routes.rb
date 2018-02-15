@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get "/admin" => "admin/home#index"
   namespace :admin do
 
+    get '/settings' => "settings#index"
+    post '/generateSheltersJSON' => "settings#generateSheltersJSON"
+
     ## LOCATION PAGE
     get '/location' => 'settings#location_index'
       # COUNTRY ROUTES
