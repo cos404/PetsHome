@@ -5,7 +5,6 @@
 - add user edit page
 - addition phone numbers to shelter
 - changing staff role
-- add new shelter schedule day_of_week on edit page
 - add comments
 - add null value in pet birthday field
 - add search
@@ -33,12 +32,12 @@
 - fix uploading photo WARNING, MAX ATTENTION
 - add all inputs on sign up page
 - add notification
+- add new shelter schedule day_of_week on edit page
 
 ### TODO_AP:
-- add user controller functional
 - add shelter controller functional
 - add pet controller functional
-
+- add actions to user list(activate, ban, deactivate)
 
 ### COMPLETE_AP:
 - add stats to main page admin panel
@@ -46,6 +45,7 @@
 - add addition\deleting countries
 - add addition\deleting regions
 - add addition\deleting cities
+- add user controller functional
 
 ### ENUMS:
 - Staff

@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users, only: [:show, :edit, :update, :index]
-  resources :posts
+  resources :posts, except: :destroy
 
   resources :shelters do
-    resources :pets
+    resources :pets, except: :destroy
     post    'addStaff/:user_id'     => 'shelters#addStaff'
     delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get '/settings' => "settings#index"
     post '/generateSheltersJSON' => "settings#generateSheltersJSON"
 
+    resources :users, except: :destroy
     ## LOCATION PAGE
     get '/location' => 'settings#location_index'
       # COUNTRY ROUTES

@@ -184,7 +184,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.integer "role", default: 0
     t.boolean "email_visible", default: false
     t.string "avatar"
-    t.string "status"
+    t.integer "status", default: 0
     t.string "fullname"
     t.string "username"
     t.text "about"

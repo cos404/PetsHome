@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.boolean :email_visible, default: false
 
       t.string  :avatar
-      t.string  :status
+      t.integer :status, default: 0
       t.string  :fullname
       t.string  :username
 

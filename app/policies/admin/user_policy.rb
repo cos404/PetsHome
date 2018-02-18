@@ -1,4 +1,4 @@
-class UserPolicy
+class Admin::UserPolicy
   attr_reader :user, :user_page
 
   def initialize(user, user_page)
@@ -7,8 +7,7 @@ class UserPolicy
   end
 
   def index?
-    puts "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
-    false
+    true
   end
 
   def show?

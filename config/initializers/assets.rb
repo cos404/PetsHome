@@ -20,4 +20,5 @@ Rails.application.config.assets.precompile +=
   pages.js pages.css
   admin/home.js admin/home.css
   admin/settings.js admin/settings.css
+  admin/users.js admin/users.css
 )
