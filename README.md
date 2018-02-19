@@ -2,7 +2,6 @@
 
 ### TODO:
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
-- add user edit page
 - addition phone numbers to shelter
 - changing staff role
 - add comments
@@ -33,6 +32,7 @@
 - add all inputs on sign up page
 - add notification
 - add new shelter schedule day_of_week on edit page
+- add user edit page
 
 ### TODO_AP:
 - add shelter controller functional
