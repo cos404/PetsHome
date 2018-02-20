@@ -19,6 +19,7 @@ module BillyBo
       g.template_engine     :haml
       g.test_fraemwork      :rspec, fixtures: true, views: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.javascript_engine   :js
     end
 
   config.i18n.available_locales = %w(ru en)

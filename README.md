@@ -49,6 +49,7 @@
 - add users list
 - add user edit page
 - add shelters list
+- add pets list
 
 ### ENUMS:
 - Staff
