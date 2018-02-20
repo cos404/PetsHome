@@ -2,15 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.br25{
-  border-radius: 25px;
-}
-.btn{
-  color: white;
-}
-.id{
-  width:50px;
-}
 .username{
   width:200px;
 }
@@ -19,24 +10,4 @@
 }
 .status{
   width:70px;
-}
-.actions{
-  width:120px;
-}
-
-.users tr{
-  height: 42px;
-}
-
-.users th .current {
-  padding-right: 12px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-.users th .asc {
-  background-image: url(/images/up_arrow.gif);
-}
-
-.users th .desc {
-  background-image: url(/images/down_arrow.gif);
 }

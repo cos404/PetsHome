@@ -48,6 +48,7 @@
 - add addition\deleting cities
 - add users list
 - add user edit page
+- add shelters list
 
 ### ENUMS:
 - Staff

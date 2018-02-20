@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     get '/settings' => "settings#index"
     post '/generateSheltersJSON' => "settings#generateSheltersJSON"
 
-    resources :users, except: :destroy
+    resources :users,     except: :destroy
+    resources :shelters,  except: :destroy
     ## LOCATION PAGE
     get '/location' => 'settings#location_index'
       # COUNTRY ROUTES

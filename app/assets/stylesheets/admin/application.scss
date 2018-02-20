@@ -32,6 +32,21 @@ aside{
 .bg-green{background-color:#00a65a !important;}
 .bg-yellow{background-color:#f39c12 !important;}
 
+.br25{border-radius: 25px;}
+.btn{color: white;}
+.id{width:50px;}
+.actions{width:120px;}
+
+.list tr{height: 42px;}
+.list th .asc {background-image: url(/images/up_arrow.gif);}
+.list th .desc {background-image: url(/images/down_arrow.gif);}
+.list th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+
 #body{
   position: absolute;
   padding-left: 50px;

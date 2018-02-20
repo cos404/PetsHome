@@ -1,0 +1,21 @@
+.col-12.mt-3.mb-3
+  %table.list
+    %tr
+      %th.id= sortable :id
+      %th.title= sortable :title
+      %th.country= sortable :country_id
+      %th.working= sortable :working
+      %th.verified= sortable :verified
+      %th.user= sortable :user_id
+      %th.actions Actions
+    - @shelters.each do |shelter|
+      %tr
+        %td= shelter.id
+        %td= link_to shelter.title, shelter_path(shelter)
+        %td= shelter.country.title_en
+        %td= shelter.working
+        %td= shelter.verified
+        %td= shelter.user.username
+        %td
+          = link_to "e", edit_admin_shelter_path(shelter), class: "ui-state-default ui-corner-all btn btn-primary btn-sm br25", id:"id-#{shelter.id}"
+          = link_to "b", "#", class: "ui-state-default ui-corner-all btn btn-danger btn-sm br25"
