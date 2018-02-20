@@ -408,3 +408,13 @@ ru:
       not_saved:
         one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  admin:
+    user:
+      avatar: "Аватар"
+      title: "Редактирование профиля"
+      email_visible: "Отображать email"
+      fullname: "ФИО"
+      about: "Обо мне"
+      leave_blank_if_you_don_t_want_to_change_it: "оставьте поле пустым, если не хотите его менять"
+      we_need_your_current_password_to_confirm_your_changes: "введите текущий пароль для подтверждения изменений"
+      update: "Сохранить"

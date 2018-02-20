@@ -1,0 +1,16 @@
+.col-12.col-lg-6.mt-3.mb-3
+  %h2= t("admin.user.title")
+  = simple_form_for @user, url:{controller: 'admin/users', action: 'update'} do |f|
+    .form-inputs
+      = f.input :username
+      = f.input :email, required: true, autofocus: true
+      = f.input :email_visible, label: t("admin.user.email_visible")
+      = f.input :avatar, as: :file, wrapper: :file_input, label: t("admin.user.avatar"), class: 'mb-1'
+      = f.input :role, as: :select, collection: User.roles.keys.to_a, include_blank: false
+      = f.input :fullname, label: t("admin.user.fullname")
+      = f.input :about, label: t("admin.user.about")
+      = f.input :password, autocomplete: "off", placeholder: t("admin.user.leave_blank_if_you_don_t_want_to_change_it"), required: false
+      = f.input :password_confirmation, required: false
+    .form-actions
+      = f.submit  t("admin.user.update"), class: "btn btn-success"
+      = link_to t("devise.shared.links.back"), :back

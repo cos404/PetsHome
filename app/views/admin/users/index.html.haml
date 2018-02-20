@@ -1,19 +1,17 @@
-%div.col-12
-  %div.container-fluid
-    %div.row.mt-3
-      %table.users
-        %tr
-          %th.id= sortable :id
-          %th.username= sortable :username
-          %th.email= sortable :email
-          %th.status= sortable :status
-          %th.actions Actions
-        - @users.each do |user|
-          %tr
-            %td= user.id
-            %td= link_to user.username, user_path(user)
-            %td= user.email
-            %td= user.status
-            %td
-              = link_to "e", edit_admin_user_path(user), class: "ui-state-default ui-corner-all btn btn-primary btn-sm"
-              = link_to "b", "#", class: "ui-state-default ui-corner-all btn btn-danger btn-sm"
+.col-12.mt-3.mb-3
+  %table.users
+    %tr
+      %th.id= sortable :id
+      %th.username= sortable :username
+      %th.email= sortable :email
+      %th.status= sortable :status
+      %th.actions Actions
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td= link_to user.username, user_path(user)
+        %td= user.email
+        %td= user.status
+        %td
+          = link_to "e", edit_admin_user_path(user), class: "ui-state-default ui-corner-all btn btn-primary btn-sm br25", id:"id-#{user.id}"
+          = link_to "b", "#", class: "ui-state-default ui-corner-all btn btn-danger btn-sm br25"

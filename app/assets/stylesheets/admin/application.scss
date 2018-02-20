@@ -24,6 +24,7 @@ aside{
   width: 50px;
   background-color: #162028;
   z-index: 1;
+  position: fixed;
  }
 
 .bg-aqua{background-color:#00c0ef!important;}
@@ -111,3 +112,9 @@ aside{
   color: white;
 }
 
+.custom-file{
+  margin-bottom: 1rem;
+}
+.custom-file-input{
+  cursor: pointer;
+}

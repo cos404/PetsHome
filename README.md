@@ -37,6 +37,7 @@
 ### TODO_AP:
 - add shelter controller functional
 - add pet controller functional
+- add user controller functional
 - add actions to user list(activate, ban, deactivate)
 
 ### COMPLETE_AP:
@@ -45,7 +46,8 @@
 - add addition\deleting countries
 - add addition\deleting regions
 - add addition\deleting cities
-- add user controller functional
+- add users list
+- add user edit page
 
 ### ENUMS:
 - Staff
