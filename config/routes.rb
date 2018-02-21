@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources :shelters,  except: :destroy
     resources :pets,      except: :destroy
 
+    post '/getRegions'  => 'shelters#getRegions'
+    post '/getCities'   => 'shelters#getCities'
+
     ## LOCATION PAGE
     get '/location' => 'settings#location_index'
       # COUNTRY ROUTES

@@ -3,7 +3,6 @@ class Admin::PetsController < Admin::ApplicationController
 
   def index
     @pets = Pet.includes(:shelter,  shelter:[:country]).order(sort_column + ' ' + sort_direction)
-    p @pets
   end
 
   private
