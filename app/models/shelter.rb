@@ -12,6 +12,8 @@ class Shelter < ApplicationRecord
   has_many    :shelter_staffs, dependent: :destroy
   has_many    :schedules, dependent: :destroy, autosave: true
 
+  enum status: [:active, :suspended, :deactived]
+
   accepts_nested_attributes_for :schedules, reject_if: lambda{|attributes| attributes[:open].blank? || attributes[:close].blank?}, allow_destroy: true
 
   validates :user_id, :country_id, :region_id, :city_id, numericality: true

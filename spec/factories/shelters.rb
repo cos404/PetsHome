@@ -15,6 +15,6 @@ FactoryBot.define do
     street
     title         "New life"
     verified      true
-    working       true
+    moderation    true
   end
 end

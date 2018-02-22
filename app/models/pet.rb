@@ -17,7 +17,7 @@ class Pet < ApplicationRecord
   enum subspecies: [:dog, :cat, :another]
   enum gender: [:boy, :girl]
   enum size: [:s, :m, :l]
-
+  enum status: [:active, :euthanized, :took, :deactived]
   private
 
   def enum_to_int

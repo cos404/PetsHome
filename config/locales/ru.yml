@@ -49,8 +49,8 @@ ru:
         longitude: "Долгота"
         description: "О приюте"
         cover: "Обложка"
-        working: "Работает"
-        verified: "Проверен"
+        moderation: "Ожидает модерации"
+        verified: "Верифицирован"
         about: "О нас"
   date:
     abbr_day_names:

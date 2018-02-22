@@ -50,6 +50,7 @@
 - add user edit page
 - add shelters list
 - add pets list
+- add shelter edit page
 
 ### ENUMS:
 - Staff

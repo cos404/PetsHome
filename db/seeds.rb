@@ -129,7 +129,7 @@ Shelter.create!(
   house_number: '142А',
   about:  'Мы волонтеры официального БЗОЖ "ДОБРОДЕТЕЛЬ". На данным момент мы курируем и спасаем животных с БУКСАПа, который является пунктом временного содержания животных и их дальнейшего умерщвления!!Это не приют с питанием,это убой!',
   cover:        '',
-  working:      true,
+  moderation:   true,
   verified:     true,
   user_id:      1)
 Shelter.create!(
@@ -141,7 +141,7 @@ Shelter.create!(
   house_number: '410',
   about:  'For more than 114 years, Bideawee has been the leading pet welfare organization serving metropolitan New York and Long Island. Through a vast array of services Bideawee cultivates and supports the life-long relationships between pets and the people who love them. Please explore the site and get to know more about how Bideawee can accompany you and your pet through your life-long journey together.',
   cover:        '',
-  working:      true,
+  moderation:   false,
   verified:     true,
   user_id:      2)
 

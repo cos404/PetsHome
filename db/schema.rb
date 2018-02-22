@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 20170920145546) do
   create_table "pets", force: :cascade do |t|
     t.date "birthday"
     t.date "euthanasia_date"
-    t.boolean "sterilization"
-    t.boolean "vaccination"
-    t.integer "subspecies"
+    t.boolean "sterilization", default: false
+    t.boolean "vaccination", default: false
+    t.integer "subspecies", default: 0
     t.integer "size"
-    t.integer "gender"
+    t.integer "gender", default: 0
     t.integer "user_id"
     t.integer "shelter_id"
     t.string "name"
@@ -74,8 +74,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.string "avatar"
     t.text "diseases"
     t.text "about"
-    t.boolean "finished"
-    t.string "finished_description"
+    t.integer "status", default: 0
     t.integer "views", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -152,12 +151,13 @@ ActiveRecord::Schema.define(version: 20170920145546) do
     t.integer "city_id"
     t.string "street"
     t.string "house_number"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", default: 0.0
+    t.float "longitude", default: 0.0
     t.text "about"
     t.string "cover"
-    t.boolean "working"
-    t.boolean "verified"
+    t.boolean "moderation", default: false
+    t.boolean "verified", default: false
+    t.integer "status", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

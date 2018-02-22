@@ -3,6 +3,7 @@
     %tr
       %th.id= sortable :id
       %th.name= sortable :name
+      %th.status= sortable :status
       %th.shelter Shelter
       %th.country Country
       %th.actions Actions
@@ -10,6 +11,7 @@
       %tr
         %td= pet.id
         %td= link_to pet.name, shelter_pet_path(pet.shelter_id, pet.id)
+        %td= pet.status
         %td= pet.shelter.title
         %td= pet.shelter.country.title_en
         %td
