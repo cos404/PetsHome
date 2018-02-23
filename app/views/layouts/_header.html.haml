@@ -1,20 +1,21 @@
 %header
   %nav.navbar.navbar-expand-md.navbar-light.nav-custom
-    =  link_to 'PetHome', root_url, class: 'navbar-brand'
+    =  link_to 'BillyBo', root_url, class: 'navbar-brand'
     %button.navbar-toggler{"aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-toggle" => "collapse", :type => "button", "aria-controls" => "nav-head", "data-target" => "#nav-head"}
       %span.navbar-toggler-icon
     #nav-head.collapse.navbar-collapse
-      %ul.navbar-nav.mr-auto
-        %li.nav-item.active
-          = link_to root_url, class: "nav-link" do
-            Home
-            %span.sr-only (current)
-        %li.nav-item= link_to 'About', about_path, class: "nav-link"
-        %li.nav-item= link_to 'Contacts', contacts_path, class: "nav-link"
       %ul.navbar-nav
+        %li.nav-item= link_to t('view.application.menu.dogs'), "", class: "nav-link"
+        %li.nav-item= link_to t('view.application.menu.cats'), "", class: "nav-link"
+        %li.nav-item= link_to t('view.application.menu.other'), "", class: "nav-link"
+      %div.btn-group.ml-auto
         - unless user_signed_in?
-          %li.nav-item= link_to "Sign in", new_user_session_path, class: "nav-link", style: "color: #007bff"
-          %li.nav-item= link_to "Sign up", new_user_registration_path, class: "nav-link", style: "color: #007bff"
+          %button.btn.btn-primary= link_to t('view.application.menu.sign-in'), new_user_session_path
+          %button.btn.btn-primary= link_to t('view.application.menu.sign-up'), new_user_registration_path
         - else
-          %li.nav-item= link_to current_user.email, current_user, class: "nav-link", style: "color: #007bff"
-          %li.nav-item= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link", style: "color: #007bff"
+          %button.btn.btn-primary= link_to current_user.email, current_user
+          %button.btn.dropdown-toggle.btn-primary{data:{toggle:"dropdown"}}
+            %span.caret
+          %ul.dropdown-menu
+            %li= link_to t('view.application.menu.new-shelter'), new_shelter_path
+            %li= link_to t('view.application.menu.sign-out'), destroy_user_session_path, method: :delete

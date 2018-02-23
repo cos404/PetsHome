@@ -66,6 +66,9 @@ h6 {
   font-size: 8px;
 }
 
+:focus{outline: 0!important;}
+.btn:focus, .btn-primary:focus, {box-shadow: none!important;}
+
 // a {
 //   color: #15c;
 //   text-decoration: none;
@@ -354,3 +357,6 @@ dl.list-spec dl dd{
 .custom-file-input{
   cursor: pointer;
 }
+
+// BOOTSTRAP
+.dropdown-menu {padding:0.5rem;}
