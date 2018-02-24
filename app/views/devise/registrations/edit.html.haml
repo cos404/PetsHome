@@ -16,4 +16,4 @@
       = f.input :current_password, placeholder: t(".we_need_your_current_password_to_confirm_your_changes"), required: true
     .form-actions
       = f.button :submit, t(".update")
-  = link_to t("devise.shared.links.back"), current_user
+  = link_to t("devise.shared.links.back"), user_path(current_user.username)

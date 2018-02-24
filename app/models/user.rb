@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many    :social_pages
 
   validates :username, presence: true
+  validates :username, uniqueness: true
 
   mount_uploader :avatar, AvatarUploader
 

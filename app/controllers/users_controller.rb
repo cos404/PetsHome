@@ -1,36 +1,15 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
-
-  def index
-    @users = User.all
-  end
-
-  def edit
-  end
-
-  def update
-    @user.update_attributes(user_params)
-
-    if @user.errors.empty?
-      redirect_to @user
-    else
-      render "edit"
-    end
-  end
 
   def show
+    # @user = User.find(params[:id])
+    @user = User.find_by(username: params[:username])
 
-  end
+    if @user.nil?
+      render file: "#{Rails.root}/public/404", status: :not_found
+    else
+      authorize @user
+    end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :email_visible, :password, :avatar, :fullname, :about, :username)
-  end
-
-  def find_user
-    @user = User.find(params[:id])
-    authorize @user
   end
 
 end

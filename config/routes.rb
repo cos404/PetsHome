@@ -3,18 +3,22 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  resources :users, only: [:show, :index]
   resources :posts, except: :destroy
   resources :search
+
+  # resources :users, only: [:show]
+  get 'users/:username' => 'users#show', as: :user
 
   resources :shelters do
     resources :pets, except: :destroy
     post    'addStaff/:user_id'     => 'shelters#addStaff'
     delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
+
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
   post '/getUsers'    => 'shelters#getUsers'
+
   resources :shelter_photos,  only: [:create, :destroy, :index]
   resources :pet_photos,      only: [:create, :destroy, :index]
 

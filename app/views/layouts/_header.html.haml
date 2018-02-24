@@ -13,7 +13,7 @@
           %button.btn.btn-primary= link_to t('view.application.menu.sign-in'), new_user_session_path
           %button.btn.btn-primary= link_to t('view.application.menu.sign-up'), new_user_registration_path
         - else
-          %button.btn.btn-primary= link_to current_user.email, current_user
+          %button.btn.btn-primary= link_to current_user.email, user_path(current_user.username)
           %button.btn.dropdown-toggle.btn-primary{data:{toggle:"dropdown"}}
             %span.caret
           %ul.dropdown-menu

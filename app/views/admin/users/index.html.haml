@@ -9,7 +9,7 @@
     - @users.each do |user|
       %tr
         %td= user.id
-        %td= link_to user.username, user_path(user)
+        %td= link_to user.username, user_path(user.username)
         %td= user.email
         %td= user.status
         %td

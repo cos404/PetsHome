@@ -6,7 +6,7 @@
           = image_tag @user.avatar
         %ul.user_info
           %li
-            = link_to @user.username, @user, class:"username"
+            = @user.username
             %span.role= "(#{@user.role})" unless @user.user?
           - if policy(@user).edit?
             %li= link_to 'Редактировать', edit_user_registration_path, class:"btn-edit"
