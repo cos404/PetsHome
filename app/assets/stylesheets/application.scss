@@ -23,6 +23,7 @@
 .bg-red{background-color:#dd4b39 !important;}
 .bg-green{background-color:#00a65a !important;}
 .bg-yellow{background-color:#f39c12 !important;}
+.full-height{min-height: calc(100vh - 250px);}
 
 * {
   list-style: none;
@@ -66,8 +67,7 @@ h6 {
   font-size: 8px;
 }
 
-:focus{outline: 0!important;}
-.btn:focus, .btn-primary:focus, {box-shadow: none!important;}
+:focus{outline: 0!important; box-shadow: none!important;}
 
 // a {
 //   color: #15c;
@@ -80,9 +80,7 @@ a:hover {
 }
 
 
-#body {
-  min-height: calc(100vh - 155px);
-}
+#body {min-height: calc(100vh - 200px)}
 
 .map {
   background: #F8F8F8;

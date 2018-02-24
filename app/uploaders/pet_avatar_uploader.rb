@@ -5,7 +5,6 @@ class PetAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   require "translit"
-
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -20,7 +19,6 @@ class PetAvatarUploader < CarrierWave::Uploader::Base
   def default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
     ActionController::Base.helpers.asset_path("/" + [version_name, "uploads/def/pet.png"].compact.join('_'))
-
     # "/images/fallback/" + [version_name, "avatar.png"].compact.join('_')
   end
 
@@ -45,6 +43,6 @@ class PetAvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{model.username}.#{file.extension}" if original_filename
+    "#{model.name}.#{file.extension}" if original_filename
   end
 end

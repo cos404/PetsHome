@@ -1,0 +1,15 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// AUTO CLASSES
+.pet_search *{margin-bottom:4px}
+
+
+//
+.search-bar{border-right: 1px #e1e1e1 solid}
+.search-result{display:flex;flex-direction:row;justify-content:flex-start;align-items:stretch}
+.search-result h4{margin:0 0 2px 0;width:100%;}
+.search-result-information{}
+.search-result-pet-avatar{max-width: 200px; max-height: 200px;}
+.search-result-pet-name{font-size:20px}

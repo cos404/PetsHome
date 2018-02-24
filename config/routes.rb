@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index]
   resources :posts, except: :destroy
+  resources :search
 
   resources :shelters do
     resources :pets, except: :destroy

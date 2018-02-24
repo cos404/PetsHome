@@ -6,8 +6,9 @@
 - changing staff role
 - add comments
 - add null value in pet birthday field
-- add search
 - add activity controller
+- add human url
+- fix cyrillic case intenseve in the search
 
 ### COMPLETE:
 - addition work time to shelter
@@ -33,6 +34,7 @@
 - add notification
 - add new shelter schedule day_of_week on edit page
 - add user edit page
+- add search
 
 ### TODO_AP:
 - add shelter controller functional

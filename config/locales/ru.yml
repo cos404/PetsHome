@@ -356,6 +356,28 @@ ru:
         sign-up: "Регистрация"
         sign-in: "Войти"
         sign-out: "Выйти"
+    search:
+      menu:
+        city: "Город"
+        country: "Страна"
+        subspecies: "Вид(все)"
+        dog: "Собаки"
+        cat: "Коты"
+        other: "Другие"
+        gender: "Пол(все)"
+        boy: "М"
+        girl: "Ж"
+        size: "Размер(все)"
+        s: "S"
+        m: "M"
+        l: "L"
+        search: "Найти"
+        sterilization:
+          "true": "Стерилизован"
+          "false": "Не стерилизован"
+        vaccination:
+          "true": "Вакцинирован"
+          "false": "Вакцина не сделана"
   devise:
     confirmations:
       confirmed: "Ваша учётная запись подтверждена."

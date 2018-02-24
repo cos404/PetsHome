@@ -5,9 +5,9 @@
       %span.navbar-toggler-icon
     #nav-head.collapse.navbar-collapse
       %ul.navbar-nav
-        %li.nav-item= link_to t('view.application.menu.dogs'), "", class: "nav-link"
-        %li.nav-item= link_to t('view.application.menu.cats'), "", class: "nav-link"
-        %li.nav-item= link_to t('view.application.menu.other'), "", class: "nav-link"
+        %li.nav-item= link_to t('view.application.menu.dogs'), search_index_path(q:{subspecies_eq: 0}), class: "nav-link"
+        %li.nav-item= link_to t('view.application.menu.cats'), search_index_path(q:{subspecies_eq: 1}), class: "nav-link"
+        %li.nav-item= link_to t('view.application.menu.other'), search_index_path(q:{subspecies_eq: 2}), class: "nav-link"
       %div.btn-group.ml-auto
         - unless user_signed_in?
           %button.btn.btn-primary= link_to t('view.application.menu.sign-in'), new_user_session_path
