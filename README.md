@@ -7,7 +7,6 @@
 - add comments
 - add null value in pet birthday field
 - add activity controller
-- add human url
 - fix cyrillic case intenseve in the search
 
 ### COMPLETE:
@@ -35,6 +34,8 @@
 - add new shelter schedule day_of_week on edit page
 - add user edit page
 - add search
+- add human url
+- add titles
 
 ### TODO_AP:
 - add shelter controller functional

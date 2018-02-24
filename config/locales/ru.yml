@@ -310,6 +310,23 @@ ru:
       short: "%d %b, %H:%M"
     pm: вечера
   view:
+    title:
+      home: "Главная"
+      profile: "Профиль"
+      about: "О нас"
+      contacts: "Контакты"
+      press: "Пресса"
+      sitemap: "Карта сайта"
+      terms: "Правила"
+      pet:
+        edit: "Редактирование"
+        new: "Добавление питомца"
+        show: ""
+      search: "Поиск"
+      shelter:
+        edit: "Редактирование приюта"
+        new: "Добавление приют"
+        show: ""
     home:
       near: "Недалеко от вас"
       tagline: "Сделай мир лучше!"
