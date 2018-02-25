@@ -3,7 +3,7 @@
 %section.col-6.float-left
   = simple_form_for [@shelter, @pet] do |f|
     = render partial: 'form', locals: {f: f}
-    = f.submit "Add"
+    = f.submit t('view.button.add'), class: "btn btn-success"
 %section.col-6.float-right
   = render partial: 'upload'
   %div#photo

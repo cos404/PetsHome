@@ -327,6 +327,9 @@ ru:
         edit: "Редактирование приюта"
         new: "Добавление приют"
         show: ""
+    button:
+      add: "Добавить"
+      edit: "Сохранить"
     home:
       near: "Недалеко от вас"
       tagline: "Сделай мир лучше!"
@@ -342,10 +345,13 @@ ru:
         saturday:   "Суббота"
         sunday:     "Воскресенье"
     pet:
+      name: "Кличка"
+      status: "Статус"
+      subspecies: "Вид"
       address: "Адрес"
       shelter: "Приют"
       age: "Возраст"
-      euthanasia_date: "Дата эвтаназии"
+      euthanasia: "Дата эвтаназии"
       size: "Размер"
       vaccination: "Вакцинация"
       diseases: "Болезни"
@@ -354,6 +360,23 @@ ru:
       about: "О питомце"
       gender: "Пол"
       birthday: "Дата рождения"
+      select:
+        subspecies:
+          dog: "Собака"
+          cat: "Кот"
+          other: "Другое"
+        gender:
+          boy: "м"
+          girl: "ж"
+        size:
+          s: "S"
+          m: "M"
+          l: "L"
+        status:
+          active: В приюте
+          euthanized: Усыплен
+          took: Нашел хозяев
+          deactived: Деактивировать
       boolean:
         vaccination_true: "Сделаны"
         vaccination_false: "Не сделаны"

@@ -22,8 +22,8 @@
               = t("view.search.menu.vaccination.#{pet.vaccination}")
               = "|"
               = t("view.search.menu.sterilization.#{pet.sterilization}")
-              - if pet.euthanasia_date
+              - if pet.euthanasia
                 = "|"
-                = "Дата эвтаназии: #{pet.euthanasia_date.strftime('%m.%d.%y')}"
+                = "Дата эвтаназии: #{pet.euthanasia.strftime('%m.%d.%y')}"
             %h4
               = "#{country}, #{city}"

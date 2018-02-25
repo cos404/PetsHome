@@ -3,7 +3,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
     create_table :pets do |t|
 
       t.date    :birthday
-      t.date    :euthanasia_date
+      t.date    :euthanasia
       t.boolean :sterilization, default: false
       t.boolean :vaccination, default: false
       t.integer :subspecies, default: 0 # 0 - Dog, 1 - Cat, 2 - Other

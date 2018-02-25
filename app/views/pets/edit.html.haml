@@ -1,11 +1,11 @@
 - @page_title = "| " + t('view.title.pet.edit') + " #{@pet.name}"
-%h1= t 'view.pet.add_new'
+%h1= t('view.title.pet.edit') + " #{@pet.name}"
 %section.col-6.float-left
   = simple_form_for [@shelter, @pet] do |f|
     = render partial: 'form', locals: {f: f}
-    = f.input :finished
-    = f.input :finished_description
-    = f.submit "Edit"
+    = f.input :status, as: :select, collection: Pet.statuses.keys.collect{|s| [t("view.pet.select.status.#{s.downcase}"), s]}, include_blank: false, label: t('view.pet.status')
+
+    = f.submit t('view.button.edit'), class: "btn btn-success"
 %section.col-6.float-right
   = render partial: 'upload'
   %div#photo

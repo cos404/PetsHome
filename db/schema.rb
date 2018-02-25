@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
 
   create_table "pets", force: :cascade do |t|
     t.date "birthday"
-    t.date "euthanasia_date"
+    t.date "euthanasia"
     t.boolean "sterilization", default: false
     t.boolean "vaccination", default: false
     t.integer "subspecies", default: 0

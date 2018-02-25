@@ -5,7 +5,6 @@
 - addition phone numbers to shelter
 - changing staff role
 - add comments
-- add null value in pet birthday field
 - add activity controller
 - fix cyrillic case intenseve in the search
 
@@ -35,7 +34,9 @@
 - add user edit page
 - add search
 - add human url
+- add null value in pet birthday field
 - add titles
+- add pets edit page
 
 ### TODO_AP:
 - add shelter controller functional
