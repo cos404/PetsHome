@@ -15,8 +15,11 @@ class User < ApplicationRecord
   has_many    :shelter_staffs
   has_many    :social_pages
 
+  validates :email, uniqueness:{case_sensitive: false, message: :already_taken}
+
   validates :username, presence: true
-  validates :username, uniqueness: true
+  validates :username, uniqueness:{case_sensitive: false, message: :already_taken}
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: :must_contain}
 
   mount_uploader :avatar, AvatarUploader
 

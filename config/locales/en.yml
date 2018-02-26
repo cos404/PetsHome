@@ -31,51 +31,6 @@
 
 en:
   hello: "Hello world"
-  view:
-    home:
-      near: "Near you"
-      tagline: "Make world better!"
-    shelter:
-      address: "Address"
-    pet:
-      address: "Address"
-      shelter: "Shelter"
-      age: "Age"
-      euthanasia: "Euthanasia"
-      size: "Size"
-      vaccination: "Vaccination"
-      diseases: "Diseases"
-      sterilization: "Sterilization"
-      color: "Color"
-      about: "About"
-      age_years: "years"
-      age_months: "months"
-      birthday: "Birthday"
-      boolean:
-        euthanasia_true: "Yes"
-        euthanasia_false: "No"
-        sterilization_true: "Make"
-        sterilization_false: "Not make"
-      annotation:
-        age: "If the age is not the date of birth, then this age is correct at the time of adding the pet to the site."
-        size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
-               <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
-               <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"
-  activerecord:
-    attributes:
-      shelter:
-        title:  "Title"
-        country: "Country"
-        region_id: "Region"
-        city_id: "City"
-        street: "Street"
-        house_number: "House number"
-        latitude: "Latitude"
-        longitude: "Longitude"
-        description: "About"
-        cover: "Cover"
-        moderation: "Moderation"
-        verified: "Verified"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -137,3 +92,52 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  view:
+    home:
+      near: "Near you"
+      tagline: "Make world better!"
+    shelter:
+      address: "Address"
+    pet:
+      address: "Address"
+      shelter: "Shelter"
+      age: "Age"
+      euthanasia: "Euthanasia"
+      size: "Size"
+      vaccination: "Vaccination"
+      diseases: "Diseases"
+      sterilization: "Sterilization"
+      color: "Color"
+      about: "About"
+      age_years: "years"
+      age_months: "months"
+      birthday: "Birthday"
+      boolean:
+        euthanasia_true: "Yes"
+        euthanasia_false: "No"
+        sterilization_true: "Make"
+        sterilization_false: "Not make"
+      annotation:
+        age: "If the age is not the date of birth, then this age is correct at the time of adding the pet to the site."
+        size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
+               <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
+               <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"
+  activerecord:
+    errors:
+      messages:
+        must_contain: "must contain: a-z, A-Z, 0-9"
+        already_taken: "already taken"
+    attributes:
+      shelter:
+        title:  "Title"
+        country: "Country"
+        region_id: "Region"
+        city_id: "City"
+        street: "Street"
+        house_number: "House number"
+        latitude: "Latitude"
+        longitude: "Longitude"
+        description: "About"
+        cover: "Cover"
+        moderation: "Moderation"
+        verified: "Verified"
