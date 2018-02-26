@@ -59,15 +59,16 @@ class SheltersController < ApplicationController
   def create
     @shelter = Shelter.new(shelter_params)
     @shelter.user_id = current_user.id
-    @shelter.save!
+    @shelter.save
 
     if @shelter.errors.empty?
       ShelterPhoto.where(user_id: current_user.id, shelter_id: nil).update_all(shelter_id: @shelter.id)
       flash[:success] = "Shelter added!"
       redirect_to @shelter
     else
+      @shelter.country = nil
       flash.now[:error] = "You have error!"
-      render "new"
+      render :new
     end
     authorize @shelter
   end

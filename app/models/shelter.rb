@@ -16,16 +16,21 @@ class Shelter < ApplicationRecord
 
   accepts_nested_attributes_for :schedules, reject_if: lambda{|attributes| attributes[:open].blank? || attributes[:close].blank?}, allow_destroy: true
 
-  validates :user_id, :country_id, :region_id, :city_id, numericality: true
-  validates :user_id, :title, :street, :house_number, :country_id, :city_id,  presence: true
+  validates :user_id, numericality: true
+  validates :user_id, :title, :street, :house_number, presence: true
+  validates :country_id, :region_id, :city_id, presence: true
+  validates :country_id, :region_id, :city_id, numericality: true
 
   geocoded_by :address
   after_validation :geocode
 
   def address
-    country = self.country.send("title_#{I18n.locale}")
-    region  = self.region .send("title_#{I18n.locale}")
-    city    = self.city   .send("title_#{I18n.locale}")
+    if self.country && self.region && self.city
+      country = self.country.send("title_#{I18n.locale}")
+      region  = self.region .send("title_#{I18n.locale}")
+      city    = self.city   .send("title_#{I18n.locale}")
+    end
     "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
   end
+
 end

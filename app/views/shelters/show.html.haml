@@ -24,9 +24,14 @@
     - if policy(@shelter).edit?
       %section#staffs.row
         %div.col-md-12
-          %button.btn.btn-primary#addPet.mr-2= link_to "Add pet", new_shelter_pet_path(@shelter.id)
-          %button.btn.btn-primary#addStaff.mr-2 Add staff
+          %button.btn.btn-primary#addPet.mr-2.mt-2= link_to t('view.button.edit'), edit_shelter_path(@shelter)
+          %button.btn.btn-primary#addPet.mr-2.mt-2= link_to t('view.button.add-pet'), new_shelter_pet_path(@shelter)
+          %br
+          %button.btn.btn-primary#addStaff.mr-2.mt-2= t('view.button.add-staff')
           %div#staff
+            %div
+              %button.btn.btn-info.m-1= link_to "li", user_path(@shelter.user.username)
+              = "#{@shelter.user.username}(curator)"
             - @shelter.shelter_staffs.each do |staff|
               %div
                 %button.btn.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x

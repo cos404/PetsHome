@@ -1,6 +1,6 @@
 - @page_title = "| " + t('view.title.shelter.edit') + " #{@shelter.title}"
-%h1= t 'view.shelter.add_new'
 %section.col-6.float-left
+  %h1= t('view.title.shelter.edit') + ":\n#{@shelter.title}"
   = simple_form_for @shelter do |f|
     = f.input :title
     = f.input :status, as: :select, collection: Shelter.statuses.keys.to_a, include_blank: false
@@ -13,7 +13,7 @@
           %div.work-time.input-group
             = s.input :open, as: :time, html5: true, label: false
             = s.input :close, as: :time, html5: true, label: false
-    = f.submit "Save", class: "btn btn-success"
+    = f.submit t('view.button.save'), class: "btn btn-success"
 %section.col-6.float-right
   = render partial: 'upload'
   %div#photo
