@@ -75,6 +75,7 @@ $(function(){
       $('#regions').html('<option>Loading...</option>');
       $('#regions').attr('disabled', true);
       $('#region_country_id').val(`${country_id}`);
+      $('#city_country_id').val(`${country_id}`);
       if(country_id){
         $.ajax({
           type: 'POST',

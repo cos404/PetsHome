@@ -132,7 +132,7 @@ class Admin::SettingsController < Admin::ApplicationController
   end
 
   def city_params
-    params.require(:city).permit(:title, :region_id)
+    params.require(:city).permit(:title, :region_id, :country_id)
   end
 
 end

@@ -26,4 +26,5 @@
           = simple_form_for City.new, url: admin_city_path  do |f|
             = f.input :title, label: false, placeholder: ":title"
             = f.input :region_id, as: :hidden
+            = f.input :country_id, as: :hidden
             = f.submit "Add", class: "btn btn-primary"\

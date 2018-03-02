@@ -57,15 +57,19 @@ Region.create!(
 
 City.create!(
   region_id:  1,
+  country_id: 1,
   title:   'Бабруйск')
 City.create!(
   region_id:  2,
+  country_id: 1,
   title:   'Барысаў')
 City.create!(
   region_id:  3,
+  country_id: 2,
   title:   'New York')
 City.create!(
   region_id:  4,
+  country_id: 2,
   title:   'Boise')
 
 

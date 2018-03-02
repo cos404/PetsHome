@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
 
   create_table "cities", force: :cascade do |t|
     t.integer "region_id"
+    t.integer "country_id"
     t.string "title"
   end
 
