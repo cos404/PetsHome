@@ -35,24 +35,8 @@ Rails.application.routes.draw do
     post '/getRegions'  => 'shelters#getRegions'
     post '/getCities'   => 'shelters#getCities'
 
-    ## LOCATION PAGE
-    get '/location' => 'settings#location_index'
-      # COUNTRY ROUTES
-      get     '/country'      => 'settings#location_index'
-      post    '/country'      => 'settings#create_country'
-      delete  '/country/:id'  => 'settings#destroy_country'
+    get '/locations' => 'locations#index'
 
-      # REGION ROUTES
-      get     '/region'       => 'settings#location_index'
-      post    '/get_regions'  => 'settings#get_regions'
-      post    '/region'       => 'settings#create_region'
-      delete  '/region/:id'   => 'settings#destroy_region'
-
-      # CITY ROUTES
-      get     '/city'       => 'settings#location_index'
-      post    '/get_cities' => 'settings#get_cities'
-      post    '/city'       => 'settings#create_city'
-      delete  '/city/:id'   => 'settings#destroy_city'
   end
 
   # SINGLE PAGES
