@@ -33,90 +33,40 @@ User.create!(
 
 Country.create!(
   id:         1,
-  title_en:   'Belarus',
-  title_ru:   'Беларусь',
-  title_be:   'Беларусь',
-  title_fr:   'Bélarus',
-  title_de:   'Weißrussland',
-  title_es:   'Belarús')
+  title:   'Беларусь')
 Country.create!(
   id:         2,
-  title_en:   'United States',
-  title_ru:   'Соединенные штаты',
-  title_be:   'Злучаныя штаты',
-  title_fr:   'États Unis',
-  title_de:   'Vereinigte Staaten',
-  title_es:   'Estados Unidos')
+  title:   'United States')
 
 Region.create!(
   id:         1,
   country_id: 1,
-  title_en:   'Mogilev Region',
-  title_ru:   'Могилёвская о́бласть',
-  title_be:   'Магілёўская вобласць',
-  title_fr:   'Région de Mahiliow',
-  title_de:   'Mogilev-Region',
-  title_es:   'provincia de Maguilov')
+  title:   'Магілёўская вобласць')
 Region.create!(
   id:         2,
   country_id: 1,
-  title_en:   'Minsk Region',
-  title_ru:   'Минская область',
-  title_be:   'Мінская вобласць',
-  title_fr:   'Région de Minsk',
-  title_de:   'Minsk region',
-  title_es:   'Región de Minsk')
+  title:   'Мінская вобласць')
 Region.create!(
   id:         3,
   country_id: 2,
-  title_en:   'New York',
-  title_ru:   'Нью Йорк',
-  title_be:   'Нью Ёрк',
-  title_fr:   'New York',
-  title_de:   'New York',
-  title_es:   'Nueva York')
+  title:   'New York')
 Region.create!(
   id:         4,
   country_id: 2,
-  title_en:   'Idaho',
-  title_ru:   'Айдахо',
-  title_be:   'Айдаха',
-  title_fr:   'Idaho',
-  title_de:   'Idaho',
-  title_es:   'Idaho')
+  title:   'Idaho')
 
 City.create!(
   region_id:  1,
-  title_en:   'Bobruisk',
-  title_ru:   'Бобруйск',
-  title_be:   'Бабруйск',
-  title_fr:   'Bobrouïsk',
-  title_de:   'Bobruisk',
-  title_es:   'Bobruisk')
+  title:   'Бабруйск')
 City.create!(
   region_id:  2,
-  title_en:   'Borisov',
-  title_ru:   'Борисов',
-  title_be:   'Барысаў',
-  title_fr:   'Borisov',
-  title_de:   'Borisov',
-  title_es:   'Borisov')
+  title:   'Барысаў')
 City.create!(
   region_id:  3,
-  title_en:   'New York',
-  title_ru:   'Нью Йорк',
-  title_be:   'Нью Ёрк',
-  title_fr:   'New York',
-  title_de:   'New York',
-  title_es:   'Nueva York')
+  title:   'New York')
 City.create!(
   region_id:  4,
-  title_en:   'Boise',
-  title_ru:   'Бойсэ',
-  title_be:   'Boise',
-  title_fr:   'Boise',
-  title_de:   'Boise',
-  title_es:   'Boise')
+  title:   'Boise')
 
 
 

@@ -26,9 +26,9 @@ class Shelter < ApplicationRecord
 
   def address
     if self.country && self.region && self.city
-      country = self.country.send("title_#{I18n.locale}")
-      region  = self.region .send("title_#{I18n.locale}")
-      city    = self.city   .send("title_#{I18n.locale}")
+      country = self.country.title
+      region  = self.region .title
+      city    = self.city   .title
     end
     "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
   end

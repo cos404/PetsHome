@@ -2,17 +2,12 @@
   %div.container-fluid
     %div.row.mt-3
       %section.col-4#country
-        = select_tag 'countries', options_from_collection_for_select(@countries, :id, :title_en), class: "custom-select col-9", include_blank: true
+        = select_tag 'countries', options_from_collection_for_select(@countries, :id, :title), class: "custom-select col-9", include_blank: true
         %div#country-control>
         %button#country-toggle.ui-state-default.ui-corner-all.btn.btn-primary.float-right +
         %div#country-new-form.mb-3.mt-3{style:"display: none;"}
           = simple_form_for @country, url: admin_country_path  do |f|
-            = f.input :title_en, label: false, placeholder: ":title_en"
-            = f.input :title_ru, label: false, placeholder: ":title_ru"
-            = f.input :title_be, label: false, placeholder: ":title_be"
-            = f.input :title_fr, label: false, placeholder: ":title_fr"
-            = f.input :title_de, label: false, placeholder: ":title_de"
-            = f.input :title_es, label: false, placeholder: ":title_es"
+            = f.input :title, label: false, placeholder: ":title"
             = f.submit "Add", class: "btn btn-primary"
       %section.col-4#region
         = select_tag 'regions', {}, class: "custom-select col-9", disabled:true
@@ -20,12 +15,7 @@
         %button#region-toggle.ui-state-default.ui-corner-all.btn.btn-primary.disabled.float-right +
         %div#region-new-form.mb-3.mt-3{style:"display: none;"}
           = simple_form_for Region.new, url: admin_region_path  do |f|
-            = f.input :title_en, label: false, placeholder: ":title_en"
-            = f.input :title_ru, label: false, placeholder: ":title_ru"
-            = f.input :title_be, label: false, placeholder: ":title_be"
-            = f.input :title_fr, label: false, placeholder: ":title_fr"
-            = f.input :title_de, label: false, placeholder: ":title_de"
-            = f.input :title_es, label: false, placeholder: ":title_es"
+            = f.input :title, label: false, placeholder: ":title"
             = f.input :country_id, as: :hidden
             = f.submit "Add", class: "btn btn-primary"\
       %section.col-4#city
@@ -34,11 +24,6 @@
         %button#city-toggle.ui-state-default.ui-corner-all.btn.btn-primary.disabled.float-right +
         %div#city-new-form.mb-3.mt-3{style:"display: none;"}
           = simple_form_for City.new, url: admin_city_path  do |f|
-            = f.input :title_en, label: false, placeholder: ":title_en"
-            = f.input :title_ru, label: false, placeholder: ":title_ru"
-            = f.input :title_be, label: false, placeholder: ":title_be"
-            = f.input :title_fr, label: false, placeholder: ":title_fr"
-            = f.input :title_de, label: false, placeholder: ":title_de"
-            = f.input :title_es, label: false, placeholder: ":title_es"
+            = f.input :title, label: false, placeholder: ":title"
             = f.input :region_id, as: :hidden
             = f.submit "Add", class: "btn btn-primary"\

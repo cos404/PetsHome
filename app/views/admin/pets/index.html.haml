@@ -13,6 +13,6 @@
         %td= link_to pet.name, shelter_pet_path(pet.shelter_id, pet.id)
         %td= pet.status
         %td= pet.shelter.title
-        %td= pet.shelter.country.title_en
+        %td= pet.shelter.country.title
         %td
           = link_to "e", edit_admin_pet_path(pet), class: "ui-state-default ui-corner-all btn btn-primary btn-sm br25", id:"id-#{pet.id}"

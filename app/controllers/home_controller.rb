@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @geo = Geocoder.search(request.remote_ip)[0].data
     @shelters = root_url + 'shelters.json'
 
-    @pets = Pet.select(:id, :name, :birthday, :avatar, :shelter_id, "cities.title_#{I18n.locale} AS city").joins(shelter: :city).limit(8)
+    @pets = Pet.select(:id, :name, :birthday, :avatar, :shelter_id, "cities.title AS city").joins(shelter: :city).limit(8)
     render layout: "home_layout"
   end
 

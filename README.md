@@ -1,12 +1,12 @@
 # BillyBo
 
 ### TODO:
-- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 - addition phone numbers to shelter
-- changing staff role
-- add comments
 - add activity controller
 - fix cyrillic case intenseve in the search
+- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
+- changing staff role
+- add comments
 
 ### COMPLETE:
 - addition work time to shelter

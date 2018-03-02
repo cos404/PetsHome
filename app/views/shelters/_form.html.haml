@@ -1,5 +1,5 @@
 = f.input :title
-= f.association :country, label_method: :title_en, value_method: :id, include_blank: true
+= f.association :country, label_method: :title, value_method: :id, include_blank: true
 = f.input :region_id, as: :grouped_select, include_blank: false, disabled:true
 = f.input :city_id, as: :grouped_select, include_blank: false, disabled:true
 = f.input :street

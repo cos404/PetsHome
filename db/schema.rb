@@ -14,14 +14,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
 
   create_table "cities", force: :cascade do |t|
     t.integer "region_id"
-    t.string "title_en"
-    t.string "title_ru"
-    t.string "title_be"
-    t.string "title_fr"
-    t.string "title_de"
-    t.string "title_es"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -33,14 +26,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "title_en"
-    t.string "title_ru"
-    t.string "title_be"
-    t.string "title_fr"
-    t.string "title_de"
-    t.string "title_es"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   create_table "pet_comments", force: :cascade do |t|
@@ -101,14 +87,7 @@ ActiveRecord::Schema.define(version: 20170920145546) do
 
   create_table "regions", force: :cascade do |t|
     t.integer "country_id"
-    t.string "title_en"
-    t.string "title_ru"
-    t.string "title_be"
-    t.string "title_fr"
-    t.string "title_de"
-    t.string "title_es"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   create_table "schedules", force: :cascade do |t|

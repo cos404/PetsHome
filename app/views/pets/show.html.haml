@@ -4,7 +4,7 @@
     %h1.text-center.mt-1.pet-name= @pet.name
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.address'
-      %dd.list-spec_value= "#{@pet.shelter.country.title_ru}, #{@pet.shelter.region.title_ru}, #{@pet.shelter.city.title_ru}, #{@pet.shelter.street} #{@pet.shelter.house_number}"
+      %dd.list-spec_value= "#{@pet.shelter.country.title}, #{@pet.shelter.region.title}, #{@pet.shelter.city.title}, #{@pet.shelter.street} #{@pet.shelter.house_number}"
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.shelter'
       %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter

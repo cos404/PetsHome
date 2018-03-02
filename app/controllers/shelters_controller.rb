@@ -75,12 +75,12 @@ class SheltersController < ApplicationController
 
 
   def getRegions
-    @regions = Region.where(country_id: params[:country_id]).select(:id, "title_#{I18n.locale} AS title")
+    @regions = Region.where(country_id: params[:country_id]).select(:id, "title")
     render json: @regions
   end
 
   def getCities
-    @city = City.where(region_id: params[:region_id]).select(:id, "title_#{I18n.locale} AS title")
+    @city = City.where(region_id: params[:region_id]).select(:id, "title")
     render json: @city
   end
 
@@ -114,7 +114,7 @@ class SheltersController < ApplicationController
   end
 
   def find_shelter
-    @shelter = Shelter.select("shelters.*, countries.title_#{I18n.locale} AS country_title, regions.title_#{I18n.locale} AS region_title, cities.title_#{I18n.locale} AS city_title").joins(:country, :region, :city).find(params[:id])
+    @shelter = Shelter.select("shelters.*, countries.title AS country_title, regions.title AS region_title, cities.title AS city_title").joins(:country, :region, :city).find(params[:id])
     authorize @shelter
   end
 

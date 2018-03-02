@@ -3,16 +3,16 @@
   .full-height.row
     .col-12.col-lg-2.search-bar
       = search_form_for @search, url: search_index_path, builder: SimpleForm::FormBuilder do |f|
-        = f.text_field "shelter_country_title_#{I18n.locale}_start", placeholder: t('view.search.menu.country'), class: "form-control"
-        = f.text_field "shelter_city_title_#{I18n.locale}_start", placeholder: t('view.search.menu.city'), class: "form-control"
+        = f.text_field "shelter_country_title_start", placeholder: t('view.search.menu.country'), class: "form-control"
+        = f.text_field "shelter_city_title_start", placeholder: t('view.search.menu.city'), class: "form-control"
         = f.select :subspecies_eq, options_for_select([[t('view.search.menu.subspecies'), ""], [t('view.search.menu.dog'), 0], [t('view.search.menu.cat'), 1], [t('view.search.menu.other'), 2]], selected: @subspecies), {}, {class: "custom-select"}
         = f.select :gender_eq, options_for_select([[t('view.search.menu.gender'),""], [t('view.search.menu.boy'), 0], [t('view.search.menu.girl'), 1]], selected: @gender), {}, {class: "custom-select"}
         = f.select :size_eq, options_for_select([[t('view.search.menu.size'),""], [t('view.search.menu.s'), 0], [t('view.search.menu.m'), 1], [t('view.search.menu.l'), 2]], selected: @size), {}, {class: "custom-select"}
         = f.submit t('view.search.menu.search'), class: "btn btn-success"
     .col-12.col-lg-10
       - @pets.each do |pet|
-        - country = pet.shelter.country.send("title_#{I18n.locale}")
-        - city = pet.shelter.city.send("title_#{I18n.locale}")
+        - country = pet.shelter.country.title
+        - city = pet.shelter.city.title
         .search-result
           = image_tag pet.avatar.url, class: "search-result-pet-avatar"
           .search-result-information
