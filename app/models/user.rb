@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :username, uniqueness:{case_sensitive: false, message: :already_taken}
-  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/, message: :must_contain}
+  validates :username, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: :must_contain}
 
   mount_uploader :avatar, AvatarUploader
 
