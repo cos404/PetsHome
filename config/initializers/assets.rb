@@ -24,5 +24,4 @@ Rails.application.config.assets.precompile +=
   admin/users.js admin/users.css
   admin/shelters.js admin/shelters.css
   admin/pets.js admin/pets.css
-  admin/locations.js admin/locations.css
 )

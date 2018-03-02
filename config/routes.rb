@@ -35,8 +35,6 @@ Rails.application.routes.draw do
     post '/getRegions'  => 'shelters#getRegions'
     post '/getCities'   => 'shelters#getCities'
 
-    get '/locations' => 'locations#index'
-
   end
 
   # SINGLE PAGES
