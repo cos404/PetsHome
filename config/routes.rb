@@ -37,13 +37,14 @@ Rails.application.routes.draw do
 
     get '/locations' => 'locations/countries#index'
     namespace :locations do
-      resources :countries, except: [:destroy]
+      resources :countries, except: [:destroy, :show]
 
-      get '/regions/:country_id' => 'regions#index', as: :admin_locations_region
-      resources :regions, except: [:destroy, :index]
+      get '/regions/:country_id' => 'regions#index', as: :region
+      get '/regions' => 'regions#index', as: :regions
+      resources :regions, except: [:destroy, :index, :show]
 
-      get '/cities/:region_id' => 'cities#index', as: :admin_locations_city
-      resources :cities, except: [:destroy]
+      get '/cities/:region_id' => 'cities#index', as: :city
+      resources :cities, except: [:destroy, :index, :show]
 
     end
   end

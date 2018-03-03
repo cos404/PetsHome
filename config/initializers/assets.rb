@@ -25,4 +25,5 @@ Rails.application.config.assets.precompile +=
   admin/shelters.js admin/shelters.css
   admin/pets.js admin/pets.css
   admin/locations/countries.js admin/locations/countries.css
+  admin/locations/regions.js admin/locations/regions.css
 )
