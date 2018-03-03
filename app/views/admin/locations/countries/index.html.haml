@@ -1,0 +1,22 @@
+- @page_title = "| " + t('view.title.locations.countries')
+.col-12.mt-3.mb-3
+  %table.list
+    %tr
+      %th.id= sortable :id
+      %th.title= sortable :title
+      %th.count Regions
+      %th.count Cities
+    - @countries.each do |country|
+      %tr
+        %td= country.id
+        %td= link_to country.title, admin_locations_region_path(country.id)
+        %td= country.regions_count
+        %td= country.cities_count
+    %tr
+      = simple_form_for @country, url: {controller: "admin/locations/countries", action: "create"} do |f|
+        %td #
+        %td
+          = f.input :title, label: false, wrapper: :vertical_input_group do
+            = f.input_field :title, class: "form-control"
+            .input-group-append
+              = f.submit "+", class: "btn btn-success"

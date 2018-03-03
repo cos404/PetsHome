@@ -35,6 +35,17 @@ Rails.application.routes.draw do
     post '/getRegions'  => 'shelters#getRegions'
     post '/getCities'   => 'shelters#getCities'
 
+    get '/locations' => 'locations/countries#index'
+    namespace :locations do
+      resources :countries, except: [:destroy]
+
+      get '/regions/:country_id' => 'regions#index', as: :admin_locations_region
+      resources :regions, except: [:destroy, :index]
+
+      get '/cities/:region_id' => 'cities#index', as: :admin_locations_city
+      resources :cities, except: [:destroy]
+
+    end
   end
 
   # SINGLE PAGES

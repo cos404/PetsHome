@@ -36,6 +36,7 @@ aside{
 .btn{color: white;}
 .id{width:50px;}
 .actions{width:120px;}
+:focus{outline: 0!important; box-shadow: none!important;}
 
 .list tr{height: 42px;}
 .list th .asc {background-image: url(/images/up_arrow.gif);}
