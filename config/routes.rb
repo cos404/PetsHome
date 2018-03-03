@@ -44,8 +44,8 @@ Rails.application.routes.draw do
       resources :regions, except: [:destroy, :index, :show]
 
       get '/cities/:region_id' => 'cities#index', as: :city
+      get '/cities' => 'cities#index', as: :cities
       resources :cities, except: [:destroy, :index, :show]
-
     end
   end
 

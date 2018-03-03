@@ -1,0 +1,27 @@
+- @page_title = "| " + t('view.title.locations.cities')
+.col-12.mt-3.mb-3
+  %table.list
+    %tr
+      %th.id= sortable :id
+      %th.title= sortable :title
+      %th.count Shelters
+    - @cities.each do |city|
+      %tr
+        %td= city.id
+        %td= link_to city.title, admin_shelter_path(city.id)
+        %td= city.shelters_count
+    - if params[:region_id]
+      %tr
+        = simple_form_for @city, url: {controller: "admin/locations/cities", action: "create"} do |f|
+          %td #
+          %td
+            = f.input :title, label: false, wrapper: :vertical_input_group do
+              = f.input_field :title, class: "form-control"
+              = f.input :region_id, as: :hidden
+              = f.input :country_id, as: :hidden
+              .input-group-append
+                = f.submit "+", class: "btn btn-success"
+  - if params[:region_id]
+    = link_to t("devise.shared.links.back"), admin_locations_region_path(@city.country_id)
+  - else
+    = link_to t("devise.shared.links.back"), admin_locations_regions_path
