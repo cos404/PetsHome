@@ -90,3 +90,15 @@
     - developer
     - moderator
     - admin
+
+
+
+%button.btn.btn-info.btn-sm#addStaff.mr-2= fa_icon("user-plus")
+%div#staff
+  %div
+    %button.btn.btn-sm.btn-info.m-1= link_to "li", user_path(@shelter.user.username)
+    = "#{@shelter.user.username}(curator)"
+  - @shelter.shelter_staffs.each do |staff|
+    %div
+      %button.btn.btn-sm.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
+      = "#{staff.user.username}(#{staff.role})"

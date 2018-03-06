@@ -1,15 +1,12 @@
-= f.input :title
-= f.association :country, label_method: :title, value_method: :id, include_blank: true
-= f.input :region_id, as: :grouped_select, include_blank: false, disabled:true
-= f.input :city_id, as: :grouped_select, include_blank: false, disabled:true
-= f.input :street
-= f.input :house_number
-= f.input :latitude
-= f.input :longitude
-= f.input :about, input_html:{rows: 7}
+%fieldset
+  .input-group
+    .input-group-prepend
+      %span.input-group-text= t('view.shelter.title')
+    = f.input_field :title, label: false, class: "form-control"
+  .input-group
+    .input-group-prepend
+      %span.input-group-text= f.label :about
+    = f.text_area :about, label: false, class:"form-control", aria:{label:"With textarea"}, rows: 5
 = f.simple_fields_for :phones do |builder|
   = render partial: 'phone_fields', locals: {f: builder}
-= button_add_fields fa_icon("phone"), f, :phones, 'btn btn-outline-secondary'
-.schedule
-  = f.simple_fields_for :schedules do |s|
-    = render partial: "schedule_fields", locals: {f: s}
+= button_add_fields fa_icon("phone"), f, :phones, 'btn btn-outline-secondary mb-3'

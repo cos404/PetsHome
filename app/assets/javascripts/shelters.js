@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
   $('#shelter_country_id').change(function() {
     var country_id = $(this).val();
     if(!country_id){
@@ -133,7 +133,7 @@ $(document).ready(function() {
       select: function (e, ui) {
         $('div#staff').append(`
           <div>
-            <button class="btn btn-success m-1 addUser" data-user="${ui.item.value}" data-role="volunteer">
+            <button class="btn btn-sm btn-success m-1 addUser" data-user="${ui.item.value}" data-role="volunteer">
               +
             </button>
             ${ui.item.label}
@@ -159,7 +159,7 @@ $(document).ready(function() {
       },
       success: function(data) {
         $("button[data-user='" + user + "']").replaceWith(`
-          <button class="btn btn-danger m-1 deleteStaff" data-user="${user}">
+          <button class="btn btn-danger btn-sm m-1 deleteStaff" data-user="${user}">
             x
           </button>
         `);
@@ -191,8 +191,26 @@ $(document).ready(function() {
     })
   });
 
-  $(".shelter_cover input").change((e)=>{
-    $(".shelter_cover label").text(e.target.files[0].name);
+  // // Label changer for file input(NEED REMAKE)
+  // $(".shelter_cover input").change((e)=>{
+  //   $(".shelter_cover label").text(e.target.files[0].name);
+  // });
+
+  // File uploader
+  $(function() {
+    return $('#shelter_photo_shelter_photo').fileupload({
+      dataType: "script",
+      add: function(e, data) {
+        var file, types;
+        types = /(\.|\/)(gif|jpe?g|png)$/i;
+        file = data.files[0];
+        if (types.test(file.type) || types.test(file.name)) {
+          return data.submit();
+        } else {
+          return alert(file.name + " is not a gif, jpeg, or png image file");
+        }
+      }
+    });
   });
 
 });
@@ -215,19 +233,3 @@ function init() {
         iconColor: '#0095b6'
     }));
 }
-
-jQuery(function() {
-  return $('#shelter_photo_shelter_photo').fileupload({
-    dataType: "script",
-    add: function(e, data) {
-      var file, types;
-      types = /(\.|\/)(gif|jpe?g|png)$/i;
-      file = data.files[0];
-      if (types.test(file.type) || types.test(file.name)) {
-        return data.submit();
-      } else {
-        return alert(file.name + " is not a gif, jpeg, or png image file");
-      }
-    }
-  });
-});

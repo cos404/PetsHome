@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.work-time{
-  display: block;
-}
+label{margin:0px}
+.input-group{margin-bottom: 1rem}
 
-.work-time div{
+.schedule{width: 240px;}
+#schedule dt {
+  // font-weight: normal !important;
+  width: 5%;
+  min-width: 30px;
+  float: left;
   display: inline-block;
 }

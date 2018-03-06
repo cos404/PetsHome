@@ -387,8 +387,8 @@ ru:
         show: ""
       search: "Поиск"
       shelter:
-        edit: "Редактирование приюта"
-        new: "Добавление приют"
+        edit: "Редактирование"
+        new: "Добавление приюта"
         show: ""
     button:
       add: "Добавить"
@@ -400,18 +400,29 @@ ru:
       near: "Недалеко от вас"
       tagline: "Сделай мир лучше!"
     shelter:
+      select:
+        statuses:
+          active: "Активный"
+          suspended: "Временно не работаем"
+          deactived: "Деактивирован"
+      status: "Статус"
       address: "Адрес"
       about: "О нас"
       phone-number: 'Номер телефона'
-      name: 'Имя'
+      name: "Имя"
+      title: "Название"
+      street: "Улица"
+      house-number: "Номер дома"
+      latitude: "Широта"
+      longitude: "Долгота"
       day_of_week:
-        monday:     "Понедельник"
-        tuesday:    "Вторник"
-        wednesday:  "Среда"
-        thursday:   "Четверг"
-        friday:     "Пятница"
-        saturday:   "Суббота"
-        sunday:     "Воскресенье"
+        monday:     "Пн"
+        tuesday:    "Вт"
+        wednesday:  "Ср"
+        thursday:   "Чт"
+        friday:     "Пт"
+        saturday:   "Сб"
+        sunday:     "Вс"
     pet:
       name: "Кличка"
       status: "Статус"
