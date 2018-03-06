@@ -24,8 +24,9 @@ function select_image (a) {
   document.main_img.src=a
 }
 
-$(document).ready(function() {
+$(document).on("turbolinks:load", function(){
 
+  // Annotation
   $(document).click(function(event){
     if(!$(event.target).is('.annotation') && !$(event.target).is('.annotation-toggle') && !$('.list-spec_name').has(event.target).length){
       $('.product-tip-wrapper').hide();
@@ -39,11 +40,28 @@ $(document).ready(function() {
     }
   });
 
-
   // Question icon
   $(".list-spec").hover(
     function() {
       $(this).children().children('.annotation-toggle').toggle();
     }
   );
+
+  // Remove|Add nested fields
+  $(function() {
+    $('form').on('click', '.remove_fields', function(event) {
+      $(this).prev('input[type=hidden]').val('1');
+      $(this).closest('fieldset').hide();
+      return event.preventDefault();
+    });
+
+    return $('form').on('click', '.add_fields', function(event) {
+      var regexp, time;
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      $(this).before($(this).data('fields').replace(regexp, time));
+      return event.preventDefault();
+    });
+  });
+
 })

@@ -11,10 +11,12 @@ class Shelter < ApplicationRecord
   has_many    :shelter_photos, dependent: :destroy
   has_many    :shelter_staffs, dependent: :destroy
   has_many    :schedules, dependent: :destroy, autosave: true
+  has_many    :phones, dependent: :destroy, autosave: true
 
   enum status: [:active, :suspended, :deactived]
 
   accepts_nested_attributes_for :schedules, reject_if: lambda{|attributes| attributes[:open].blank? || attributes[:close].blank?}, allow_destroy: true
+  accepts_nested_attributes_for :phones, allow_destroy: true
 
   validates :user_id, numericality: true
   validates :user_id, :title, :street, :house_number, presence: true

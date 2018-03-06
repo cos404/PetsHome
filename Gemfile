@@ -73,14 +73,10 @@ gem 'bootstrap', '4.0.0'
 gem 'haml-rails'
 gem 'font-awesome-rails'
 
-# https://github.com/plataformatec/devise
-gem 'devise'
-gem 'devise-i18n'
-# https://github.com/svenfuchs/rails-i18n
-gem 'rails-i18n', '~> 5.0.0'
-# https://github.com/alexreisner/geocoder
-gem 'geocoder'
-# https://github.com/iain/http_accept_language
+gem 'devise' # https://github.com/plataformatec/devise
+gem 'devise-i18n' # https://github.com/svenfuchs/rails-i18n
+gem 'rails-i18n', '~> 5.0.0' # https://github.com/alexreisner/geocoder
+gem 'geocoder' # https://github.com/iain/http_accept_language
 gem 'http_accept_language'
 
 gem 'carrierwave', '~> 1.0'
@@ -91,3 +87,4 @@ gem 'will_paginate', '~> 3.1.0'
 gem "pundit"
 
 gem 'ransack'
+gem 'phony_rails' # https://github.com/joost/phony_rails

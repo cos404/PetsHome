@@ -1,11 +1,10 @@
 # BillyBo
 
 ### TODO:
-- addition phone numbers to shelter
+- changing staff role
 - add activity controller
 - fix cyrillic case intenseve in the search
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
-- changing staff role
 - add comments
 
 ### COMPLETE:
@@ -37,6 +36,7 @@
 - add null value in pet birthday field
 - add titles
 - add pets edit page
+- addition phone numbers to shelter
 
 ### TODO_AP:
 - add shelter controller functional

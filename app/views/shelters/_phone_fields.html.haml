@@ -1,0 +1,9 @@
+%fieldset
+  .input-group.mb-2
+    .input-group-prepend
+      %span.input-group-text= fa_icon "phone"
+    = f.input_field :phone_number, label: false, placeholder: t('view.shelter.phone-number'), class: "form-control"
+    = f.input_field :name, label: false, placeholder: t('view.shelter.name'), class: "form-control"
+    .input-group-append
+      = f.hidden_field :_destroy
+      %button.btn.btn-outline-secondary.remove_fields= fa_icon "trash-o"

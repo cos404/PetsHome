@@ -5,6 +5,9 @@
     = f.input :title
     = f.input :status, as: :select, collection: Shelter.statuses.keys.to_a, include_blank: false
     = f.input :about, input_html:{rows: 7}
+    = f.simple_fields_for :phones do |builder|
+      = render partial: 'phone_fields', locals: {f: builder}
+    = button_add_fields fa_icon("phone"), f, :phones, 'btn btn-outline-secondary'
     .schedule
       = f.simple_fields_for :schedules do |s|
         %div.col-12
@@ -12,6 +15,7 @@
           = s.hidden_field :day_of_week
           %div.work-time.input-group
             = s.input :open, as: :time, html5: true, label: false
+            = "—"
             = s.input :close, as: :time, html5: true, label: false
     = f.submit t('view.button.save'), class: "btn btn-success"
 %section.col-6.float-right
@@ -20,3 +24,12 @@
   - @shelter.shelter_photos.each do |photo|
     = link_to (image_tag photo.title.thumb.url), photo.title.url
 .clearfix
+
+
+
+/ = f.input :title, label: false, wrapper: :vertical_input_group do
+/   = f.input_field :title, class: "form-control"
+/   = f.input :region_id, as: :hidden
+/   = f.input :country_id, as: :hidden
+/   .input-group-append
+/     = f.submit "+", class: "btn btn-success"

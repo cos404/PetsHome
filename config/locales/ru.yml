@@ -402,6 +402,8 @@ ru:
     shelter:
       address: "Адрес"
       about: "О нас"
+      phone-number: 'Номер телефона'
+      name: 'Имя'
       day_of_week:
         monday:     "Понедельник"
         tuesday:    "Вторник"

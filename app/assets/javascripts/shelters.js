@@ -171,7 +171,7 @@ $(document).ready(function() {
     })
   });
 
-    $('#staffs').on('click', '.deleteStaff', function(){
+  $('#staffs').on('click', '.deleteStaff', function(){
     var user    = $(this).data("user"),
         url     = window.location.href,
         el      = $(this);

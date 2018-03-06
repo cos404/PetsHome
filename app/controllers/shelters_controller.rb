@@ -40,6 +40,7 @@ class SheltersController < ApplicationController
     if @shelter.errors.empty?
       redirect_to @shelter
     else
+      p @shelter.errors
       render "edit"
     end
   end
@@ -47,8 +48,8 @@ class SheltersController < ApplicationController
   def new
     @shelter    = Shelter.new
     @countries  = Country.all
-    @schedules = []
 
+    @schedules = []
     7.times{ |i|
       day = @shelter.schedules.day_of_weeks.key(i)
       @schedules << @shelter.schedules.build(day_of_week: day)
@@ -106,7 +107,7 @@ class SheltersController < ApplicationController
   private
 
   def shelter_params
-    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :moderation, :verified, :country_id, :region_id, :city_id, :status, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day, :id])
+    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :moderation, :verified, :country_id, :region_id, :city_id, :status, :photo, phones_attributes:[:phone_number, :name, :_destroy, :id], schedules_attributes:[:open, :close, :day_of_week, :work_day, :id])
   end
 
   def shelter_staff_params

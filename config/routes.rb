@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :posts, except: :destroy
   resources :search
-
+  resources :phones
   # resources :users, only: [:show]
   get 'users/:username' => 'users#show', as: :user
 
