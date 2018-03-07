@@ -43,6 +43,11 @@ class PetAvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "#{model.name}.#{file.extension}" if original_filename
+    @name ||= "#{timestamp}-#{super}" if original_filename.present? and super.present?
+  end
+
+  def timestamp
+    var = :"@#{mounted_as}_timestamp"
+    model.instance_variable_get(var) or model.instance_variable_set(var, Time.now.strftime('%d%m%y%H%M%S').to_i)
   end
 end
