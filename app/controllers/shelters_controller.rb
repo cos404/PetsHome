@@ -1,6 +1,6 @@
 class SheltersController < ApplicationController
-  before_action :authenticate_user!,  only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_shelter,        only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,  only: [:new, :create, :edit, :update]
+  before_action :find_shelter,        only: [:show, :edit, :update]
 
   def index
     @shelters = Shelter.all
@@ -23,8 +23,6 @@ class SheltersController < ApplicationController
     @schedules = @shelter.schedules.sort_by do |a|
       @shelter.schedules.day_of_weeks[a.day_of_week]
     end
-
-    authorize @shelter
   end
 
   def update
@@ -59,6 +57,8 @@ class SheltersController < ApplicationController
 
   def create
     @shelter = Shelter.new(shelter_params)
+    authorize @shelter
+
     @shelter.user_id = current_user.id
     @shelter.save
 
@@ -70,7 +70,6 @@ class SheltersController < ApplicationController
       flash.now[:error] = "You have error!"
       render :new
     end
-    authorize @shelter
   end
 
 

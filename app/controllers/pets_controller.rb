@@ -30,13 +30,14 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    authorize @pet
+
     @pet.user_id = current_user.id
     @pet.shelter_id = @shelter.id
     @pet.save!
 
     if @pet.errors.empty?
       PetPhoto.where(user_id: current_user.id, pet_id: nil).update_all(pet_id: @pet.id)
-
       flash[:success] = "Pet added!"
       redirect_to shelter_pet_path(@shelter, @pet)
     else
@@ -44,7 +45,6 @@ class PetsController < ApplicationController
       render "new"
     end
 
-    authorize @pet
   end
 
   private
@@ -54,12 +54,12 @@ class PetsController < ApplicationController
   end
 
   def find_pet
-    p @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:id])
     authorize @pet
   end
 
   def find_shelter
-    p @shelter = Shelter.find(params[:shelter_id])
+    @shelter = Shelter.find(params[:shelter_id])
   end
 
 end

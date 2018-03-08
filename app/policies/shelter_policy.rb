@@ -15,7 +15,11 @@ class ShelterPolicy
   end
 
   def create?
-    user.present?
+    user.present? and
+    (user == shelter.user or
+    user.shelter_staffs.where(role: :employee).exists? shelter.id or
+    user.admin? or
+    user.moderator?)
   end
 
   def new?
@@ -24,9 +28,10 @@ class ShelterPolicy
 
   def update?
     user.present? and
-    (user.admin? or
-    user.moderator? or
-    shelter.user == user)
+    (user == shelter.user or
+    user.shelter_staffs.where(role: :employee).exists? shelter.id or
+    user.admin? or
+    user.moderator?)
   end
 
   def edit?
@@ -35,7 +40,9 @@ class ShelterPolicy
 
   def destroy?
     user.present? and
-    (user.admin? or
+    (user == shelter.user or
+    user.shelter_staffs.where(role: :employee).exists? shelter.id or
+    user.admin? or
     user.moderator?)
   end
 end
