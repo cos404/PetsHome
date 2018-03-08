@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_action_and_controller
 
+  def render_404
+    render file: "#{Rails.root}/public/404", status: :not_found
+  end
+
+  def render_500
+    render file: "#{Rails.root}/public/500", status: :bad_request
+  end
+
   private
 
   def set_locale
