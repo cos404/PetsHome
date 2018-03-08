@@ -1,0 +1,4 @@
+%section#staffs.row
+  %div.col-md-12
+    %button.btn.btn-info.btn-sm#addPet.mr-2= link_to fa_icon("pencil"), edit_shelter_path(@shelter), {title: t('view.button.edit')}
+    %button.btn.btn-info.btn-sm#addPet.mr-2= link_to fa_icon("plus"), new_shelter_pet_path(@shelter), {title: t('view.button.add-pet')}

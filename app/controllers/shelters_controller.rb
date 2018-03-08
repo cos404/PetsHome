@@ -40,7 +40,7 @@ class SheltersController < ApplicationController
     if @shelter.errors.empty?
       redirect_to @shelter
     else
-      p @shelter.errors
+      @shelter.errors
       render "edit"
     end
   end
@@ -63,7 +63,6 @@ class SheltersController < ApplicationController
     @shelter.save
 
     if @shelter.errors.empty?
-      ShelterPhoto.where(user_id: current_user.id, shelter_id: nil).update_all(shelter_id: @shelter.id)
       flash[:success] = "Shelter added!"
       redirect_to @shelter
     else

@@ -6,7 +6,13 @@ class ShelterPhotosController < ApplicationController
   end
 
   def create
-    @photo = ShelterPhoto.create!(title: params[:photo][:title], user_id: current_user.id, shelter_id: params[:photo][:shelter_id])
+    @shelter = Shelter.find(params[:shelter_id])
+    authorize @shelter
+
+    @photo = ShelterPhoto.new(shelter_params)
+    @photo.user_id = current_user.id
+    @photo.shelter_id = params[:shelter_id]
+    @photo.save
   end
 
   private
@@ -14,4 +20,9 @@ class ShelterPhotosController < ApplicationController
   def find_photo
     @photo = ShelterPhoto.find(params[:id])
   end
+
+  def shelter_params
+    params.require(:photo).permit(:title)
+  end
+
 end

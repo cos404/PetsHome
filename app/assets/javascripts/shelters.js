@@ -191,14 +191,9 @@ $(document).on("turbolinks:load", function() {
     })
   });
 
-  // // Label changer for file input(NEED REMAKE)
-  // $(".shelter_cover input").change((e)=>{
-  //   $(".shelter_cover label").text(e.target.files[0].name);
-  // });
-
   // File uploader
   $(function() {
-    return $('#shelter_photo_shelter_photo').fileupload({
+    return $('#uploader').fileupload({
       dataType: "script",
       add: function(e, data) {
         var file, types;
@@ -214,7 +209,6 @@ $(document).on("turbolinks:load", function() {
   });
 
 });
-
 
 // ADD SHELTER BALLONS TO MAPS
 ymaps.ready(init);

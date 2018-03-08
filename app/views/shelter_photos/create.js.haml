@@ -1,5 +1,7 @@
 - if @photo.new_record?
+  - p @photo.errors
   alert("Error");
 - else
-  $("#photo").append("#{j render template: "shelter_photos/show" }");
-  $("#photo_shelter_ids").val("#{@photo.id}" + " " + $("#photo_shelter_ids").val())
+  $("#photos").append("#{j render template: "shelter_photos/show" }");
+  $("#photo_shelter_ids").val("#{@photo.id}" + " " + $("#photo_shelter_ids").val());
+  $(".img-scroll").animate({scrollLeft: $("#photos").width()}, 500);

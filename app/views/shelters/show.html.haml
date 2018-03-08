@@ -11,42 +11,9 @@
   %article.col-md-6.col-sm-12.pet-description.float-left
     %h1.text-center.mt-1.pet-name= @shelter.title
     - if policy(@shelter).edit?
-      %section#staffs.row
-        %div.col-md-12
-          %button.btn.btn-info.btn-sm#addPet.mr-2= link_to fa_icon("pencil"), edit_shelter_path(@shelter), {title: t('view.button.edit')}
-          %button.btn.btn-info.btn-sm#addPet.mr-2= link_to fa_icon("plus"), new_shelter_pet_path(@shelter), {title: t('view.button.add-pet')}
-    %dl.list-spec
-      %dt#tag.list-spec_name= t 'view.shelter.address'
-      %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
-    %dl.list-spec= @shelter.about
-    %table.table
-      %tbody
-        - @shelter.phones.each do |phone|
-          %tr
-            %td{scope:"row"}= phone.phone_number
-            %td= phone.name
-    %section#schedule.mt-2
-      - @schedules.each do |day|
-        %dt= I18n.t("view.shelter.day_of_week.#{day.day_of_week}")
-        %dd
-          = day.open.strftime("%H:%M")
-          —
-          = day.close.strftime("%H:%M")
-  %section.col-md-6.col-sm-12.block-img.float-right
-    %section.main-img
-      %img{name: "main_img", src: "#{@shelter.cover.url}"}/
-    %section.img-scroll
-      %div= link_to (image_tag(@shelter.cover.url)), ("javascript:select_image(\"#{@shelter.cover.url}\")")
-      - @shelter.shelter_photos.each do |photo|
-        %div
-          = link_to (image_tag(photo.title.thumb.url)), ("javascript:select_image(\"#{photo.title.url}\")")
+      = render partial: 'section_controll'
+    = render partial: 'section_info'
+    = render partial: 'section_schedule'
+  = render partial: 'section_images'
   .clearfix
-%section.pb-2
-  %section.row
-    - @shelter.pets.each do |pet|
-      %section.col-md-3.col-sm-6.col-12.mb-2.card-a
-        = link_to shelter_pet_path(pet.shelter_id, pet.id) do
-          %article.card-s-active
-            %h2.text-center= pet.name
-            %div= image_tag pet.avatar, class: "card-img"
-
+= render partial: 'section_pets'

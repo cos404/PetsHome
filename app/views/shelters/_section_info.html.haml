@@ -1,0 +1,10 @@
+%dl.list-spec
+  %dt#tag.list-spec_name= t 'view.shelter.address'
+  %dd.list-spec_value= link_to "#{@shelter.country_title}, #{@shelter.region_title}, #{@shelter.city_title}, #{@shelter.street} #{@shelter.house_number}", "#map", 'data-turbolinks' => 'false'
+%dl.list-spec= @shelter.about
+%table.table
+  %tbody
+    - @shelter.phones.each do |phone|
+      %tr
+        %td{scope:"row"}= phone.phone_number
+        %td= phone.name

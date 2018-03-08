@@ -1,0 +1,7 @@
+%section#schedule.mt-2
+  - @schedules.each do |day|
+    %dt= I18n.t("view.shelter.day_of_week.#{day.day_of_week}")
+    %dd
+      = day.open.strftime("%H:%M")
+      —
+      = day.close.strftime("%H:%M")

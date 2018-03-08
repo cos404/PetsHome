@@ -91,7 +91,11 @@
     - moderator
     - admin
 
-
+##PATHS:
+- /shelters/new
+- /shelters/:id
+- /shelters/6/pets/new
+- /search
 
 %button.btn.btn-info.btn-sm#addStaff.mr-2= fa_icon("user-plus")
 %div#staff

@@ -1,15 +1,16 @@
 - @page_title = "| " + t('view.title.shelter.edit') + " #{@shelter.title}"
-%section.col-6.float-left
-  %h1= t('view.title.shelter.edit') + ":\n#{@shelter.title}"
-  = simple_form_for @shelter do |f|
-    = f.input :status, as: :select, collection: Shelter.statuses.keys.collect{|s| [t("view.shelter.select.statuses.#{s.downcase}"), s]}, include_blank: false, id: :status, class: "custom-select", label: t("view.shelter.status")
-    = render partial: 'form', locals: {f: f}
-    = render partial: "schedule_fields", locals: {f: f}
-    = f.submit t('view.button.save'), class: "btn btn-success"
-%section.col-6.float-right
-  = render partial: 'upload'
-  %div#photo
-  - @shelter.shelter_photos.each do |photo|
-    = link_to (image_tag photo.title.thumb.url), photo.title.url
+.row
+  %section.col-6.float-left
+    %h2
+      %span.badge.badge-info= t('view.title.shelter.edit')
+      = "#{@shelter.title}"
+= simple_form_for @shelter do |f|
+  .row
+    %section.col-6.float-left
+      = render partial: 'form', locals: {f: f}
+      = f.input :status, as: :select, collection: Shelter.statuses.keys.collect{|s| [t("view.shelter.select.statuses.#{s.downcase}"), s]}, include_blank: false, id: :status, class: "custom-select", label: t("view.shelter.status")
+      = f.submit t('view.button.save'), class: "btn btn-success"
+    %section.col-6.float-right
+      = render partial: "schedule_fields", locals: {f: f}
 .clearfix
 
