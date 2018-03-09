@@ -6,12 +6,22 @@ class PetPhotosController < ApplicationController
   end
 
   def create
-    @photo = PetPhoto.create!(title: params[:photo][:title], user_id: current_user.id, pet_id: params[:photo][:pet_id])
+    @pet = Pet.find(params[:pet_id])
+    authorize @pet
+
+    @photo = PetPhoto.new(pet_params)
+    @photo.user_id = current_user.id
+    @photo.pet_id = params[:pet_id]
+    @photo.save
   end
 
   private
 
   def find_photo
     @photo = PetPhoto.find(params[:id])
+  end
+
+  def pet_params
+    params.require(:photo).permit(:title)
   end
 end

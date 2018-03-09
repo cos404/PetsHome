@@ -38,13 +38,5 @@
       %dt#tag.list-spec_name= t 'view.pet.color'
       %dd.list-spec_value= @pet.color
     %dl.list-spec= @pet.about
-  %section.col-md-6.col-sm-12.block-img.float-right
-    %section.main-img
-      %img{name: "main_img", src: "#{@pet.avatar.url}"}/
-    - unless @pet.pet_photos.empty?
-      %section.img-scroll
-        %div= link_to (image_tag(@pet.avatar.url)), ("javascript:select_image(\"#{@pet.avatar.url}\")")
-        - @pet.pet_photos.each do |photo|
-          %div
-            = link_to (image_tag(photo.title.thumb.url)), ("javascript:select_image(\"#{photo.title.url}\")")
+  = render partial: 'section_images'
   .clearfix

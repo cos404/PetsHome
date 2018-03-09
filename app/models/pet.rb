@@ -5,8 +5,8 @@ class Pet < ApplicationRecord
   belongs_to  :shelter
   belongs_to  :user
 
-  has_many    :pet_comments
-  has_many    :pet_photos
+  has_many    :pet_comments, dependent: :destroy
+  has_many    :pet_photos, dependent: :destroy
 
   before_validation :enum_to_int
 

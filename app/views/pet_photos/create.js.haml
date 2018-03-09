@@ -1,5 +1,7 @@
 - if @photo.new_record?
+  - p @photo.errors
   alert("Error");
 - else
-  $("#photo").append("#{j render template: "pet_photos/show" }");
+  $("#photos").append("#{j render template: "pet_photos/show" }");
   $("#photo_pet_ids").val("#{@photo.id}" + " " + $("#photo_pet_ids").val())
+  $(".img-scroll").animate({scrollLeft: $("#photos").width()}, 500);

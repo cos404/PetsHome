@@ -38,7 +38,6 @@ class PetsController < ApplicationController
     @pet.save!
 
     if @pet.errors.empty?
-      PetPhoto.where(user_id: current_user.id, pet_id: nil).update_all(pet_id: @pet.id)
       flash[:success] = "Pet added!"
       redirect_to @pet
     else

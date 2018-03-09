@@ -15,7 +15,11 @@ class PetPolicy
   end
 
   def create?
-    false
+    user.present? and
+    (user.id == pet.shelter.user_id or
+    user.shelter_staffs.where(role: :employee).exists? pet.shelter.id or
+    user.admin? or
+    user.moderator?)
   end
 
   def new?

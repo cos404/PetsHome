@@ -25,7 +25,6 @@ function select_image (a) {
 }
 
 $(document).on("turbolinks:load", function(){
-
   // Annotation
   $(document).click(function(event){
     if(!$(event.target).is('.annotation') && !$(event.target).is('.annotation-toggle') && !$('.list-spec_name').has(event.target).length){
@@ -54,13 +53,29 @@ $(document).on("turbolinks:load", function(){
       $(this).closest('fieldset').hide();
       return event.preventDefault();
     });
-
     return $('form').on('click', '.add_fields', function(event) {
       var regexp, time;
       time = new Date().getTime();
       regexp = new RegExp($(this).data('id'), 'g');
       $(this).before($(this).data('fields').replace(regexp, time));
       return event.preventDefault();
+    });
+  });
+
+  // File uploader
+  $(function() {
+    return $('#uploader').fileupload({
+      dataType: "script",
+      add: function(e, data) {
+        var file, types;
+        types = /(\.|\/)(gif|jpe?g|png)$/i;
+        file = data.files[0];
+        if (types.test(file.type) || types.test(file.name)) {
+          return data.submit();
+        } else {
+          return alert(file.name + " is not a gif, jpeg, or png image file");
+        }
+      }
     });
   });
 
