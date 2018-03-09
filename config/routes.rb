@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :shelters do
     resources :shelter_photos,  only: [:create, :destroy]
-    resources :pets, except: :destroy
+    resources :pets, only: [:new, :create]
     post    'addStaff/:user_id'     => 'shelters#addStaff'
     delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   post '/getCities'   => 'shelters#getCities'
   post '/getUsers'    => 'shelters#getUsers'
 
-  resources :pet_photos,      only: [:create, :destroy]
+  resources :pets, only: [:show, :edit, :update] do
+    resources :pet_photos,  only: [:create, :destroy]
+  end
 
   get "/admin" => "admin/home#index"
   namespace :admin do

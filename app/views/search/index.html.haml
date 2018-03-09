@@ -16,7 +16,7 @@
         .search-result
           = image_tag pet.avatar.url, class: "search-result-pet-avatar"
           .search-result-information
-            = link_to pet.name, shelter_pet_path(pet.shelter_id, pet), class: "search-result-pet-name"
+            = link_to pet.name, pet, class: "search-result-pet-name"
             %p.card-text= pet.about
             %h4
               = t("view.search.menu.vaccination.#{pet.vaccination}")

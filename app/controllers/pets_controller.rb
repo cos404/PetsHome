@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :find_pet, only: [:show, :edit, :update]
-  before_action :find_shelter, only: [:new, :create, :edit, :update]
+  before_action :find_shelter, only: [:new, :create]
 
   def index
     @pets = Pet.all
@@ -11,13 +11,14 @@ class PetsController < ApplicationController
   end
 
   def edit
+    authorize  @pet
   end
 
   def update
     @pet.update_attributes(pet_params)
-
+    authorize  @pet
     if @pet.errors.empty?
-      redirect_to [@shelter, @pet]
+      redirect_to @pet
     else
       render "edit"
     end
@@ -25,12 +26,12 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new(shelter_id: @shelter.id)
-    authorize @pet
+    authorize  @shelter
   end
 
   def create
     @pet = Pet.new(pet_params)
-    authorize @pet
+    authorize @shelter
 
     @pet.user_id = current_user.id
     @pet.shelter_id = @shelter.id
@@ -39,7 +40,7 @@ class PetsController < ApplicationController
     if @pet.errors.empty?
       PetPhoto.where(user_id: current_user.id, pet_id: nil).update_all(pet_id: @pet.id)
       flash[:success] = "Pet added!"
-      redirect_to shelter_pet_path(@shelter, @pet)
+      redirect_to @pet
     else
       flash.now[:error] = "You have error!"
       render "new"

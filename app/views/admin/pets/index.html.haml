@@ -10,7 +10,7 @@
     - @pets.each do |pet|
       %tr
         %td= pet.id
-        %td= link_to pet.name, shelter_pet_path(pet.shelter_id, pet.id)
+        %td= link_to pet.name, pet
         %td= pet.status
         %td= pet.shelter.title
         %td= pet.shelter.country.title
