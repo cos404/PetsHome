@@ -1,10 +1,13 @@
 - @page_title = "| " + t('view.title.pet.new')
-%h1= t 'view.pet.add_new'
-%section.col-6.float-left
-  = simple_form_for [@shelter, @pet] do |f|
-    = render partial: 'form', locals: {f: f}
-    = f.submit t('view.button.add'), class: "btn btn-success"
-%section.col-6.float-right
-  / = render partial: 'upload'
-  %div#photo
+.row
+  %section.col-6
+    %h2
+      %span.badge.badge-info= t('view.title.pet.new')
+= simple_form_for [@shelter, @pet] do |f|
+  .row
+    %section.col-6
+      = render partial: 'form', locals: {f: f}
+      = f.submit t('view.button.add'), class: "btn btn-success"
+    %section.col-6
+      = render partial: 'rform', locals: {f: f}
 .clearfix

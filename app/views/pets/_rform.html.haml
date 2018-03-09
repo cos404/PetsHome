@@ -1,0 +1,8 @@
+= f.input :vaccination, label: t('view.pet.vaccination')
+= f.input :sterilization, label: t('view.pet.sterilization')
+%span= f.label :subspecies, t('view.pet.subspecies'), class: "badge badge-info"
+= f.input :subspecies, as: :select, collection: Pet.subspecies.keys.collect{|s| [t("view.pet.select.subspecies.#{s.downcase}"), s]}, include_blank: false, label: false
+%span= f.label :size, t('view.pet.size'), class: "badge badge-info"
+= f.input :size, as: :select, collection:       Pet.sizes.keys.collect{|s| [t("view.pet.select.size.#{s.downcase}"), s]}, include_blank: false, label: false
+%span= f.label :gender, t('view.pet.gender'), class: "badge badge-info"
+= f.input :gender, as: :select, collection:     Pet.genders.keys.collect{|s| [t("view.pet.select.gender.#{s.downcase}"), s]}, include_blank: false, label: false

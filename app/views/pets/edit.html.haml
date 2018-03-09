@@ -1,12 +1,16 @@
 - @page_title = "| " + t('view.title.pet.edit') + " #{@pet.name}"
-%h1= t('view.title.pet.edit') + " #{@pet.name}"
-%section.col-6.float-left
-  = simple_form_for @pet do |f|
-    = render partial: 'form', locals: {f: f}
-    = f.input :status, as: :select, collection: Pet.statuses.keys.collect{|s| [t("view.pet.select.status.#{s.downcase}"), s]}, include_blank: false, label: t('view.pet.status')
-
-    = f.submit t('view.button.save'), class: "btn btn-success"
-%section.col-6.float-right
-  / = render partial: 'upload'
-  %div#photo
+.row
+  %section.col-6.float-left
+    %h2
+      %span.badge.badge-primary= t('view.title.pet.edit')
+      = "#{@pet.name}"
+= simple_form_for @pet do |f|
+  .row
+    %section.col-6.float-left
+      = render partial: 'form', locals: {f: f}
+      = f.submit t('view.button.save'), class: "btn btn-success"
+    %section.col-6.float-right
+      = render partial: 'rform', locals: {f: f}
+      %span= f.label :status, t('view.pet.status'), class: "badge badge-info"
+      = f.input :status, as: :select, collection: Pet.statuses.keys.collect{|s| [t("view.pet.select.status.#{s.downcase}"), s]}, include_blank: false, label: false
 .clearfix
