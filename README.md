@@ -1,11 +1,18 @@
 # BillyBo
 
 ### TODO:
+- setting pet avatar\shelter cover
 - changing staff role
 - add activity controller
 - fix cyrillic case intenseve in the search
-- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 - add comments
+- tests
+- refactoring
+- request optimisation
+- en locals
+- de locals
+- fr locals
+- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 
 ### COMPLETE:
 - addition work time to shelter

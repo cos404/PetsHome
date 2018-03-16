@@ -2,6 +2,10 @@
 %article.card-s.pb-2
   %article.col-md-6.col-sm-12.pet-description.float-left
     %h1.text-center.mt-1.pet-name= @pet.name
+    %section#staffs.row
+      - if policy(@pet).edit?
+        %div.col-md-12
+          %button.btn.btn-info.btn-sm#addPet.mr-2= link_to fa_icon("pencil"), edit_pet_path(@pet), {title: t('view.button.edit')}
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.address'
       %dd.list-spec_value= "#{@pet.shelter.country.title}, #{@pet.shelter.region.title}, #{@pet.shelter.city.title}, #{@pet.shelter.street} #{@pet.shelter.house_number}"
@@ -37,6 +41,6 @@
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.color'
       %dd.list-spec_value= @pet.color
-    %dl.list-spec= @pet.about
+    %dl.list-spec= simple_format @pet.about
   = render partial: 'section_images'
   .clearfix

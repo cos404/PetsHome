@@ -17,7 +17,7 @@ body{
   background-color: #f1f1f1;
 }
 header{
-  background-color: #00a4e3;
+  background-color: white;
 }
 aside{
   height: 100%;
@@ -46,6 +46,12 @@ aside{
   background-repeat: no-repeat;
   background-position: right center;
 }
+
+.btn > a, .btn > a:hover, .btn > a:focus {
+  color: white;
+}
+
+.dropdown-menu{padding: 0.5rem}
 
 
 #body{
@@ -119,14 +125,6 @@ aside{
 }
 
 // BOOTSTRAP CUSTOM
-
-.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
-  color: white;
-}
-
-.navbar-light .navbar-nav .nav-link{
-  color: white;
-}
 
 .custom-file{
   margin-bottom: 1rem;

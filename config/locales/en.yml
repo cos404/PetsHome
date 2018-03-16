@@ -92,39 +92,10 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  view:
-    home:
-      near: "Near you"
-      tagline: "Make world better!"
-    shelter:
-      address: "Address"
-    pet:
-      address: "Address"
-      shelter: "Shelter"
-      age: "Age"
-      euthanasia: "Euthanasia"
-      size: "Size"
-      vaccination: "Vaccination"
-      diseases: "Diseases"
-      sterilization: "Sterilization"
-      color: "Color"
-      about: "About"
-      age_years: "years"
-      age_months: "months"
-      birthday: "Birthday"
-      boolean:
-        euthanasia_true: "Yes"
-        euthanasia_false: "No"
-        sterilization_true: "Make"
-        sterilization_false: "Not make"
-      annotation:
-        age: "If the age is not the date of birth, then this age is correct at the time of adding the pet to the site."
-        size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
-               <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
-               <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"
   activerecord:
     errors:
       messages:
+        record_invalid: 'record invalid: %{errors}'
         must_contain: "must contain: a-z, A-Z, 0-9"
         already_taken: "already taken"
     attributes:
@@ -141,3 +112,139 @@ en:
         cover: "Cover"
         moderation: "Moderation"
         verified: "Verified"
+        about: "About"
+  view:
+    title:
+      home: "Main"
+      profile: "Profile"
+      about: "About"
+      contacts: "Contacts"
+      press: "Press"
+      sitemap: "Sitemap"
+      terms: "Terms"
+      pet:
+        edit: "Editing"
+        new: "Adding a pet"
+        show: ""
+      search: "Search"
+      shelter:
+        edit: "Editing"
+        new: "Adding a shelter"
+        show: ""
+    button:
+      add: "Add"
+      add-pet: "Add a pet"
+      add-staff: "Add a staff"
+      edit: "Edit"
+      save: "Save"
+    home:
+      near: "Not far from you"
+      tagline: "Make world better!"
+    shelter:
+      select:
+        statuses:
+          active: "Active"
+          suspended: "Suspended"
+          deactived: "Deactived"
+      status: "Status"
+      address: "Address"
+      about: "About"
+      phone-number: 'Phone number'
+      name: "Name"
+      title: "Title"
+      street: "Street"
+      house-number: "House number"
+      latitude: "Latitude"
+      longitude: "Longitude"
+      day_of_week:
+        monday:     "Mon"
+        tuesday:    "Tue"
+        wednesday:  "Wed"
+        thursday:   "Thu"
+        friday:     "Fri"
+        saturday:   "Sat"
+        sunday:     "Sun"
+    pet:
+      name: "Name"
+      status: "Status"
+      subspecies: "Subspecies"
+      address: "Address"
+      shelter: "Shelter"
+      age: "Age"
+      euthanasia: "Euthanasia"
+      size: "Size"
+      vaccination: "Vaccination"
+      diseases: "Diseases"
+      sterilization: "Sterilization"
+      color: "Color"
+      about: "About"
+      gender: "Gender"
+      birthday: "Birthday"
+      select:
+        subspecies:
+          dog: "Dog"
+          cat: "Cat"
+          other: "Other"
+        gender:
+          boy: "boy"
+          girl: "girl"
+        size:
+          s: "S"
+          m: "M"
+          l: "L"
+        status:
+          active: In the shelter
+          euthanized: Euthanized
+          took: Took
+          deactived: Deactived
+      boolean:
+        vaccination_true: Made
+        vaccination_false: Not made
+        sterilization_true: Made
+        sterilization_false: Not made
+      annotation:
+        age: "If the age is not the date of birth, then this age is correct at the time of adding the pet to the site."
+        size: "<p>S - Yorkshire terrier, chihuahua, dachshund, pug, bulldog.</p>
+               <p>M - Staffordshire terrier, yagter terrier, Siberian husky, chow-chow.</p>
+               <p>L - Golden Retriever, Labrador, German Shepherd, Husky, Akita Inu.</p>"
+    application:
+      menu:
+        dogs: Dogs
+        cats: Cats
+        other: Other
+        new-shelter: Add shelter
+        sign-up: Sign up
+        sign-in: Sign in
+        sign-out: Sign out
+    search:
+      menu:
+        city: City
+        country: Country
+        subspecies: Subspecies(all)
+        dog: Dogs
+        cat: Cats
+        other: Other
+        gender: Gender(all)
+        boy: Boy
+        girl: Girl
+        size: Size(all)
+        s: S
+        m: M
+        l: L
+        search: Search
+        sterilization:
+          "true": Sterilized
+          "false": Not sterilized
+        vaccination:
+          "true": Vaccinated
+          "false": Not vaccinated
+  admin:
+    user:
+      avatar: Avatar
+      title: Editing profile
+      email_visible: Show email
+      fullname: Fullname
+      about: About me
+      leave_blank_if_you_don_t_want_to_change_it: leave blank if you don t want to change it
+      we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      update: Save
