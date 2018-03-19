@@ -1,0 +1,21 @@
+= link_to pet do
+  .mb-2.card-loop.hover
+    .col-12.col-md-12.col-lg-4.card-loop-image
+      = image_tag pet.avatar
+    .col-12.col-md-12.col-lg-8.card-loop-info
+      %strong= pet.name
+      %span
+        = pet.country
+        —
+        = pet.city
+      - if pet.euthanasia
+        %span= pet.euthanasia.strftime("#{t('view.home.euthanasia')}: %m.%d.%Y")
+      - if pet.birthday
+        %span= pet.birthday.strftime("#{t('view.home.birthday')}: %d.%m.%Y")
+      %div
+        %span.badge.badge-warning
+          = t "view.home.#{pet.subspecies}"
+        - if pet.vaccination
+          %span.badge.badge-info= t "view.home.vaccination"
+        - if pet.sterilization
+          %span.badge.badge-info= t "view.home.sterilization"

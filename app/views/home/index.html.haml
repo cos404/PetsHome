@@ -1,18 +1,13 @@
 = javascript_tag do
-  var shelters        = "#{@shelters}",
+  var shelters        = "#{@shelters_list}",
   longitude           = "#{@geo['longitude']}",
   latitude            = "#{@geo['latitude']}";
 #map.map
 .container.mt-2
   .row
-    - @pets.each do |pet|
-      %section.col-md-3.col-sm-6.col-12.mb-2.card-a
-        = link_to pet do
-          %article.card-s-active
-            %h2.text-center= "#{t 'view.home.near'}"
-            %article
-              %div= image_tag pet.avatar, class: "card-img"
-              %h3.text-center.mt-1= pet.name
-              %h4= pet.city
-              %h4
-                = "#{t 'view.pet.birthday'}: #{pet.birthday}"
+    %section.col-md-6.col-12.mb-2.card-loops
+      - @pets.each do |pet|
+        = render partial: 'section_pets', locals:{pet: pet}
+    %section.col-md-6.col-12.mb-2.card-loops
+      - @shelters.each do |shelter|
+        = render partial: 'section_shelters', locals:{shelter: shelter}

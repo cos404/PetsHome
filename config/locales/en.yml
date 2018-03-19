@@ -139,7 +139,14 @@ en:
       save: "Save"
     home:
       near: "Not far from you"
-      tagline: "Make world better!"
+      birthday: Birthday
+      vaccination: Vaccinated
+      sterilization: Sterilized
+      euthanasia: Euthanasia
+      cat: Cats
+      dog: Dogs
+      other: Other
+      verified: Verified
     shelter:
       select:
         statuses:

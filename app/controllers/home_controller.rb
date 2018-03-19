@@ -3,9 +3,11 @@ class HomeController < ApplicationController
 
   def index
     @geo = Geocoder.search(request.remote_ip)[0].data
-    @shelters = root_url + 'shelters.json'
+    @shelters_list = root_url + 'shelters.json'
 
-    @pets = Pet.select(:id, :name, :birthday, :avatar, :shelter_id, "cities.title AS city").joins(shelter: :city).limit(8)
+    @shelters = Shelter.select(:id, :title, :verified, "cities.title AS _city", "countries.title AS _country").joins(:city, :country).limit(5).order("created_at DESC")
+
+    @pets = Pet.select(:id, :name, :birthday, :avatar, :vaccination, :sterilization, :euthanasia, :subspecies, :shelter_id, "cities.title AS city", "countries.title AS country").joins(shelter: [:city, :country]).limit(5).order("pets.created_at DESC")
     render layout: "home_layout"
   end
 

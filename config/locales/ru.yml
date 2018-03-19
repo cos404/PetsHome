@@ -398,7 +398,14 @@ ru:
       save: "Сохранить"
     home:
       near: "Недалеко от вас"
-      tagline: "Сделай мир лучше!"
+      birthday: Дата рождения
+      euthanasia: Дата эвтаназии
+      vaccination: Вакцинирован
+      sterilization: Стерилизован
+      cat: Коты
+      dog: Собаки
+      other: Другие
+      verified: Верифицирован
     shelter:
       select:
         statuses:
