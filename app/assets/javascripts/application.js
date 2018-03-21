@@ -18,7 +18,9 @@
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-
+function cl(text) {
+  console.log(text);
+}
 
 function select_image (a) {
   document.main_img.src=a
@@ -46,7 +48,7 @@ $(document).on("turbolinks:load", function(){
     }
   );
 
-  // Remove|Add nested fields
+  // Remove|Add form nested fields
   $(function() {
     $('form').on('click', '.remove_fields', function(event) {
       $(this).prev('input[type=hidden]').val('1');
@@ -61,6 +63,29 @@ $(document).on("turbolinks:load", function(){
       return event.preventDefault();
     });
   });
+
+  // Remove photo
+  $(".photo_delete").on( "click", function() {
+    var element = $(this)
+        id      = element.data("id"),
+        type    = element.data("type"),
+        url     = window.location.href;
+
+    if(!confirm(element.data("confirm"))) return false;
+
+    $.ajax({
+        type: 'DELETE',
+        url: `/${type}/${id}`,
+        dataType: 'json',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(data) {
+          element.parent().parent().remove();
+        }
+    })
+  });
+
 
   // File uploader
   $(function() {

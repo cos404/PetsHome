@@ -396,6 +396,12 @@ ru:
       add-staff: "Добавить персонал"
       edit: "Редактировать"
       save: "Сохранить"
+      set_cover: Сделать обложкой
+      set_avatar: Сделать аватаром
+      cover: Обложка
+      avatar: Аватар
+      delete: Удалить
+      delete_confirm: Вы уверены?
     home:
       near: "Недалеко от вас"
       birthday: Дата рождения

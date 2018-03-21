@@ -10,19 +10,21 @@ Rails.application.routes.draw do
   get 'users/:username' => 'users#show', as: :user
 
   resources :shelters do
-    resources :shelter_photos,  only: [:create, :destroy]
+    resources :shelter_photos,  only: [:create]
     resources :pets, only: [:new, :create]
     post    'addStaff/:user_id'     => 'shelters#addStaff'
     delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
+  resources :shelter_photos,  only: [:destroy]
 
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
   post '/getUsers'    => 'shelters#getUsers'
 
   resources :pets, only: [:show, :edit, :update] do
-    resources :pet_photos,  only: [:create, :destroy]
+    resources :pet_photos,  only: [:create]
   end
+  resources :pet_photos,  only: [:destroy]
 
   get "/admin" => "admin/home#index"
   namespace :admin do

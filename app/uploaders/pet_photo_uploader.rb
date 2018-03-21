@@ -12,7 +12,7 @@ class PetPhotoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{Time.now.strftime("%m-%Y")}"
+    "uploads/#{model.class.to_s.underscore}"
   end
 
   # Process files as they are uploaded:

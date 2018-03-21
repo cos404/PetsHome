@@ -9,7 +9,6 @@
 - tests
 - refactoring
 - request optimisation
-- en locals
 - de locals
 - fr locals
 - using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
@@ -44,6 +43,7 @@
 - add titles
 - add pets edit page
 - addition phone numbers to shelter
+- en locals
 
 ### TODO_AP:
 - add shelter controller functional

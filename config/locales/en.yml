@@ -137,6 +137,12 @@ en:
       add-staff: "Add a staff"
       edit: "Edit"
       save: "Save"
+      set_cover: Set cover
+      set_avatar: Set avatar
+      cover: Cover
+      avatar: Avatar
+      delete: Delete
+      delete_confirm: Are you sure?
     home:
       near: "Not far from you"
       birthday: Birthday

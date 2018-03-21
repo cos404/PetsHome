@@ -2,6 +2,9 @@ class ShelterPhotosController < ApplicationController
   before_action :find_photo, only: [:destroy]
 
   def destroy
+    @shelter = @photo.shelter
+    authorize @shelter
+
     @photo.destroy
   end
 

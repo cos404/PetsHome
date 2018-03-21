@@ -2,6 +2,9 @@ class PetPhotosController < ApplicationController
   before_action :find_photo, only: [:destroy]
 
   def destroy
+    @pet = @photo.pet
+    authorize @pet
+
     @photo.destroy
   end
 
