@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require i18n/translations
 
 function cl(text) {
   console.log(text);
@@ -28,6 +29,7 @@ function select_image(a) {
 }
 
 $(document).on("turbolinks:load", function(){
+  I18n.locale = $('body').data('locale')
   // Annotation
   $(document).click(function(event){
     if(!$(event.target).is('.annotation') && !$(event.target).is('.annotation-toggle') && !$('.list-spec_name').has(event.target).length){
@@ -111,22 +113,18 @@ $(document).on("turbolinks:load", function(){
         exControl = exDefault.children(":first"),
         exId = exControl.data("id");
 
-        var q = "<%= t('view.button.cover_confirm') %>";
-        cl(q);
-
         exDefault.removeAttr("id");
         exDefault.empty();
         exDefault.append(`
-          <i title="Обложка. Чтоб удалить, используйте другую фотографию в качестве обложки приюта." data-id="${exId}" data-confirm="Вы уверены, что хотите использовать это фото в качестве обложки приюта?" data-type="${type}" class="fa fa-check-circle set-photo"></i>
-          <i title="Удалить" data-id="${exId}" data-confirm="Вы уверены, что хотите удалить это фото?" data-type="${type}_photos" class="fa fa-times-circle photo-delete"></i>`
+          <i title="${I18n.t('view.button.cover')}" data-id="${exId}" data-confirm="${I18n.t('view.button.cover_confirm')}" data-type="${type}" class="fa fa-check-circle set-photo"></i>
+          <i title="${I18n.t('view.button.delete')}" data-id="${exId}" data-confirm="${I18n.t('view.button.delete_confirm')}" data-type="${type}_photos" class="fa fa-times-circle photo-delete"></i>`
         );
 
         element.parent().attr('id', 'main-image');
         element.parent().empty();
         $("#main-image").append(`
-          <i title="Обложка. Чтоб удалить, используйте другую фотографию в качестве обложки приюта." data-id="${id}" data-type="${type}" class="fa fa-info-circle"></i>
+          <i title="${I18n.t('view.button.cover')}" data-id="${id}" data-type="${type}" class="fa fa-info-circle"></i>
         `);
-        cl($("#main-image"));
       }
     })
 

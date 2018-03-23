@@ -1,6 +1,6 @@
 %html
   = render partial: 'layouts/head'
-  %body
+  %body{data: {locale: I18n.locale}}
     = render partial: 'layouts/header'
     %div#body
       = yield

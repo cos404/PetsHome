@@ -1,7 +1,6 @@
 # BillyBo
 
 ### TODO:
-- setting pet avatar\shelter cover
 - changing staff role
 - add activity controller
 - fix cyrillic case intenseve in the search
@@ -44,6 +43,7 @@
 - add pets edit page
 - addition phone numbers to shelter
 - en locals
+- setting pet avatar\shelter cover
 
 ### TODO_AP:
 - add shelter controller functional

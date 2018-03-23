@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    if cookies[:language]
+    if cookies[:language] && I18n.available_locales.include?(cookies[:language])
       I18n.locale = cookies[:language]
     else
       I18n.locale = cookies[:language] = http_accept_language.compatible_language_from(I18n.available_locales) || I18n.default_locale

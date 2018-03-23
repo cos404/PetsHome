@@ -1,6 +1,6 @@
 %html
   = render partial: 'admin/layouts/head'
-  %body
+  %body{data: {locale: I18n.locale}}
     %div.container-fluid
       %div.row
         %aside.nopadding
