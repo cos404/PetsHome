@@ -1,2 +1,1 @@
-= link_to "javascript:select_image('#{@photo.title.url}')" do
-  = image_tag @photo.title.thumb.url
+= render partial: 'shelters/photo', locals: {photo: @photo}

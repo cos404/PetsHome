@@ -4,8 +4,10 @@ class ShelterPhotosController < ApplicationController
   def destroy
     @shelter = @photo.shelter
     authorize @shelter
+    return head :precondition_failed if @photo.title_identifier == @shelter.cover_identifier
 
     @photo.destroy
+    head :ok
   end
 
   def create

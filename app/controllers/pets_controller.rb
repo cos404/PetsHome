@@ -44,7 +44,14 @@ class PetsController < ApplicationController
       flash.now[:error] = "You have error!"
       render "new"
     end
+  end
 
+  def set_photo
+    @pet_photo = PetPhoto.find(params[:photo_id])
+    @pet = Pet.find(@pet_photo.pet_id)
+    authorize @pet
+
+    @pet.update_column(:avatar, @pet_photo.title_identifier)
   end
 
   private

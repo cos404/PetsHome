@@ -13,7 +13,7 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{Time.now.strftime("%m-%Y")}"
+    "uploads/#{model.class.to_s.underscore}"
   end
 
   # Process files as they are uploaded:
@@ -25,7 +25,7 @@ class ShelterPhotoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [nil, 120]
+    process resize_to_fit: [nil, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

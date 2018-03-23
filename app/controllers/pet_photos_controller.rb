@@ -4,8 +4,10 @@ class PetPhotosController < ApplicationController
   def destroy
     @pet = @photo.pet
     authorize @pet
+    return head :precondition_failed if @photo.title_identifier == @pet.avatar_identifier
 
     @photo.destroy
+    head :ok
   end
 
   def create

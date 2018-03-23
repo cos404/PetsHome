@@ -38,6 +38,10 @@ class ShelterPolicy
     update?
   end
 
+  def set_photo?
+    update?
+  end
+
   def destroy?
     user.present? and
     (user == shelter.user or

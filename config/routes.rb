@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
   end
   resources :shelter_photos,  only: [:destroy]
+  patch '/shelter/set_photo/:photo_id' => 'shelters#set_photo'
 
   post '/getRegions'  => 'shelters#getRegions'
   post '/getCities'   => 'shelters#getCities'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
     resources :pet_photos,  only: [:create]
   end
   resources :pet_photos,  only: [:destroy]
+  patch '/pet/set_photo/:photo_id' => 'pets#set_photo'
 
   get "/admin" => "admin/home#index"
   namespace :admin do

@@ -18,11 +18,12 @@
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+
 function cl(text) {
   console.log(text);
 }
 
-function select_image (a) {
+function select_image(a) {
   document.main_img.src=a
 }
 
@@ -65,7 +66,7 @@ $(document).on("turbolinks:load", function(){
   });
 
   // Remove photo
-  $(".photo_delete").on( "click", function() {
+  $("#photos").on( "click", ".photo-delete", function() {
     var element = $(this)
         id      = element.data("id"),
         type    = element.data("type"),
@@ -84,6 +85,51 @@ $(document).on("turbolinks:load", function(){
           element.parent().parent().remove();
         }
     })
+  });
+
+  // Set avatar\cover
+
+  $("#photos").on("click", ".set-photo", function(){
+    var element = $(this),
+        id      = element.data("id"),
+        type    = element.data("type"),
+        url     = window.location.href;
+
+    if(!confirm(element.data("confirm"))) return false;
+
+    $.ajax({
+      type: 'PATCH',
+      url: `/${type}/set_photo/${id}`,
+      dataType: 'json',
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function() {
+        $(".photo-default").remove();
+
+        var exDefault = $("#main-image"),
+        exControl = exDefault.children(":first"),
+        exId = exControl.data("id");
+
+        var q = "<%= t('view.button.cover_confirm') %>";
+        cl(q);
+
+        exDefault.removeAttr("id");
+        exDefault.empty();
+        exDefault.append(`
+          <i title="Обложка. Чтоб удалить, используйте другую фотографию в качестве обложки приюта." data-id="${exId}" data-confirm="Вы уверены, что хотите использовать это фото в качестве обложки приюта?" data-type="${type}" class="fa fa-check-circle set-photo"></i>
+          <i title="Удалить" data-id="${exId}" data-confirm="Вы уверены, что хотите удалить это фото?" data-type="${type}_photos" class="fa fa-times-circle photo-delete"></i>`
+        );
+
+        element.parent().attr('id', 'main-image');
+        element.parent().empty();
+        $("#main-image").append(`
+          <i title="Обложка. Чтоб удалить, используйте другую фотографию в качестве обложки приюта." data-id="${id}" data-type="${type}" class="fa fa-info-circle"></i>
+        `);
+        cl($("#main-image"));
+      }
+    })
+
   });
 
 

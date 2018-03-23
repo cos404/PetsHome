@@ -72,7 +72,6 @@ class SheltersController < ApplicationController
     end
   end
 
-
   def getRegions
     @regions = Region.where(country_id: params[:country_id]).select(:id, "title")
     render json: @regions
@@ -100,6 +99,14 @@ class SheltersController < ApplicationController
       shelter_id: shelter_staff_params[:shelter_id]
     )
     @staff.destroy_all
+  end
+
+  def set_photo
+    @shelter_photo = ShelterPhoto.find(params[:photo_id])
+    @shelter = Shelter.find(@shelter_photo.shelter_id)
+    authorize @shelter
+
+    @shelter.update_column(:cover, @shelter_photo.title_identifier)
   end
 
   private

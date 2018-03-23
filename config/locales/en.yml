@@ -139,10 +139,12 @@ en:
       save: "Save"
       set_cover: Set cover
       set_avatar: Set avatar
-      cover: Cover
-      avatar: Avatar
+      cover: Cover. If you want delete this is photo, use another for a shelter cover.
+      avatar: Avatar. If you want delete this is photo, use another for a pet avatar.
       delete: Delete
-      delete_confirm: Are you sure?
+      delete_confirm: Are you sure, want delete this is photo?
+      avatar_confirm: Are you sure, want use this is photo for pet avatar?
+      cover_confirm: Are you sure, want use this is photo for shelter cover?
     home:
       near: "Not far from you"
       birthday: Birthday

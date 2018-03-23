@@ -38,6 +38,10 @@ class PetPolicy
     update?
   end
 
+  def set_photo?
+    update?
+  end
+
   def destroy?
     user.present? and
     (user.id == pet.shelter.user_id or

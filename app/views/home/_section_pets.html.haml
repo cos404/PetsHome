@@ -1,7 +1,7 @@
 = link_to pet do
   .mb-2.card-loop.hover
     .col-12.col-md-12.col-lg-4.card-loop-image
-      = image_tag pet.avatar
+      = image_tag pet.avatar.thumb.url
     .col-12.col-md-12.col-lg-8.card-loop-info
       %strong= pet.name
       %span
