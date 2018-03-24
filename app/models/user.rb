@@ -4,9 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_many    :comments
   has_many    :pets
-  has_many    :pet_comments
   has_many    :posts
   has_many    :post_images
   has_many    :shelters

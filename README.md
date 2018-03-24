@@ -1,10 +1,11 @@
 # BillyBo
 
 ### TODO:
+- fix search styles
+- add shelter comments
 - changing staff role
 - add activity controller
 - fix cyrillic case intenseve in the search
-- add comments
 - tests
 - refactoring
 - request optimisation
