@@ -473,7 +473,7 @@ ru:
           took: Нашел хозяев
           deactived: Деактивировать
       boolean:
-        vaccination_true: "Сделаны"
+        vaccination_true: "Сделана"
         vaccination_false: "Не сделаны"
         sterilization_true: "Сделана"
         sterilization_false: "Не сделана"

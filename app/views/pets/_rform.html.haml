@@ -1,5 +1,9 @@
-= f.input :vaccination, label: t('view.pet.vaccination')
-= f.input :sterilization, label: t('view.pet.sterilization')
+.custom-control.custom-checkbox
+  = f.check_box :vaccination, label: false, class: "custom-control-input"
+  = f.label :vaccination, t('view.pet.vaccination'), class: "custom-control-label"
+.custom-control.custom-checkbox
+  = f.check_box :sterilization, label: false, class: "custom-control-input"
+  = f.label :sterilization, t('view.pet.sterilization'), class: "custom-control-label"
 %span= f.label :subspecies, t('view.pet.subspecies'), class: "badge badge-info"
 = f.input :subspecies, as: :select, collection: Pet.subspecies.keys.collect{|s| [t("view.pet.select.subspecies.#{s.downcase}"), s]}, include_blank: false, label: false
 %span= f.label :size, t('view.pet.size'), class: "badge badge-info"
