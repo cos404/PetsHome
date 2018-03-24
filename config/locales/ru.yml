@@ -414,6 +414,7 @@ ru:
       dog: Собаки
       other: Другие
       verified: Верифицирован
+      shelter: Приют
     shelter:
       select:
         statuses:

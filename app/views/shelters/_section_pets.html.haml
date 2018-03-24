@@ -1,8 +1,25 @@
 %section.pb-2
   %section.row
-    - @shelter.pets.each do |pet|
-      %section.col-md-3.col-sm-6.col-12.mb-2.card-a
+    %section.col-md-6.col-12.mb-2.card-loops
+      - @pets.each do |pet|
         = link_to pet do
-          %article.card-s-active
-            %h2.text-center= pet.name
-            %div= image_tag pet.avatar, class: "card-img"
+          .mb-2.card-loop.hover
+            .col-12.col-md-12.col-lg-4.card-loop-image
+              = image_tag pet.avatar.thumb.url
+            .col-12.col-md-12.col-lg-8.card-loop-info
+              %strong= pet.name
+              %span
+                = pet.country
+                —
+                = pet.city
+              - if pet.euthanasia
+                %span= pet.euthanasia.strftime("#{t('view.home.euthanasia')}: %m.%d.%Y")
+              - if pet.birthday
+                %span= pet.birthday.strftime("#{t('view.home.birthday')}: %d.%m.%Y")
+              %div
+                %span.badge.badge-warning
+                  = t "view.home.#{pet.subspecies}"
+                - if pet.vaccination
+                  %span.badge.badge-info= t "view.home.vaccination"
+                - if pet.sterilization
+                  %span.badge.badge-info= t "view.home.sterilization"

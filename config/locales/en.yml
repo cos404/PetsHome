@@ -155,6 +155,7 @@ en:
       dog: Dogs
       other: Other
       verified: Verified
+      shelter: Shelter
     shelter:
       select:
         statuses:

@@ -7,6 +7,8 @@ class SheltersController < ApplicationController
   end
 
   def show
+    @pets = Pet.select(:id, :name, :birthday, :avatar, :vaccination, :sterilization, :euthanasia, :subspecies, :shelter_id, "cities.title AS city", "countries.title AS country").joins(shelter: [:city, :country]).where(shelter_id: @shelter.id).limit(5).order("pets.created_at DESC")
+
     @schedules = @shelter.schedules.sort_by do |a|
       @shelter.schedules.day_of_weeks[a.day_of_week]
     end
