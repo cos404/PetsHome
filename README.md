@@ -1,7 +1,6 @@
 # BillyBo
 
 ### TODO:
-- fix search styles
 - add shelter comments
 - changing staff role
 - add activity controller
@@ -45,6 +44,7 @@
 - addition phone numbers to shelter
 - en locals
 - setting pet avatar\shelter cover
+- fix search styles
 
 ### TODO_AP:
 - add shelter controller functional

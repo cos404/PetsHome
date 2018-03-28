@@ -5,11 +5,24 @@
 // AUTO CLASSES
 .pet_search *{margin-bottom:4px}
 
-
-//
-.search-bar{border-right: 1px #e1e1e1 solid}
-.search-result{display:flex;flex-direction:row;justify-content:flex-start;align-items:stretch}
-.search-result h4{margin:0 0 2px 0;width:100%;}
+.search-result{border-top: 1px #e1e1e1 solid}
 .search-result-information{}
-.search-result-pet-avatar{max-width: 200px; max-height: 200px;}
-.search-result-pet-name{font-size:20px}
+// .search-result-pet-avatar{max-width: 200px; max-height: 200px;}
+
+
+@media (min-width: 992px) {
+  .search-result{border-right: 1px #e1e1e1 solid}
+  .card-loop{
+    max-height: 200px;
+  }
+
+  .card-loop-image img{
+    max-height: 190px;
+  }
+}
+@media (max-width: 991px) {
+  .card-loop-image img{
+    // max-height: 350px;
+    width: 100%;
+  }
+}

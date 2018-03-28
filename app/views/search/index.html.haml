@@ -1,29 +1,33 @@
 - @page_title = "| " + t('view.title.search')
-%section.card-s.p-2
+%section.p-2
   .full-height.row
-    .col-12.col-lg-2.search-bar
+    .col-12.col-md-12.col-lg-2.search-bar
       = search_form_for @search, url: search_index_path, builder: SimpleForm::FormBuilder do |f|
         = f.text_field "shelter_country_title_start", placeholder: t('view.search.menu.country'), class: "form-control"
         = f.text_field "shelter_city_title_start", placeholder: t('view.search.menu.city'), class: "form-control"
         = f.select :subspecies_eq, options_for_select([[t('view.search.menu.subspecies'), ""], [t('view.search.menu.dog'), 0], [t('view.search.menu.cat'), 1], [t('view.search.menu.other'), 2]], selected: @subspecies), {}, {class: "custom-select"}
         = f.select :gender_eq, options_for_select([[t('view.search.menu.gender'),""], [t('view.search.menu.boy'), 0], [t('view.search.menu.girl'), 1]], selected: @gender), {}, {class: "custom-select"}
         = f.select :size_eq, options_for_select([[t('view.search.menu.size'),""], [t('view.search.menu.s'), 0], [t('view.search.menu.m'), 1], [t('view.search.menu.l'), 2]], selected: @size), {}, {class: "custom-select"}
-        = f.submit t('view.search.menu.search'), class: "btn btn-success"
-    .col-12.col-lg-10
+        = f.submit t('view.search.menu.search'), class: "btn btn-success btn-sm"
+    .col-12.col-md-12.col-lg-10.card-loops
       - @pets.each do |pet|
         - country = pet.shelter.country.title
         - city = pet.shelter.city.title
-        .search-result
-          = image_tag pet.avatar.url, class: "search-result-pet-avatar"
-          .search-result-information
-            = link_to pet.name, pet, class: "search-result-pet-name"
-            %p.card-text= pet.about
-            %h4
-              = t("view.search.menu.vaccination.#{pet.vaccination}")
-              = "|"
-              = t("view.search.menu.sterilization.#{pet.sterilization}")
-              - if pet.euthanasia
-                = "|"
-                = "Дата эвтаназии: #{pet.euthanasia.strftime('%m.%d.%y')}"
-            %h4
-              = "#{country}, #{city}"
+        = link_to pet do
+          .search-result.card-loop.hover.mb-2
+            .col-12.col-md-12.col-lg-4.card-loop-image
+              = image_tag pet.avatar.url, class: "search-result-pet-avatar"
+            .col-12.col-md-12.col-lg-8.card-loop-info.search-result-information
+              %strong.search-result-pet-name= pet.name
+              %h4
+                = "#{country}, #{city}"
+              %p.card-text= truncate pet.about, length: 230, separator: /\w+/
+              %div
+                %span.badge.badge-warning
+                  = t "view.home.#{pet.subspecies}"
+                - if pet.vaccination
+                  %span.badge.badge-info= t "view.home.vaccination"
+                - if pet.sterilization
+                  %span.badge.badge-info= t "view.home.sterilization"
+                - if pet.euthanasia
+                  %span.badge.badge-danger= t "view.search.euthanasia"

@@ -492,6 +492,7 @@ ru:
         sign-in: "Войти"
         sign-out: "Выйти"
     search:
+      euthanasia: Будет усыплен
       menu:
         city: "Город"
         country: "Страна"
