@@ -190,6 +190,7 @@ $(document).on("turbolinks:load", function() {
       }
     })
   });
+
 });
 
 // ADD SHELTER BALLONS TO MAPS

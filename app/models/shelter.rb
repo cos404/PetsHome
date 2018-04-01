@@ -8,11 +8,11 @@ class Shelter < ApplicationRecord
   belongs_to  :region
 
   has_many    :pets, dependent: :destroy
-  has_many    :shelter_comments, dependent: :destroy
   has_many    :shelter_photos, dependent: :destroy
   has_many    :shelter_staffs, dependent: :destroy
   has_many    :schedules, dependent: :destroy, autosave: true
   has_many    :phones, dependent: :destroy, autosave: true
+  has_many    :comments, as: :commentable
 
   enum status: [:active, :suspended, :deactived]
 

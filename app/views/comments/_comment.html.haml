@@ -1,0 +1,8 @@
+%div.comment{id: "comment-#{comment.id}"}
+  %hr
+  - if policy(comment).destroy?
+    = link_to "×", comment_path(comment), method: :delete, confirm: t('view.comment.delete.confirm'), disable_with: "×", remote: true, class: 'close'
+  %h4
+    = comment.user.username
+    %small= comment.updated_at
+  %p= comment.body

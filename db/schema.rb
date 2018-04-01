@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304002109) do
+ActiveRecord::Schema.define(version: 20180330161503) do
 
   create_table "cities", force: :cascade do |t|
     t.integer "region_id"
     t.integer "country_id"
     t.string "title"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -86,14 +96,6 @@ ActiveRecord::Schema.define(version: 20180304002109) do
     t.integer "day_of_week"
     t.time "open"
     t.time "close"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shelter_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "shelter_id"
-    t.integer "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,7 @@
+%section.col-md-6.col-12.mb-2.pb-2
+  - if policy(@comment).create?
+    .comment-form
+      = simple_form_for @comment, url: shelter_comments_path(@shelter.id), remote: true do |f|
+        = render partial: 'comments/form', locals: {f: f}
+  - @comments.each do |comment|
+    = render partial: 'comments/comment', locals: {comment: comment}

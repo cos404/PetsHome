@@ -180,6 +180,14 @@ en:
         friday:     "Fri"
         saturday:   "Sat"
         sunday:     "Sun"
+    comment:
+      delete:
+        error: Erorr, try deleting the comment again.
+        success: Comment has been deleted.
+        confirm: Are you sure you want to remove this comment?
+      create:
+        error: There was an error, try adding a comment again.
+        success: Comment added.
     pet:
       name: "Name"
       status: "Status"
