@@ -20,7 +20,7 @@ class Shelter < ApplicationRecord
   accepts_nested_attributes_for :phones, allow_destroy: true
 
   validates :user_id, numericality: true
-  validates :user_id, :title, :street, :house_number, presence: true
+  validates :user_id, :title, presence: true
   validates :country_id, :region_id, :city_id, presence: true
   validates :country_id, :region_id, :city_id, numericality: true
 

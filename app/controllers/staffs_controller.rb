@@ -1,6 +1,6 @@
 class StaffsController < ApplicationController
   def index
-    @staffs = ShelterStaff.joins(:user).select('users.username AS username', :role, :user_id).where(shelter_id: params[:shelter_id])
+    @staffs = ShelterStaff.joins(:user).select('users.username AS username', :role, :user_id, :id).where(shelter_id: params[:shelter_id])
 
     render partial: "index", locals: {staffs: @staffs}, layout: false, status: :ok
   end
@@ -18,15 +18,26 @@ class StaffsController < ApplicationController
     @staff = @shelter.shelter_staffs.new({user_id: @user.id, shelter_id: @shelter.id, role: staff_params[:role]})
 
     if @staff.save
-      user_staff = {}
-      user_staff[:id]        = @staff[:id]
-      user_staff[:user_id]   = @staff[:user_id]
-      user_staff[:role]      = @staff[:role]
-      user_staff[:username]  = staff_params[:username]
+      _staff = {}
+      _staff[:id]        = @staff[:id]
+      _staff[:user_id]   = @staff[:user_id]
+      _staff[:role]      = @staff[:role]
+      _staff[:username]  = staff_params[:username]
 
-      render partial: "staffs/show", locals: {staff: user_staff}, layout: false, status: :created
+      render partial: "staffs/show", locals: {staff: _staff}, layout: false, status: :created
     else
       render json: {message: @staff.errors}, status: :bad_request
+    end
+  end
+
+  def destroy
+    @staff = ShelterStaff.find(params[:id])
+    authorize @staff
+
+    if @staff.destroy
+      render json: @staff, status: :ok
+    else
+      render js: "alert('error deleting staff');"
     end
   end
 

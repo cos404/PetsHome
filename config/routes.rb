@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     resources :shelter_photos,  only: [:create]
     resources :pets, only: [:new, :create]
     resources :comments, only: [:create]
-    resources :staffs, only: [:create, :index, :destroy]
+    resources :staffs, only: [:create, :index]
   end
   resources :comments, only: [:destroy]
+  resources :staffs, only: [:destroy]
   resources :shelter_photos,  only: [:destroy]
   patch '/shelter/set_photo/:photo_id' => 'shelters#set_photo'
 

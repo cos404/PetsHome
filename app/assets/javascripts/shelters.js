@@ -84,7 +84,6 @@ $(document).on("turbolinks:load", function() {
     if(load) return false;
   }).on("ajax:success", function(evt, data, status, xhr) {
     load = true;
-    cl(xhr.responseText);
     return $(xhr.responseText).hide().insertAfter($(".form-new")).show('slow');
   }).on("ajax:error", function() {
   });
@@ -96,6 +95,18 @@ $(document).on("turbolinks:load", function() {
   .on("ajax:success", (evt, data, status, xhr) => {
     return $(xhr.responseText).hide().insertAfter($(".form-new")).show('slow');
   })
+
+
+  // COMMENTS DESTROY
+    $(document).on("ajax:beforeSend", ".staff", function() {
+      if(!confirm(I18n.t('view.staff.delete.confirm'))) return false;
+      return $(this).fadeTo('fast', 0.5);
+    }).on("ajax:success", ".staff", function() {
+      return $(this).hide('fast');
+    }).on("ajax:error", ".staff", function() {
+      alert(I18n.t('view.staff.delete.error'));
+      return $(this).fadeTo('fast', 1);
+    });
 
 });
 

@@ -1,4 +1,4 @@
-class PetPolicy
+class PetPolicy < ApplicationPolicy
   attr_reader :user, :pet
 
   def initialize(user, pet)

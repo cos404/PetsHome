@@ -1,4 +1,4 @@
-class ShelterPolicy
+class ShelterPolicy < ApplicationPolicy
  attr_reader :user, :shelter
 
   def initialize(user, shelter)

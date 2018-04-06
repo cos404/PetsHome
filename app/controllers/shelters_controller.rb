@@ -43,7 +43,7 @@ class SheltersController < ApplicationController
     if @shelter.errors.empty?
       redirect_to @shelter
     else
-      @shelter.errors
+      p @shelter.errors
       render "edit"
     end
   end

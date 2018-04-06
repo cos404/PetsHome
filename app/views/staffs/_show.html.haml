@@ -1,3 +1,6 @@
-%span
-  %p= staff[:username] + "[#{staff[:role]}]"
-%br
+%div.staff{id: "staff-#{staff[:id]}"}
+  %hr
+    = link_to "×", staff_path(staff), method: :delete, confirm: t('view.staff.delete.confirm'), disable_with: "×", remote: true, class: 'close'
+  %h4
+    = staff[:username]
+    %small= staff[:role]

@@ -192,6 +192,13 @@ en:
         success: Comment added.
     staff:
       modal-title: Staffs
+      delete:
+        error: Erorr, try deleting the again.
+        success: Has been deleted.
+        confirm: Are you sure you want to remove?
+      create:
+        error: There was an error, try adding again.
+        success: Added.
     pet:
       name: "Name"
       status: "Status"
