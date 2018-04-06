@@ -1,4 +1,5 @@
 $(document).on("turbolinks:load", function() {
+  // REGIONS LOADER ON NEW SHELTER PAGE
   $('#shelter_country_id').change(function() {
     var country_id = $(this).val();
     if(!country_id){
@@ -51,7 +52,7 @@ $(document).on("turbolinks:load", function() {
     });
   });
 
-
+  // CITIES LOADER ON NEW SHELTER PAGE
   $('#shelter_region_id').change(function() {
     var region_id = $(this).val();
     $('#shelter_city_id').html('<option>Loading...</option>');
@@ -77,119 +78,24 @@ $(document).on("turbolinks:load", function() {
     });
   });
 
-
-  // // ADD USERS TO SHELTER STAFFS(/shelter/:id)
-  var search_input = false;
-  var usersListAll;
-
-  // GET USERS LIST
-  $('#addStaff').on( "click", function() {
-    if(!search_input){
-      $.ajax({
-        type: 'POST',
-        url: '/getUsers',
-        dataType: 'json',
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(data) {
-            search_input = true;
-            if(data.length != 0){
-              usersListAll = data;
-              $('#addStaff').after('<input type="text" id="search-user-input" />');
-            }
-          }
-      })
-    }
-    else {
-      $('#search-user-input').remove();
-      search_input = false;
-    }
+  // Load staffs list
+  let load = false;
+  $("#staffs").on("ajax:beforeSend", function() {
+    if(load) return false;
+  }).on("ajax:success", function(evt, data, status, xhr) {
+    load = true;
+    cl(xhr.responseText);
+    return $(xhr.responseText).hide().insertAfter($(".form-new")).show('slow');
+  }).on("ajax:error", function() {
   });
 
-  // USERS SEARCH AND AUTOCOMPLETE
-  var usersList
-  const createPartOfArray = (usersList, partOfWord) => {
-    var regex = new RegExp(`\\b${partOfWord}.*`,'i');
-    return usersList.filter(v => {
-      if (regex.test(v.username)) return v
-    })
-  }
-
-  $('#staffs').on('input', '#search-user-input',function(e) {
-    word = $('#search-user-input').val();
-    $('#user-list').children().remove();
-    usersList = createPartOfArray(usersListAll, word);
-
-    $( "#search-user-input" ).autocomplete({
-      source: function (request, response) {
-        response($.map(usersList, function (value, key) {
-          return {
-            label: value.username,
-            value: value.id
-          }
-        }));
-      },
-      select: function (e, ui) {
-        $('div#staff').append(`
-          <div>
-            <button class="btn btn-sm btn-success m-1 addUser" data-user="${ui.item.value}" data-role="volunteer">
-              +
-            </button>
-            ${ui.item.label}
-          </div>`);
-        return false;
-      }
-    });
-  });
-
-  $('#staffs').on('click', '.addUser', function(){
-    var user    = $(this).data("user"),
-        role    = $(this).data("role"),
-        url     = window.location.href;
-    $.ajax({
-      type: 'POST',
-      url: `${url}/addStaff/${user}`,
-      dataType: 'json',
-      data:{
-        role: role
-      },
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(data) {
-        $("button[data-user='" + user + "']").replaceWith(`
-          <button class="btn btn-danger btn-sm m-1 deleteStaff" data-user="${user}">
-            x
-          </button>
-        `);
-
-      },
-      error: function(data){
-        console.log(data);
-      }
-    })
-  });
-
-  $('#staffs').on('click', '.deleteStaff', function(){
-    var user    = $(this).data("user"),
-        url     = window.location.href,
-        el      = $(this);
-    $.ajax({
-      type: 'DELETE',
-      url: `${url}/deleteStaff/${user}`,
-      dataType: 'json',
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(data) {
-        el.parent().remove();
-      },
-      error: function(data){
-        console.log(data);
-      }
-    })
-  });
+  // Staff addition
+  $("#modal-staff-form")
+  .on("ajax:error", (xhr, data, status) => {
+  })
+  .on("ajax:success", (evt, data, status, xhr) => {
+    return $(xhr.responseText).hide().insertAfter($(".form-new")).show('slow');
+  })
 
 });
 

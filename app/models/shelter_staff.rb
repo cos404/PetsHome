@@ -1,5 +1,4 @@
 class ShelterStaff < ApplicationRecord
-
   belongs_to  :user
   belongs_to  :shelter
 

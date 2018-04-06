@@ -132,9 +132,11 @@ en:
         new: "Adding a shelter"
         show: ""
     button:
+      close: Close
       add: "Add"
       add-pet: "Add a pet"
       add-staff: "Add a staff"
+      staffs: Staffs
       edit: "Edit"
       save: "Save"
       set_cover: Set cover
@@ -188,6 +190,8 @@ en:
       create:
         error: There was an error, try adding a comment again.
         success: Comment added.
+    staff:
+      modal-title: Staffs
     pet:
       name: "Name"
       status: "Status"

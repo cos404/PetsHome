@@ -1,0 +1,13 @@
+#modal-staffs.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "staffs", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#staffs.modal-title= t 'view.staff.modal-title'
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        .form-new
+          = simple_form_for :shelter_staff, controller: :shelter_staffs, action: :create, url: shelter_staffs_path(@shelter.id), remote: true, html:{id: "modal-staff-form"} do |f|
+            = render partial: 'staffs/new', locals: {f: f}
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"}= t 'view.button.close'

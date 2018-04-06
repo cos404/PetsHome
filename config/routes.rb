@@ -13,8 +13,7 @@ Rails.application.routes.draw do
     resources :shelter_photos,  only: [:create]
     resources :pets, only: [:new, :create]
     resources :comments, only: [:create]
-    post    'addStaff/:user_id'     => 'shelters#addStaff'
-    delete  'deleteStaff/:user_id'  => 'shelters#deleteStaff'
+    resources :staffs, only: [:create, :index, :destroy]
   end
   resources :comments, only: [:destroy]
   resources :shelter_photos,  only: [:destroy]

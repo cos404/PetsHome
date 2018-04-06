@@ -1,0 +1,5 @@
+.input-group.mb-3
+  = f.select :role, ShelterStaff.roles.keys.collect{|s| [t("view.pet.select.gender.#{s.downcase}"), s]}, {}, {include_blank: false, label: false, class: "form-control select-group"}
+  = f.text_field :username, label: false, class: "form-control"
+  .input-group-append
+    = f.submit t('view.button.add'), class: "btn btn-success"

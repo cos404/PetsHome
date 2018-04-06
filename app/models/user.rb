@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many    :post_images
   has_many    :shelters
   has_many    :shelter_photos
-  has_many    :shelter_staffs
   has_many    :social_pages
+  has_many    :shelter_staffs
   has_many    :comments, as: :commentable
 
   validates :email, uniqueness:{case_sensitive: false, message: :already_taken}
