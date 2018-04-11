@@ -1,0 +1,14 @@
+%div.activity
+  %div.body
+    %div.mega-icon= fa_icon "pencil"
+    %div.title
+      = @user.username
+      = t('view.public_activity.shelter.update')
+      - if activity.trackable
+        = link_to t("view.public_activity.shelter.#{activity.trackable_type}"), activity.trackable
+      - else
+        = t('view.public_activity.shelter.been_removed')
+    %abbr.timeago{title:"#{activity.created_at}"}
+      = time_ago_in_words(activity.created_at)
+      = t('view.public_activity.ago')
+

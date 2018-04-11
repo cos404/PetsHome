@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     authorize @comment
 
-    @comment.destroy
+    params = {commentable_type: @comment.commentable_type, commentable_id: @comment.commentable_id, user_id: @comment.user_id}
+    @comment.create_activity(:destroy, owner: current_user, params: params)
+
     if @comment.destroy
       render json: @comment, status: :ok
     else

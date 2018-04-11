@@ -38,7 +38,7 @@ span.role{
   border: 3px white solid;
 }
 
-.activity{
+.activities{
   padding: 15px;
 }
 
@@ -58,4 +58,48 @@ dd {
   display: table;
   text-align: left;
   margin: 0;
+}
+
+// ACTIVITY BLOCK
+
+.activity {
+    margin-bottom: 1.5em;
+    padding-left: 20px;
+    position: relative;
+}
+
+.activity .body {
+    overflow: hidden;
+}
+
+.activity .mega-icon {
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    color: #BBB;
+    background-position: center center;
+    background-size: 32px auto;
+    background-repeat: no-repeat;
+}
+
+abbr.timeago {
+    border: none;
+    cursor: default;
+    color: #BBB;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.activity .body .title {
+    padding: 0 0 .25em 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.activity .body .details {
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
 }

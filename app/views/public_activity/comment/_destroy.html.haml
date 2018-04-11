@@ -1,0 +1,10 @@
+%div.activity
+  %div.body
+    %div.mega-icon= fa_icon "trash"
+    %div.title
+      = @user.username
+      = t('view.public_activity.comment.delete')
+      = link_to t("view.public_activity.comment.delete_from.#{activity.parameters[:commentable_type]}"), shelter_path(activity.parameters[:commentable_id])
+    %abbr.timeago{title:"#{activity.created_at}"}
+      = time_ago_in_words(activity.created_at)
+      = t('view.public_activity.ago')

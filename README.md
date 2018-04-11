@@ -1,9 +1,8 @@
 # BillyBo
 
 ### TODO:
-- changing staff role
-- add activity controller
 - add shelters\pets\comments pagination
+- fix delete photo js
 - fix cyrillic case intenseve in the search
 - tests
 - refactoring
@@ -46,6 +45,8 @@
 - setting pet avatar\shelter cover
 - fix search styles
 - add shelter comments
+- changing staff role
+- add activity controller
 
 ### TODO_AP:
 - add shelter controller functional

@@ -31,6 +31,6 @@
                   %dd= @user.about
         %div{style:'clear:both'}
   %div.row
-    %div.col-md-12
-      %div.activity
-        = "activity block"
+    %div.col-md-6
+      %div.activities
+        = render_activities @activities

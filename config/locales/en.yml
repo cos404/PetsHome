@@ -274,6 +274,28 @@ en:
         vaccination:
           "true": Vaccinated
           "false": Not vaccinated
+    public_activity:
+      ago: ago
+      pet:
+        Pet: pet
+        been_removed: something, but the pet was removed :(
+        create: created a
+        update: updated a
+        delete: removed a
+      shelter:
+        Shelter: shelter
+        been_removed: something, but the shelter was removed :(
+        create: created a
+        update: updated a
+        delete: removed a
+      comment:
+        Shelter: shelter
+        been_removed: something, but the comment was removed :(
+        create: commented
+        update: updated comment in
+        delete: removed a comment
+        delete_from:
+          Shelter: from shelter
   admin:
     user:
       avatar: Avatar

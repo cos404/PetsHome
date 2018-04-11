@@ -89,3 +89,5 @@ gem "pundit"
 
 gem 'ransack'
 gem 'phony_rails' # https://github.com/joost/phony_rails
+
+gem 'public_activity' # https://github.com/chaps-io/public_activity

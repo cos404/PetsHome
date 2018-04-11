@@ -533,6 +533,28 @@ ru:
         vaccination:
           "true": "Вакцинирован"
           "false": "Вакцина не сделана"
+    public_activity:
+      ago: назад
+      pet:
+        Pet: питомца
+        been_removed: ", но питомец был удален :("
+        create: добавил
+        update: обновил
+        delete: удалил
+      shelter:
+        Shelter: приют
+        been_removed: ", но приют был удален :("
+        create: добавил
+        update: обновил
+        delete: удалил
+      comment:
+        Shelter: приют
+        been_removed: что-то, но комментарий был удален :(
+        create: прокомментировал
+        update: обновил комментарий в
+        delete: удалил комментарий
+        delete_from:
+          Shelter: из приюта
   admin:
     user:
       avatar: "Аватар"

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       render_404
     else
       authorize @user
+      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user.id, owner_type: "User")
     end
   end
 

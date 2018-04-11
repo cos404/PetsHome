@@ -1,0 +1,11 @@
+%div.activity
+  %div.body
+    %div.mega-icon= fa_icon "trash"
+    %div.title
+      = @user.username
+      = t('view.public_activity.shelter.delete')
+      = t('view.public_activity.shelter.Shelter')
+    %abbr.timeago{title:"#{activity.created_at}"}
+      = time_ago_in_words(activity.created_at)
+      = t('view.public_activity.ago')
+

@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| model.user}
 
   belongs_to  :user
 
