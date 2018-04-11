@@ -69,7 +69,7 @@ $(document).on("turbolinks:load", function(){
 
   // Remove photo
   $("#photos").on( "click", ".photo-delete", function() {
-    var element = $(this)
+    var element = $(this),
         id      = element.data("id"),
         type    = element.data("type"),
         url     = window.location.href;
@@ -85,6 +85,9 @@ $(document).on("turbolinks:load", function(){
         },
         success: function(data) {
           element.parent().parent().remove();
+        },
+        error: function(data) {
+          cl(data);
         }
     })
   });

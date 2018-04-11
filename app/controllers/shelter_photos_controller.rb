@@ -7,7 +7,7 @@ class ShelterPhotosController < ApplicationController
     return head :precondition_failed if @photo.title_identifier == @shelter.cover_identifier
 
     @photo.destroy
-    head :ok
+    render json: @photo, status: :ok
   end
 
   def create
