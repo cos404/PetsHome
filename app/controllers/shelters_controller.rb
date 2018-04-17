@@ -3,7 +3,13 @@ class SheltersController < ApplicationController
   before_action :find_shelter,        only: [:show, :edit, :update]
 
   def index
-    @shelters = Shelter.all
+    @search = Shelter.includes(:city, :country).where(moderation: true, status: :active).search(params[:q])
+    @shelters = @search.result
+    @countries = Country.all
+
+    @countries = params[:q][:countries_eq] if params[:q] && params[:q][:countries_eq]
+    @regions     = params[:q][:regions_eq] if params[:q] && params[:q][:regions_eq]
+    @cities       = params[:q][:cities_eq] if params[:q] && params[:q][:cities_eq]
   end
 
   def show

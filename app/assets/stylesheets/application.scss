@@ -443,3 +443,30 @@ dl.list-spec dl dd{
 
 // BOOTSTRAP
 .dropdown-menu {padding:0.5rem;}
+
+// SEARCH
+
+  // AUTO CLASSES
+  .pet_search *, .shelter_search *{margin-bottom:4px}
+
+  .search-result{border-top: 1px #e1e1e1 solid}
+  .search-result-information{}
+  // .search-result-pet-avatar{max-width: 200px; max-height: 200px;}
+
+
+  @media (min-width: 992px) {
+    .search-result{border-right: 1px #e1e1e1 solid}
+    .card-loop{
+      max-height: 200px;
+    }
+
+    .card-loop-image img{
+      max-height: 190px;
+    }
+  }
+  @media (max-width: 991px) {
+    .card-loop-image img{
+      // max-height: 350px;
+      width: 100%;
+    }
+  }

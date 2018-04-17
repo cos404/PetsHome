@@ -1,2 +1,24 @@
-%h1 Shelters#index
-%p Find me in app/views/shelters/index.html.haml
+- @page_title = "| " + t('view.title.shelters.index')
+%section.p-2
+  .full-height.row
+    .col-12.col-md-12.col-lg-2.search-bar
+      = search_form_for @search, url: shelters_path, builder: SimpleForm::FormBuilder do |f|
+        = f.select :country_title_start, options_from_collection_for_select(Country.all, :title, :title, @search.country_id_eq), {include_blank: true}, class: "form-control"
+        = f.submit t('view.search.menu.search'), class: "btn btn-success btn-sm"
+    .col-12.col-md-12.col-lg-10.card-loops
+      - @shelters.each do |shelter|
+        - country = shelter.country.title
+        - city = shelter.city.title
+        = link_to shelter do
+          .search-result.card-loop.hover.mb-2
+            .col-12.col-md-12.col-lg-4.card-loop-image
+              = image_tag shelter.cover.url, class: "search-result-pet-avatar"
+            .col-12.col-md-12.col-lg-8.card-loop-info.search-result-information
+              %strong.search-result-pet-name= shelter.title
+              %h4
+                = "#{shelter.country.title}, #{shelter.city.title}"
+              %p.card-text= truncate shelter.about, length: 230, separator: /\w+/
+              %div
+                %span.badge.badge-warning
+                - if shelter.verified
+                  %span.badge.badge-info= t "view.shelters.verified"
