@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  get 'users/:username' => 'users#show', as: :user
+
   root to: "home#index"
 
   resources :posts, except: :destroy
   resources :search
   resources :phones
-  # resources :users, only: [:show]
-  get 'users/:username' => 'users#show', as: :user
 
   resources :shelters do
     resources :shelter_photos,  only: [:create]

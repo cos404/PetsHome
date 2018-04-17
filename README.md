@@ -47,6 +47,7 @@
 - add shelter comments
 - changing staff role
 - add activity controller
+- sorting shelters by distance on home page
 
 ### TODO_AP:
 - add shelter controller functional

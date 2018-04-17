@@ -158,6 +158,8 @@ en:
       other: Other
       verified: Verified
       shelter: Shelter
+      other_shelters: Show more shelters
+      other_pets: Show more pets
     shelter:
       select:
         statuses:

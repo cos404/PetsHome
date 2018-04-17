@@ -8,6 +8,8 @@
     %section.col-md-6.col-12.mb-2.card-loops
       - @pets.each do |pet|
         = render partial: 'section_pets', locals:{pet: pet}
+      = link_to t('view.home.other_pets'), search_index_path, class: "more_links"
     %section.col-md-6.col-12.mb-2.card-loops
       - @shelters.each do |shelter|
         = render partial: 'section_shelters', locals:{shelter: shelter}
+      = link_to t('view.home.other_shelters'), shelters_path, class: "more_links"

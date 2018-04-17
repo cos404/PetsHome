@@ -417,6 +417,8 @@ ru:
       other: Другие
       verified: Верифицирован
       shelter: Приют
+      other_shelters: Показать больше приютов
+      other_pets: Показать больше питомцев
     shelter:
       select:
         statuses:
