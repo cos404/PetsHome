@@ -3,7 +3,7 @@
   .full-height.row
     .col-12.col-md-12.col-lg-2.search-bar
       = search_form_for @search, url: shelters_path, builder: SimpleForm::FormBuilder do |f|
-        = f.select :country_title_start, options_from_collection_for_select(Country.all, :title, :title, @search.country_id_eq), {include_blank: true}, class: "form-control"
+        = f.select :country_title_start, options_from_collection_for_select(Country.all, :title, :title, f.object.country_title_start), {include_blank: true}, class: "form-control"
         = f.submit t('view.search.menu.search'), class: "btn btn-success btn-sm"
     .col-12.col-md-12.col-lg-10.card-loops
       - @shelters.each do |shelter|
@@ -22,3 +22,4 @@
                 %span.badge.badge-warning
                 - if shelter.verified
                   %span.badge.badge-info= t "view.shelters.verified"
+      = will_paginate @shelters, renderer: 'BootstrapPaginationHelper::LinkRenderer'

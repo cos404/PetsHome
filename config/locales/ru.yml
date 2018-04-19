@@ -567,3 +567,7 @@ ru:
       leave_blank_if_you_don_t_want_to_change_it: "оставьте поле пустым, если не хотите его менять"
       we_need_your_current_password_to_confirm_your_changes: "введите текущий пароль для подтверждения изменений"
       update: "Сохранить"
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
+    page_gap: "&hellip;"

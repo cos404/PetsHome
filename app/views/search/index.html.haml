@@ -31,3 +31,4 @@
                   %span.badge.badge-info= t "view.home.sterilization"
                 - if pet.euthanasia
                   %span.badge.badge-danger= t "view.search.euthanasia"
+      = will_paginate @pets, renderer: 'BootstrapPaginationHelper::LinkRenderer'

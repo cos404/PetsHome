@@ -4,12 +4,8 @@ class SheltersController < ApplicationController
 
   def index
     @search = Shelter.includes(:city, :country).where(moderation: true, status: :active).search(params[:q])
-    @shelters = @search.result
-    @countries = Country.all
-
+    @shelters = @search.result.paginate(page: params[:page], per_page: 10)
     @countries = params[:q][:countries_eq] if params[:q] && params[:q][:countries_eq]
-    @regions     = params[:q][:regions_eq] if params[:q] && params[:q][:regions_eq]
-    @cities       = params[:q][:cities_eq] if params[:q] && params[:q][:cities_eq]
   end
 
   def show
