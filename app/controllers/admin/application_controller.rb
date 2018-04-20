@@ -1,4 +1,5 @@
 class Admin::ApplicationController < ActionController::Base
+  include PublicActivity::StoreController
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 

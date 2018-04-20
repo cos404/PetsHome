@@ -369,7 +369,7 @@ ru:
         longitude: "Долгота"
         description: "О приюте"
         cover: "Обложка"
-        moderation: "Ожидает модерации"
+        moderation: "Проверен"
         verified: "Верифицирован"
         about: "О нас"
   view:

@@ -19,5 +19,5 @@
         %td= shelter.status
         %td= shelter.user.username
         %td
-          = link_to "e", edit_admin_shelter_path(shelter), class: "ui-state-default ui-corner-all btn btn-primary btn-sm br25", id:"id-#{shelter.id}"
-          = link_to "v", "#", class: "ui-state-default ui-corner-all btn btn-success btn-sm br25"
+          = link_to "e", edit_admin_shelter_path(shelter), class: "btn btn-primary btn-sm btn-circle", id:"id-#{shelter.id}"
+          = link_to "v", "#", class: "btn btn-success btn-sm btn-circle"

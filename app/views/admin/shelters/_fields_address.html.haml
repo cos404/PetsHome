@@ -1,0 +1,17 @@
+= f.association :country, label_method: :title, value_method: :id, include_blank: true
+= f.input :region_id, collection: @countries, as: :grouped_select, group_method: :regions, label_method: :title, include_blank: false, selected: @shelter.region_id, group_label_method: :title
+= f.input :city_id, collection: @regions, as: :grouped_select, group_method: :cities, include_blank: false, label_method: :title, selected: @shelter.city_id, group_label_method: :title
+%fieldset.mb-2
+  .input-group
+    .input-group-prepend
+      %span.input-group-text= fa_icon "home"
+    = f.input_field :street, label: false, placeholder: t('view.shelter.street'), class: "form-control"
+    = f.input_field :house_number, label: false, placeholder: t('view.shelter.house-number'), class: "form-control"
+  .input-group
+    .input-group-prepend
+      %span.input-group-text= fa_icon "map-marker"
+      %span.input-group-text= t('view.shelter.latitude')
+    = f.input_field :latitude, label: false, placeholder: t('view.shelter.latitude'), class: "form-control"
+    = f.input_field :longitude, label: false, placeholder: t('view.shelter.longitude'), class: "form-control"
+    .input-group-append
+      %span.input-group-text= t('view.shelter.longitude')

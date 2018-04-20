@@ -57,6 +57,6 @@ class Admin::SheltersController < Admin::ApplicationController
   end
 
   def shelter_params
-    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :moderation, :verified, :country_id, :region_id, :city_id, :status, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day, :id])
+    params.require(:shelter).permit(:title, :street, :house_number, :latitude, :longitude, :about, :cover, :moderation, :verified, :country_id, :region_id, :city_id, :status, :photo, schedules_attributes:[:open, :close, :day_of_week, :work_day, :id], phones_attributes:[:phone_number, :name, :_destroy, :id])
   end
 end

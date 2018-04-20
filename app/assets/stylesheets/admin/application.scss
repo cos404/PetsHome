@@ -1,6 +1,20 @@
-// Place all the styles related to the admin/Application controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery-ui
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
+*/
 @import "bootstrap";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -26,6 +40,9 @@ aside{
   z-index: 1;
   position: fixed;
  }
+h2{
+  font-size: 22px;
+}
 
 .bg-aqua{background-color:#00c0ef!important;}
 .bg-red{background-color:#dd4b39 !important;}
@@ -33,10 +50,21 @@ aside{
 .bg-yellow{background-color:#f39c12 !important;}
 
 .br25{border-radius: 25px;}
-.btn{color: white;}
 .id{width:50px;}
 .actions{width:120px;}
 :focus{outline: 0!important; box-shadow: none!important;}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+
 
 .list tr{height: 42px;}
 .list th .asc {background-image: url(/images/up_arrow.gif);}
@@ -126,9 +154,6 @@ aside{
 
 // BOOTSTRAP CUSTOM
 
-.custom-file{
-  margin-bottom: 1rem;
-}
-.custom-file-input{
-  cursor: pointer;
-}
+.custom-file{margin-bottom: 1rem;}
+.custom-file-input{cursor: pointer;}
+.input-group {margin-bottom: 1rem;}
