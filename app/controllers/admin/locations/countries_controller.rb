@@ -31,6 +31,6 @@ class Admin::Locations::CountriesController < Admin::ApplicationController
   end
 
   def country_params
-    params.require(:country).permit(:title)
+    params.require(:country).permit(:title, :lookup_code)
   end
 end
