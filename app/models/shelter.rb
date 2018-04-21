@@ -26,16 +26,15 @@ class Shelter < ApplicationRecord
   validates :country_id, :region_id, :city_id, presence: true
   validates :country_id, :region_id, :city_id, numericality: true
 
-  geocoded_by :address
+  geocoded_by :address, lookup: lambda{|obj| obj.geocoder_lookup}
   after_validation :geocode
 
   def address
-    if self.country && self.region && self.city
-      country = self.country.title
-      region  = self.region .title
-      city    = self.city   .title
-    end
-    "#{country}, #{region}, #{city}, #{self.street} #{self.house_number}"
+    [house_number, street, city.title, region.title, country.title].compact.reject(&:empty?).join(', ')
+  end
+
+  def geocoder_lookup
+    country.lookup_code.to_sym
   end
 
 end

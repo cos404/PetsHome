@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410150740) do
+ActiveRecord::Schema.define(version: 20180421003036) do
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20180410150740) do
 
   create_table "countries", force: :cascade do |t|
     t.string "title"
+    t.integer "lookup_code", default: 0
   end
 
   create_table "pet_photos", force: :cascade do |t|

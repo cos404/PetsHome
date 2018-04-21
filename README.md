@@ -1,15 +1,13 @@
 # BillyBo
 
 ### TODO:
-- add shelters\pets\comments pagination
-- fix delete photo js
 - fix cyrillic case intenseve in the search
 - tests
 - refactoring
 - request optimisation
 - de locals
 - fr locals
-- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
+- be locals
 
 ### COMPLETE:
 - addition work time to shelter
@@ -18,7 +16,7 @@
 - addition pets and associating with shelter
 - pet and shelter policy
 - edititng shelter can curator and employee
-- role rigghts
+- role rights
 - showing schedule on shelter page
 - showing pets on shelter page
 - uploading images to pets
@@ -48,6 +46,9 @@
 - changing staff role
 - add activity controller
 - sorting shelters by distance on home page
+- add shelters\pets\comments pagination
+- fix delete photo js
+- using geocoder services depending on the country(USA&EU==Google, CIS==Yandex)
 
 ### TODO_AP:
 - add shelter controller functional
@@ -107,13 +108,3 @@
 - /shelters/:id
 - /shelters/6/pets/new
 - /search
-
-%button.btn.btn-info.btn-sm#addStaff.mr-2= fa_icon("user-plus")
-%div#staff
-  %div
-    %button.btn.btn-sm.btn-info.m-1= link_to "li", user_path(@shelter.user.username)
-    = "#{@shelter.user.username}(curator)"
-  - @shelter.shelter_staffs.each do |staff|
-    %div
-      %button.btn.btn-sm.btn-danger.m-1.deleteStaff{data:{user: staff.user.id}} x
-      = "#{staff.user.username}(#{staff.role})"

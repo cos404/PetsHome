@@ -6,4 +6,7 @@ class Country < ApplicationRecord
 
   validates :title, presence: true
   validates :title, uniqueness: true
+
+  enum lookup_code: [:google, :yandex, :baidu]
+
 end
