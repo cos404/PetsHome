@@ -21,11 +21,11 @@
                 %dl
                   %dt= "Email:"
                   %dd= @user.email
-              - if @user.fullname
+              - if not @user.fullname.blank?
                 %dl
                   %dt= "ФИО:"
                   %dd= @user.fullname
-              - if @user.about
+              - if not @user.about.blank?
                 %dl
                   %dt= "About:"
                   %dd= @user.about

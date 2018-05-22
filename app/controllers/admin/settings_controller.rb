@@ -17,7 +17,11 @@ class Admin::SettingsController < Admin::ApplicationController
         },
         properties: {
           balloonContentHeader: shelter.title,
-          balloonContentBody: "<br><p>#{shelter.about}</p><p>Адрес: #{shelter.street} #{shelter.house_number}</p>",
+          balloonContentBody: 
+          " <br>
+            <p>#{shelter.about.truncate(210, separator: /\s/)}...<a href='#{shelter_url(shelter)}'>&gt;&gt;</a></p>
+            <p>Адрес: #{shelter.street} #{shelter.house_number}</p>
+          ",
           clusterCaption: shelter.title,
           hintContent: shelter.title
         }

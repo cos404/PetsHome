@@ -1,4 +1,4 @@
-- @page_title = "| " + t('view.title.shelters.index')
+- @page_title = "| " + t('view.title.shelter.index')
 %section.p-2
   .full-height.row
     .col-12.col-md-12.col-lg-2.search-bar
@@ -22,4 +22,4 @@
                 %span.badge.badge-warning
                 - if shelter.verified
                   %span.badge.badge-info= t "view.shelters.verified"
-      = will_paginate @shelters, renderer: 'BootstrapPaginationHelper::LinkRenderer'
+      = will_paginate @shelters, renderer: 'BootstrapPaginationHelper::LinkRenderer' 

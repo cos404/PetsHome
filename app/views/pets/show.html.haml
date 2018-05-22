@@ -12,11 +12,11 @@
     %dl.list-spec
       %dt#tag.list-spec_name= t 'view.pet.shelter'
       %dd.list-spec_value= link_to @pet.shelter.title, @pet.shelter
-    - if @pet.birthday
+    - if not @pet.birthday.blank?
       %dl.list-spec
         %dt#tag.list-spec_name= t 'view.pet.birthday'
         %dd.list-spec_value= @pet.birthday
-    - if @pet.euthanasia
+    - if not @pet.euthanasia.blank?
       %dl.list-spec
         %dt#tag.list-spec_name= t 'view.pet.euthanasia'
         %dd.list-spec_value= @pet.euthanasia

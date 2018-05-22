@@ -22,7 +22,7 @@
 # true, false, on, off, yes, no
 #
 # Instead, surround them with single quotes.
-#
+# 
 # en:
 #   'true': 'foo'
 #
@@ -131,7 +131,9 @@ en:
         edit: "Editing"
         new: "Adding a shelter"
         show: ""
+        index: "Shelters"
     button:
+      open: Open
       close: Close
       add: "Add"
       add-pet: "Add a pet"
