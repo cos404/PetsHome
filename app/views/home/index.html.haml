@@ -4,6 +4,7 @@
   latitude            = "#{@geo['latitude']}";
 #map.map
 .container.mt-2
+  = @shelter
   .row
     %section.col-md-6.col-12.mb-2.card-loops
       - @pets.each do |pet|
