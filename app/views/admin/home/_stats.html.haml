@@ -6,25 +6,25 @@
         %div.info-box-content
           Питомцев
           %br
-          %strong= @pets
+          %strong= @pets_count
     %section.col-3
       %div.card-s
         %span.info-box-icon.bg-red= fa_icon("home")
         %div.info-box-content
           Приютов
           %br
-          %strong= @shelters
+          %strong= @shelters_count
     %section.col-3
       %div.card-s
         %span.info-box-icon.bg-green= fa_icon("user")
         %div.info-box-content
           Пользователей
           %br
-          %strong= @users
+          %strong= @users_count
     %section.col-3
       %div.card-s
         %span.info-box-icon.bg-yellow= fa_icon("comments")
         %div.info-box-content
           Комментариев
           %br
-          %strong NIL
+          %strong= @comments_count

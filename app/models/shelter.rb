@@ -1,6 +1,6 @@
 class Shelter < ApplicationRecord
   include PublicActivity::Model
-  tracked only: [:create, :update], owner: Proc.new{|controller, model| controller.current_user}
+  # tracked only: [:create, :update], owner: Proc.new{|controller, model| p controller.current_user}
 
   mount_uploader :cover, ShelterCoverUploader
 

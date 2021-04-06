@@ -43,6 +43,15 @@ aside{
 h2{
   font-size: 22px;
 }
+a {
+  // color: #15c;
+  color: #212529;
+  text-decoration: none;
+}
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
 
 .bg-aqua{background-color:#00c0ef!important;}
 .bg-red{background-color:#dd4b39 !important;}

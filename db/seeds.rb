@@ -14,7 +14,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 User.create!(
   email: "root@root.ru",
   password: "qwerty",
@@ -30,6 +29,7 @@ User.create!(
   username: "COMMON_USER",
   confirmed_at:           "2017-06-30 21:42:22.989289",
   confirmation_sent_at:   "2017-06-30 21:40:47.864614")
+puts 'Users created!'
 
 Country.create!(
   id:         1,
@@ -37,6 +37,7 @@ Country.create!(
 Country.create!(
   id:         2,
   title:   'United States')
+puts 'Countries created!'
 
 Region.create!(
   id:         1,
@@ -54,6 +55,7 @@ Region.create!(
   id:         4,
   country_id: 2,
   title:   'Idaho')
+puts 'Regions created!'
 
 City.create!(
   region_id:  1,
@@ -71,8 +73,7 @@ City.create!(
   region_id:  4,
   country_id: 2,
   title:   'Boise')
-
-
+puts 'Cities created!'
 
 Shelter.create!(
   title:        'Добродетель',
@@ -98,6 +99,7 @@ Shelter.create!(
   moderation:   false,
   verified:     true,
   user_id:      2)
+puts 'Shelters created!'
 
 Pet.create!(
   subspecies:     1,
@@ -125,6 +127,7 @@ Pet.create!(
   about:          "Tucker's sitting pose is too cute for words. This 4-month old kitty is available at our Manhattan location. Stop by and say hello during the holiday weekend!",
   user_id:        2,
   shelter_id:     2)
+puts 'Pets created!'
 
 ShelterStaff.create!(
   user_id:    1,
@@ -134,3 +137,4 @@ ShelterStaff.create!(
   user_id:    2,
   shelter_id: 2,
   role:    1)
+puts 'ShelterStaffs created!'

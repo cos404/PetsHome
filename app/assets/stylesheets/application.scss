@@ -75,13 +75,14 @@ h6 {
 
 :focus{outline: 0!important; box-shadow: none!important;}
 
-// a {
-//   color: #15c;
-//   text-decoration: none;
-// }
+a {
+  // color: #15c;
+  color: #949494;
+  text-decoration: none;
+}
 
 a:hover {
-  // color: #212529;
+  color: #6d6d6d;
   text-decoration: none;
 }
 

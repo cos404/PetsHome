@@ -1,9 +1,10 @@
 class Admin::HomeController < Admin::ApplicationController
 
   def index
-    @pets = Pet.count
-    @shelters = Shelter.count
-    @users = User.count
+    @pets_count = Pet.count
+    @shelters_count = Shelter.count
+    @users_count = User.count
+    @comments_count = Comment.count
   end
 
 end
